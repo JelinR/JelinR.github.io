@@ -107,20 +107,20 @@
                     <!---Email Form-->
                     <div class="col-md-8">
 
-                        <form>
+                        <!-- action="https://formspree.io/f/xwkdvvjp" method="POST" -->
+                        <form id="contact-form" name="contact-form" action="https://formspree.io/f/xwkdvvjp" method="POST">
                             
                             <!---Email Address, Name-->
                             <div class="row my-4">
 
-                            
                                 <!---Email Address-->
                                 <div class="col-md-6 col-12 my-md-1 my-4">
                                     <label for="email-add" class="form-label">Email</label>
                                     <div class="input-group">
-                                        <div class="input-group-text">
+                                        <div class="input-group-text bg-secondary-subtle">
                                             <i class="fa-regular fa-at"></i>
                                         </div>
-                                        <input type="email" class="form-control" id="email-add">
+                                        <input type="email" name="Email" class="form-control border-dark-subtle" id="email-add" required>
                                     </div>
                                     
                                 </div>                              
@@ -129,10 +129,10 @@
                                 <div class="col-md-6 col-12 my-md-1 my-4">
                                     <label for="email-name" class="form-label">Name</label>
                                     <div class="input-group">
-                                        <div class="input-group-text">
+                                        <div class="input-group-text bg-secondary-subtle">
                                             <i class="fa-solid fa-user"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="email-name">
+                                        <input type="text" name="Name" class="form-control border-dark-subtle" id="email-name">
                                     </div>
                                     
                                 </div>
@@ -141,13 +141,17 @@
                             <!---Email Subject-->
                             <div class="col-12 my-4">
                                 <label for="text" class="form-label" id="email-subject">Subject</label>
-                                <input type="text" class="form-control" id="email-subject">
+                                <input type="text" name="Subject" class="form-control border-dark-subtle" id="email-subject">
                             </div>
 
                             <!---Email Message-->
                             <div class="col-12 my-md-4 my-5">
                                 <label for="text" class="form-label" id="email-message">Message</label>
-                                <textarea rows="5" class="form-control" id="email-message" placeholder="Enter your message here"></textarea>
+                                <textarea rows="5" class="form-control border-dark-subtle" 
+                                    name="Message"
+                                    id="email-message" 
+                                    placeholder="Enter your message here"
+                                    required></textarea>
                             </div>
 
                             <!---Send Button-->
