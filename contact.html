@@ -85,15 +85,31 @@
 
                 <div class="row justify-content-center align-items-center">
 
-                    <div class="col-md-4 text-align">
-                        <span class="display-4"> Contact Me </span> <br> <br>
-                        <a href="mailto:jelinraphaelakkara@gmail.com" class="text-muted mx-2">jelinraphaelakkara@gmail.com</a>
+                    <!---Contact Me Details-->
+                    <div class="col-md-4">
+
+                        <!---Contact Me Text-->
+                        <div class="row my-4">
+                            <span class="display-4 d-flex justify-content-md-start justify-content-center"> Contact Me </span>
+                        </div>
+                        
+                        <!---Mail Address-->
+                        <div class="row my-4 px-md-2">
+                            <span class="d-flex justify-content-md-start justify-content-center">
+                                <a href="mailto:jelinraphaelakkara@gmail.com" class="text-muted">jelinraphaelakkara@gmail.com</a>
+                            </span>
+                            
+                        </div>
+                        
+
                     </div>
 
+                    <!---Email Form-->
                     <div class="col-md-8">
 
                         <form>
                             
+                            <!---Email Address, Name-->
                             <div class="row my-4">
 
                             
@@ -114,7 +130,7 @@
                                     <label for="email-name" class="form-label">Name</label>
                                     <div class="input-group">
                                         <div class="input-group-text">
-                                            <i class="fa-regular fa-user"></i>
+                                            <i class="fa-solid fa-user"></i>
                                         </div>
                                         <input type="text" class="form-control" id="email-name">
                                     </div>
@@ -129,9 +145,18 @@
                             </div>
 
                             <!---Email Message-->
-                            <div class="col-12 my-4">
+                            <div class="col-12 my-md-4 my-5">
                                 <label for="text" class="form-label" id="email-message">Message</label>
                                 <textarea rows="5" class="form-control" id="email-message" placeholder="Enter your message here"></textarea>
+                            </div>
+
+                            <!---Send Button-->
+                            <div class="col-12 d-flex justify-content-center">
+                                <button type="submit" 
+                                    class="btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark"
+                                    style="--bs-btn-padding-y: .5em; --bs-btn-padding-x: 2.5em; --bs-btn-font-size: .9em;">
+                                    Send
+                                </button>
                             </div>
                         </form>
 
