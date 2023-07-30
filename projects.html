@@ -79,22 +79,22 @@
         </nav>
 
         <!---Content-->
-        <div class="container my-5 p-2">
+        <div class="container my-5 px-3 py-1">
 
             <!---Projects Header-->
-            <h2 class="display-3 d-flex justify-content-center my-5"> Projects </h2>
+            <h2 class="display-3 d-flex justify-content-center my-1 py-5"> Projects </h2>
 
             <!---Navigation tabs-->
             <nav>
 
-                <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
+                <div class="nav nav-tabs justify-content-md-around justify-content-center my-3" id="nav-tab" role="tablist">
 
                     <!---Project-1 Tab-->
                     <button class="btn active btn-outline-light btn-dark rounded-4 m-3 shadow border-dark" 
                     id="nav-tab-1" data-bs-toggle="tab" data-bs-target="#nav-project-1" 
                     type="button" role="tab"
                     aria-controls="nav-project-1" aria-selected="true">
-                        Project_1
+                        Time Series Analysis with Transformers
                     </button>
 
                     <!---Project-2 Tab-->
@@ -102,7 +102,7 @@
                     id="nav-tab-2" data-bs-toggle="tab" data-bs-target="#nav-project-2" 
                     type="button" role="tab"
                     aria-controls="nav-project-2" aria-selected="true">
-                        Project_2
+                        Fake-News Recognition with Naive Bayes
                     </button>
 
                     <!---Project-3 Tab-->
@@ -110,33 +110,305 @@
                     id="nav-tab-3" data-bs-toggle="tab" data-bs-target="#nav-project-3" 
                     type="button" role="tab"
                     aria-controls="nav-project-3" aria-selected="true">
-                        Project_3
+                        Muon Detection
                     </button>
                 </div>
 
             </nav>
 
-            <div class="tab-content" id="nav-tab-content">
+            <!---Content for each nav tabs-->
+            <div class="tab-content mx-5 my-3 px-5" id="nav-tab-content">
 
+                <!---Project 1 Content-->
                 <div class="tab-pane fade show active p-3" id="nav-project-1" role="tabpanel"
                 aria-labelledby="nav-tab-1">
 
-                    <h3>Project_1</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique officiis nihil nulla molestias porro natus vel provident architecto, debitis temporibus asperiores eligendi consectetur? Ullam, quae quas fugit quod ipsum aut.</p>
+                    <!---Project Name-->
+                    <span class="display-6">Using Transformers to analyze Plasma Evolution (Time Series) to classify magnetic field crashes</span>
+                    
+                    <!---Project Problem Description-->
+                    <p class="text-justify my-4">
+                        This was done as a collaborative group project, where we were interested 
+                        in the performance of transformers in detecting the occurrence of magnetic 
+                        reconnection during plasma evolution.  Translating to a computational problem, 
+                        this was a binary classification problem for a highly imbalanced time-series data.  
+                        The performance of the transformer was compared against that of a simple 1D Convolutional 
+                        Neural Network and a Deep Neural Network, and it was found that transformers are better with 
+                        respect to established metrics.
+                    </p>
+
+                    <!---Reference Image-->
+                    <img class="img-fluid"  src="images/Brag_plot_legend.png" alt="personal-pic">
+
+                    <!---Sub Nav tabs for challenges, methods, results-->
+                    <nav class="m-5 pt-5">
+
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab-1-sub" role="tablist">
+                            
+                            <!---Challenges Tab-->
+                            <button class="nav-link" id="nav-tab-1-sub-challenges" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-1-sub-challenges"
+                            type="button" role="tab"
+                            aria-controls="nav-project-1-sub-challenges" aria-selected="true">
+                                Challenges
+                            </button>
+
+                            <!---Methods Tab-->
+                            <button class="nav-link" id="nav-tab-1-sub-methods" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-1-sub-methods"
+                            type="button" role="tab"
+                            aria-controls="nav-project-1-sub-methods" aria-selected="true">
+                                Methods
+                            </button>
+
+                            <!---Results Tab-->
+                            <button class="nav-link active" id="nav-tab-1-sub-results" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-1-sub-results"
+                            type="button" role="tab"
+                            aria-controls="nav-project-1-sub-results" aria-selected="true">
+                                Results
+                            </button>
+
+                        </div>
+
+                    </nav>
+
+                    <!---Content for Sub Nav tabs-->
+                    <div class="tab-content" id="nav-tab-content-1-sub">
+
+                        <!---Challenges Content-->
+                        <div class="tab-pane fade p-3" id="nav-project-1-sub-challenges" 
+                        role="tabpanel" aria-labelledby="nav-tab-1-sub-challenges">
+
+                            <h4>Challenges</h4>
+                        
+                            <ul>
+                                <li>Large Class Imbalance</li>
+                                <li>Unstable Solutions</li>
+                            </ul>                           
+                        
+                        </div>
+
+                        <!---Methods Content-->
+                        <div class="tab-pane fade p-3" id="nav-project-1-sub-methods" 
+                        role="tabpanel" aria-labelledby="nav-tab-1-sub-methods">
+                        
+                            <h4>Methods Used</h4>
+
+                            <ul>
+                                <li>Sliding Windows</li>
+                                <li>Principal Component Analysis</li>
+                                <li>Stratification for class balance</li>
+                                <li>Down-sampling of majority class</li>
+                            </ul>                        
+                        
+                        </div>
+
+                        <!---Results Content-->
+                        <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
+                        role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
+                        
+                            <ul>
+                                <li>Large Class Imbalance</li>
+                                <li>Unstable Solutions</li>
+                            </ul>                           
+                        
+                        </div>
+
+                    </div>
+
+
+
                 </div>
 
+                <!---Project 2 Content-->
                 <div class="tab-pane fade p-3" id="nav-project-2" role="tabpanel"
                 aria-labelledby="nav-tab-2">
 
-                    <h3>Project_2</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique officiis nihil nulla molestias porro natus vel provident architecto, debitis temporibus asperiores eligendi consectetur? Ullam, quae quas fugit quod ipsum aut.</p>
+                    <!---Project Name-->
+                    <span class="display-6">Multinomial Naive Bayes Classification for Fake News Detection</span>
+                    
+                    <!---Project Problem Description-->
+                    <p class="text-justify my-4">
+                        Our goal was to build a multinomial naive bayes model from scratch (using a few essential libraries) 
+                        in R such that the model would be capable in text classification and able to correctly classify 
+                        fake news in varying degrees (True, Mostly True, Partially True, etc).  We implemented the model 
+                        using a big-data, SQL approach so as to process big datasets quickly and efficiently.  It was able 
+                        to train and validate on a dataset with more than a million data points (with each data point containing 
+                        a paragraph) in a mere 30 second time frame.   
+                    </p>
+
+                    <!---Sub Nav tabs for challenges, methods, results-->
+                    <nav class="m-5 pt-5">
+
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab-2-sub" role="tablist">
+                            
+                            <!---Challenges Tab-->
+                            <button class="nav-link" id="nav-tab-2-sub-challenges" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-challenges"
+                            type="button" role="tab"
+                            aria-controls="nav-project-2-sub-challenges" aria-selected="true">
+                                Challenges
+                            </button>
+
+                            <!---Methods Tab-->
+                            <button class="nav-link" id="nav-tab-2-sub-methods" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-methods"
+                            type="button" role="tab"
+                            aria-controls="nav-project-2-sub-methods" aria-selected="true">
+                                Methods
+                            </button>
+
+                            <!---Results Tab-->
+                            <button class="nav-link active" id="nav-tab-2-sub-results" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-results"
+                            type="button" role="tab"
+                            aria-controls="nav-project-2-sub-results" aria-selected="true">
+                                Results
+                            </button>
+
+                        </div>
+
+                    </nav>
+
+                    <!---Content for Sub Nav tabs-->
+                    <div class="tab-content" id="nav-tab-content-2-sub">
+
+                        <!---Challenges Content-->
+                        <div class="tab-pane fade p-3" id="nav-project-2-sub-challenges" 
+                        role="tabpanel" aria-labelledby="nav-tab-2-sub-challenges">
+
+                            <h4>Challenges</h4>
+                        
+                            <ul>
+                                <li>Multi-class classification (6 labels)</li>
+                                <li>Usual algorithm is inefficient for large data</li>
+                                <li>Large vocabulary size with irrelevant words</li>
+                            </ul>                           
+                        
+                        </div>
+
+                        <!---Methods Content-->
+                        <div class="tab-pane fade p-3" id="nav-project-2-sub-methods" 
+                        role="tabpanel" aria-labelledby="nav-tab-2-sub-methods">
+                        
+                            <h4>Methods Used</h4>
+
+                            <ul>
+                                <li>Feature Selection with Mutual Information Score</li>
+                                <li>Utilizing dplyr library with functions like select filter, join, etc to 
+                                    make model for quick and efficient</li>
+                                <li>Analyzed effect of stemming vs lemmatization, keeping vs not keeping 
+                                    tokens with equal scores</li>
+                            </ul>                        
+                        
+                        </div>
+
+                        <!---Results Content-->
+                        <div class="tab-pane fade show active p-3" id="nav-project-2-sub-results" 
+                        role="tabpanel" aria-labelledby="nav-tab-2-sub-results">
+                        
+                            <ul>
+                                <li>Large Class Imbalance</li>
+                                <li>Unstable Solutions</li>
+                            </ul>                           
+                        
+                        </div>
+
+                    </div>
+
+
+
                 </div>
 
+                <!---Project 3 Content-->
                 <div class="tab-pane fade p-3" id="nav-project-3" role="tabpanel"
                 aria-labelledby="nav-tab-3">
 
-                    <h3>Project_3</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique officiis nihil nulla molestias porro natus vel provident architecto, debitis temporibus asperiores eligendi consectetur? Ullam, quae quas fugit quod ipsum aut.</p>
+                    <!---Project Name-->
+                    <span class="display-6">Muon Detection in Drift Tube Chambers</span>
+                    
+                    <!---Project Problem Description-->
+                    <p class="text-justify my-4">
+                        Using measurements from four drift tubes, we were supposed to come up with 
+                        an algorithm that is good in detecting the presence of a muon pair, which is 
+                        really rare and hard to detect directly.  
+                    </p>
+
+                    <!---Sub Nav tabs for challenges, methods, results-->
+                    <nav class="m-5 pt-5">
+
+                        <div class="nav nav-tabs justify-content-center" id="nav-tab-3-sub" role="tablist">
+                            
+                            <!---Challenges Tab-->
+                            <button class="nav-link" id="nav-tab-3-sub-challenges" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-challenges"
+                            type="button" role="tab"
+                            aria-controls="nav-project-3-sub-challenges" aria-selected="true">
+                                Challenges
+                            </button>
+
+                            <!---Methods Tab-->
+                            <button class="nav-link" id="nav-tab-3-sub-methods" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-methods"
+                            type="button" role="tab"
+                            aria-controls="nav-project-3-sub-methods" aria-selected="true">
+                                Methods
+                            </button>
+
+                            <!---Results Tab-->
+                            <button class="nav-link active" id="nav-tab-3-sub-results" 
+                            data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-results"
+                            type="button" role="tab"
+                            aria-controls="nav-project-3-sub-results" aria-selected="true">
+                                Results
+                            </button>
+
+                        </div>
+
+                    </nav>
+
+                    <!---Content for Sub Nav tabs-->
+                    <div class="tab-content" id="nav-tab-content-3-sub">
+
+                        <!---Challenges Content-->
+                        <div class="tab-pane fade p-3" id="nav-project-3-sub-challenges" 
+                        role="tabpanel" aria-labelledby="nav-tab-3-sub-challenges">
+
+                            <h4>Challenges</h4>
+                        
+                            <ul>
+                                <li>Multi-class classification (6 labels)</li>
+                            </ul>                           
+                        
+                        </div>
+
+                        <!---Methods Content-->
+                        <div class="tab-pane fade p-3" id="nav-project-3-sub-methods" 
+                        role="tabpanel" aria-labelledby="nav-tab-3-sub-methods">
+                        
+                            <h4>Methods Used</h4>
+
+                            <ul>
+                                <li>Feature Selection with Mutual Information Score</li>
+                            </ul>                        
+                        
+                        </div>
+
+                        <!---Results Content-->
+                        <div class="tab-pane fade show active p-3" id="nav-project-3-sub-results" 
+                        role="tabpanel" aria-labelledby="nav-tab-3-sub-results">
+                        
+                            <ul>
+                                <li>Large Class Imbalance</li>
+                            </ul>                           
+                        
+                        </div>
+
+                    </div>
+
+
+
                 </div>
 
 
