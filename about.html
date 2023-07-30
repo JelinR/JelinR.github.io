@@ -80,34 +80,166 @@
 
         <!---Content-->
         <section id="content">
-            <div class="container-lg my-1 mx-2 p-2">
-                <div class="row justify-content-center align-items-center">
+            <div class="container-lg my-1 mx-5 p-5">
 
-                    <div class="col-md-5 text-start px-5">
+                <!---About Me Header-->
+                <div class="row justify-content-center align-items-center">                    
+                    <div class="col-12 text-center px-5">
+                        <span class="display-3">About Me</span>
+                    </div>
+                </div>
 
-                        <img class="img-fluid"  src="images/personal_pic.png" alt="personal-pic">
+                <!---Description about me-->
+                <div class="row my-3">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, adipisci. 
+                    Tempore atque asperiores sed earum ipsum non voluptatum, molestiae labore odit. 
+                    Odit quasi error atque provident nam fugit amet quos.                    
+                </div>
+
+                <!---Horizontal Line-->
+                <hr class="my-5">
+
+                <!---Education Section-->
+                <div class="row py-5">
+
+                    <!---Education Header Column-->
+                    <div class="col-4">
+                        <span class="display-6">Education</span>
                     </div>
 
+                    <!---Education Content Column-->
+                    <div class="col-8">
 
+                        <!---UniPD Section-->
+                        <div class="row">
 
-                    <div class="col-md-6 text-center text-md-start">
+                            <!---Year of Education-->
+                            <div class="col-md-2 d-none d-md-inline">
+                                <span>2022-2024</span>
+                            </div>
 
-                        <h2>
-                            <div class="display-2">Jelin <br> Raphael <br> Akkara</div>
-                        </h2>
+                            <!---University Details-->
+                            <div class="col-md-10 col-12 px-5">
+
+                                <!---Year of Education (small)-->
+                                <span class="d-md-none d-inline">2022-2023</span> 
+                                <br class="d-md-none d-inline"> <br class="d-md-none d-inline">
+
+                                <strong>MSc in Physics of Data</strong> <br>                                
+                                <span>University of Padua, Italy</span>                                
+
+                                <br> <br>
+                                <span>Score (Tentative): 28.7 / 30</span>
+
+                                <br> <br>
+                                <p>
+                                    I have currently finished the first year of my masters, in which I have gained 
+                                    a solid foundation in machine learning, statistics and dealing with big data.  
+                                    So far, I have worked on four projects that have been illuminating and have enabled 
+                                    me to dig deep into interesting problems.
+                                </p>
+                            </div>
                         
-                        <br>
+                        </div>
 
-                        <p class="lead text-muted text-justify">
-                            Hello there! I am a machine learning enthusiast, currently pursuing a Masters degree in Physics of Data 
-                            at the University of Padua, Italy.  With a strong background in the natural sciences, I have been developing 
-                            my research and analytical skills towards a computational dimension.  I am excited to share the projects I 
-                            have worked on, and my resume with you. Feel free to reach out to me using the contact information below.
-                            
-                        </p>
+                        <!---NIT Section-->
+                        <div class="row my-5">
+
+                            <!---Year of Education-->
+                            <div class="col-md-2 d-none d-md-inline">
+                                <span>2018-2022</span>
+                            </div>
+
+                            <!---University Details-->
+                            <div class="col-md-10 col-12 px-5">
+                                
+                                <!---Year of Education (small)-->
+                                <span class="d-md-none d-inline">2022-2023</span> 
+                                <br class="d-md-none d-inline"> <br class="d-md-none d-inline">
+
+                                <strong>B.Tech in Engineering Physics</strong> <br>
+                                <span>National Institute of Technology, Calicut, India</span>                                
+
+                                <br> <br>
+                                <span>Score (Tentative): 8.47 / 10</span>
+
+                                <br> <br>
+                                <p>
+                                    My bachelor's degree in Engineering Physics provided me with a strong research aptitude 
+                                    and an analytical approach to all problems.  I managed to develop myself mathematically 
+                                    by taking up a wide range of courses from General Relativity to Quantum Field Theory.
+                                </p>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
+
+                <hr>
+
+                <!---Skills Section-->
+                <div class="row py-5">
+
+                    <!---Skills Header Column-->
+                    <div class="col-5">
+                        <span class="display-6">Skills</span>
+                    </div> 
+
+                    <!---Skills Content Column-->
+                    <div class="col-7 accordion">
+
+                        <!---Programming Languages Accordion Item-->
+                        <div class="accordion-item">
+
+                            <!---Programming Languages Accordion Button-->
+                            <h2 class="accordion-header" id="accord-1">
+                                <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                aria-controls="collapse-1" aria-expanded="false">
+                                    Programming Languages
+                                </button>
+                            </h2>
+
+                            <!---Programming Languages Content Accordion-->
+                            <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>Python</li>
+                                        <li>R</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!---Frameworks Accordion Item-->
+                        <div class="accordion-item">
+
+                            <!---Frameworks Accordion Button-->
+                            <h2 class="accordion-header" id="accord-2">
+                                <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                aria-controls="collapse-2" aria-expanded="false">
+                                    Programming Frameworks
+                                </button>
+                            </h2>
+
+                            <!---Frameworks Content Accordion-->
+                            <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                <div class="accordion-body">
+                                    <ul>
+                                        <li>PySpark</li>
+                                        <li>Dask</li>
+                                        <li>SQL</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
             </div>
 
         </section>
