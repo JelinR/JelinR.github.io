@@ -190,7 +190,7 @@
                         <div class="tab-content" id="nav-tab-content-1-sub">
 
                             <!---Challenges Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-1-sub-challenges" 
+                            <div class="tab-pane fade show active p-3" id="nav-project-1-sub-challenges" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-challenges">
 
                                 <h4>Challenges</h4>
@@ -202,6 +202,11 @@
 
                                         <!---Challenges List Column-->
                                         <div class="col-5">
+
+                                            <div class="col-12 accordion">
+                                                
+
+                                            </div>
 
                                             <!---Challenges: Class Imbalance-->
                                             <li class="my-3">
@@ -249,20 +254,166 @@
                             <!---Methods Content-->
                             <div class="tab-pane fade p-3" id="nav-project-1-sub-methods" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-methods">
-                            
-                                <h4>Methods Used</h4>
 
-                                <ul>
-                                    <li>Sliding Windows</li>
-                                    <li>Principal Component Analysis</li>
-                                    <li>Stratification for class balance</li>
-                                    <li>Down-sampling of majority class</li>
-                                </ul>                        
+                                <div class="row">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-6 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-3">Methods Used</h4>
+
+                                            <!---Accordion: Sliding Windows-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Sliding Windows
+                                                    </button>
+                                                </h2>
+
+                                                <!---Sliding Windows Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>In order to train and validate on the data, 
+                                                            we used a training window (length of window used for training), 
+                                                            prediction time (how further we want to make a prediction) and 
+                                                            prediction window (checks for crash inside this window).
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: PCA-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Principal Component Analysis
+                                                    </button>
+                                                </h2>
+
+                                                <!---PCA Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Chooses effective components such that 99% variance is 
+                                                            covered.  We go from 65 to 29 parameters, without losing 
+                                                            significant information.  This decreases the dimensionality 
+                                                            of the parameter space, and ignores redundant parameters
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Down sampling-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Down-sampling of majority class
+                                                    </button>
+                                                </h2>
+
+                                                <!---Down sampling Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Randomly sampling a portion of the majority class 
+                                                            using an acceptance parameter.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Stratification-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-4">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                                    aria-controls="collapse-4" aria-expanded="false">
+                                                        Stratification
+                                                    </button>
+                                                </h2>
+
+                                                <!---Stratification Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Maintains equal proportion of minority class when splitting 
+                                                            the data.  This ensures that there is a decent amount of minority 
+                                                            class elements to train and test on.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Class Weights-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-5">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-5"
+                                                    aria-controls="collapse-5" aria-expanded="false">
+                                                        Assigning different class weights
+                                                    </button>
+                                                </h2>
+
+                                                <!---Class Weights Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Acts as a measure against class imbalance, and improves overall performance
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1"></div>
+
+                                    <!---Methods Images-->
+                                    <div class="col-5">
+
+                                        <!---PCA Image-->
+                                        <div class="row mb-5 d-flex justify-content-center">
+                                            <div class="col-9">
+                                                <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
+                                            </div>
+                                        </div>
+
+                                        <!---Strat Image-->
+                                        <div class="row pt-5">
+
+                                            <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
+                                        </div>
+
+                                        
+
+                                        
+
+                                    </div>
+                                </div>
+                       
                             
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
+                            <div class="tab-pane fade p-3" id="nav-project-1-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
                             
                                 <ul>
