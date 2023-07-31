@@ -190,7 +190,7 @@
                         <div class="tab-content" id="nav-tab-content-1-sub">
 
                             <!---Challenges Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-1-sub-challenges" 
+                            <div class="tab-pane fade p-3" id="nav-project-1-sub-challenges" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-challenges">
                                     
                                     <div class="row">
@@ -416,7 +416,7 @@
 
                                         <!---PCA Image-->
                                         <div class="row mb-5 d-flex justify-content-center">
-                                            <div class="col-9">
+                                            <div class="col-10">
                                                 <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
                                             </div>
                                         </div>
@@ -438,19 +438,47 @@
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-1-sub-results" 
+                            <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
                             
-                                <ul>
-                                    <li>Large Class Imbalance</li>
-                                    <li>Unstable Solutions</li>
-                                </ul>                           
-                            
+                                <h4 class="my-2">Results Obtained</h4>
+
+                                <span>
+                                    From the metrics used, we focused on both accuracy and recall as they 
+                                    tell if the model is learning and making good predictions.  We prioritized 
+                                    recall over precision as the cost of predicting a false negative is greater 
+                                    than that of a false positive, i.e., predicting no crash when there is actually 
+                                    a crash is considered to be highly undesirable.  On applying the methods and analyzing 
+                                    the performances with the metrics, we found that the transformer performs the best, 
+                                    providing better and reliable results.
+                                </span>
+
+                                <div class="row my-5 py-2 d-flex justify-content-center">
+
+                                    <div class="col-8">
+                                        <img class="img-fluid"  src="images/transformers_compare.png" alt="personal-pic">
+                                    </div>                                  
+                                </div>
+
+                                <h5 class="mt-5 mb-2">Transformer: Best Model Performance</h5>
+
+                                <div class="row py-3">
+                                    <div class="col-4">
+                                        <img class="img-fluid"  src="images/transformers_Accuracy.png" alt="personal-pic">
+                                    </div>
+
+                                    <div class="col-4">
+                                        <img class="img-fluid"  src="images/transformers_Recall.png" alt="personal-pic">
+                                    </div>
+
+                                    <div class="col-4">
+                                        <img class="img-fluid"  src="images/transformers_Precision.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
                             </div>
 
                         </div>
-
-
 
                     </div>
 
