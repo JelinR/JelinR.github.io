@@ -133,7 +133,7 @@
                 <div class="tab-content mx-5 my-3 px-5" id="nav-tab-content">
 
                     <!---Project 1 Content-->
-                    <div class="tab-pane fade show active p-3" id="nav-project-1" role="tabpanel"
+                    <div class="tab-pane fade p-3" id="nav-project-1" role="tabpanel"
                     aria-labelledby="nav-tab-1">
 
                         <!---Project Name-->
@@ -197,8 +197,8 @@
 
                                         <!---Challenges List Column-->
                                         <div class="col-6 d-flex align-items-center">
-
                                             <div class="col-12 accordion">
+
                                                 <h4 class="my-3">Challenges Faced</h4>
 
                                                 <!---Accordion: Class Imbalance-->
@@ -254,19 +254,25 @@
                                                 </div>
 
                                             </div>
-
-
                                         </div>
 
                                         <!---Space Column-->
                                         <div class="col-1"></div>
 
                                         <!---Image Column-->
-                                        <div class="col-4 d-flex justify-content-start p-4">
+                                        <div class="col-3">
 
-                                            <!---Reference Image-->
-                                            <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
+                                            <div class="row">
+
+                                                <!---Reference Image-->
+                                                <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
+
+                                            </div>
+
+
+
                                         </div>
+
                                     </div>
 
                                     
@@ -483,7 +489,7 @@
                     </div>
 
                     <!---Project 2 Content-->
-                    <div class="tab-pane fade p-3" id="nav-project-2" role="tabpanel"
+                    <div class="tab-pane fade show active p-3" id="nav-project-2" role="tabpanel"
                     aria-labelledby="nav-tab-2">
 
                         <!---Project Name-->
@@ -491,13 +497,31 @@
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-4">
-                            Our goal was to build a multinomial naive bayes model from scratch (using a few essential libraries) 
-                            in R such that the model would be capable in text classification and able to correctly classify 
-                            fake news in varying degrees (True, Mostly True, Partially True, etc).  We implemented the model 
-                            using a big-data, SQL approach so as to process big datasets quickly and efficiently.  It was able 
-                            to train and validate on a dataset with more than a million data points (with each data point containing 
-                            a paragraph) in a mere 30 second time frame.   
+                            We were interested in building a text classifier capable of recognizing fake news in
+                            the varying degrees.  We dealt with two different datasets, one with six different classes 
+                            and the other with two classes.  Using the R Language, we implemented the Multinomial Naive 
+                            Bayes Classifier algorithm from scratch (using a few essential libraries) using a SQL-based 
+                            approach for optimal efficiency.  Such an approach proved beneficial as the model was able to 
+                            train and validate through the second dataset, which had 20800 rows each containing an average 
+                            of 4544 words, in under 30 seconds.  An additional advantage is that such an approach enables 
+                            easy translatibility into more parallelizable frameworks like SparkR, making it capable of dealing 
+                            with even larger datasets in lesser time frames.  
                         </p>
+
+                        <!---Project Description Images-->
+                        <div class="row my-5">
+                            <div class="col-6 p-5">
+                                <!---Reference Image-->
+                                <img class="img-fluid"  src="images/Fake_News/d1_label_dist.png" alt="personal-pic">
+                            </div>
+
+                            <div class="col-6 d-flex align-items-center">
+                                <!---Reference Image-->
+                                <img class="img-fluid"  src="images/Fake_News/d2_label_dist.png" alt="personal-pic">      
+                            </div>
+
+                        </div>
+
 
                         <!---Sub Nav tabs for challenges, methods, results-->
                         <nav class="m-5 pt-5">
@@ -536,15 +560,96 @@
                         <div class="tab-content" id="nav-tab-content-2-sub">
 
                             <!---Challenges Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-2-sub-challenges" 
+                            <div class="tab-pane fade show active p-3" id="nav-project-2-sub-challenges" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-challenges">
+                                    
+                                    <div class="row d-flex justify-content-center">
 
-                                <h4>Challenges</h4>
-                            
-                                <ul>
-                                    <li>Multi-class classification (6 labels)</li>
-                                    <li>Usual algorithm is inefficient for large data</li>
-                                    <li>Large vocabulary size with irrelevant words</li>
+                                        <!---Challenges List Column-->
+                                        <div class="col-6 d-flex align-items-center">
+                                            <div class="col-12 accordion">
+
+                                                <h4 class="my-4 text-center">Challenges Faced</h4>
+
+                                                <!---Accordion: Large Vocabulary-->
+                                                <div class="accordion-item">
+
+                                                    <h2 class="accordion-header mb-1" id="accord-1">
+                                                        <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                        aria-controls="collapse-1" aria-expanded="false">
+                                                            Large Vocabulary with redundant, inconsequential words
+                                                        </button>
+                                                    </h2>
+
+                                                    <!---Class Imbalance Content Accordion-->
+                                                    <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                        <div class="accordion-body">
+                                                            <span>
+                                                                Decreasing the vocabulary to include only relevant words of each label 
+                                                                enables the model to classify documents better by detecting high contributing 
+                                                                words easily.  This was a huge task, involving linguistic and statistical methods 
+                                                                to ensure only relevant words remained in the vocabulary.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                               <!---Accordion: Out of vocab words-->
+                                               <div class="accordion-item">
+
+                                                    <h2 class="accordion-header mb-1" id="accord-2">
+                                                        <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                        aria-controls="collapse-2" aria-expanded="false">
+                                                            Presence of out-of-vocabulary words
+                                                        </button>
+                                                    </h2>
+
+                                                    <!---Out of vocab Content Accordion-->
+                                                    <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                        <div class="accordion-body">
+                                                            <span>
+                                                                When faced with new words not present in the vocabulary, the model can make 
+                                                                a prediction with less reliability.  This was addressed with a reliability 
+                                                                measure that depends upon preference.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                               <!---Accordion: multi-class-->
+                                               <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                    Analyzing metrics for multi-class classification
+                                                    </button>
+                                                </h2>
+
+                                                <!---Multi-class Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            When dealing with multiple classes or labels, the usual metrics needed to be 
+                                                            generalized to this broader scenario.  The usual methods of calculating the 
+                                                            metrics (in the binary case) would not provide a clear or sensible measure of 
+                                                            the performance.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </ul>                           
                             
                             </div>
@@ -566,7 +671,7 @@
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-2-sub-results" 
+                            <div class="tab-pane fade p-3" id="nav-project-2-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-results">
                             
                                 <ul>
