@@ -192,43 +192,68 @@
                             <!---Challenges Content-->
                             <div class="tab-pane fade show active p-3" id="nav-project-1-sub-challenges" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-challenges">
-
-                                <h4>Challenges</h4>
-
-                                <ul class="my-3">
-
                                     
                                     <div class="row">
 
                                         <!---Challenges List Column-->
-                                        <div class="col-5">
+                                        <div class="col-6 d-flex align-items-center">
 
                                             <div class="col-12 accordion">
-                                                
+                                                <h4 class="my-3">Challenges Faced</h4>
+
+                                                <!---Accordion: Class Imbalance-->
+                                                <div class="accordion-item">
+
+                                                    <h2 class="accordion-header mb-1" id="accord-1">
+                                                        <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                        aria-controls="collapse-1" aria-expanded="false">
+                                                            Large Class Imbalance
+                                                        </button>
+                                                    </h2>
+
+                                                    <!---Class Imbalance Content Accordion-->
+                                                    <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                        <div class="accordion-body">
+                                                            <span>
+                                                                The percentage of crashes in the dataset is highly imbalanced.  
+                                                                The majority class (no crash) takes 99.5% of the dataset, 
+                                                                while the minority class (crash) is a mere 0.48% of the dataset. <br> <br>
+                
+                                                                This would require more number of datapoints, or utilizing certain methods
+                                                                to overcome this high data imbalance.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                               <!---Accordion: Unstable Solutions-->
+                                               <div class="accordion-item">
+
+                                                    <h2 class="accordion-header" id="accord-2">
+                                                        <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                        aria-controls="collapse-2" aria-expanded="false">
+                                                            Unstable Solutions
+                                                        </button>
+                                                    </h2>
+
+                                                    <!---Class Imbalance Content Accordion-->
+                                                    <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                        <div class="accordion-body">
+                                                            <span>
+                                                                Some solutions were unreliable, where they either predict one or 
+                                                                zero most of the time.  This can be interpreted as a result of the 
+                                                                data imbalance, and we had to use several methods and tweak the
+                                                                parameters to arrive at a satisfactory solution. 
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
 
                                             </div>
-
-                                            <!---Challenges: Class Imbalance-->
-                                            <li class="my-3">
-                                                <strong>Large Class Imbalance: </strong>
-                                                <span>The percentage of crashes in the dataset
-                                                is highly imbalanced.  The majority class (no crash) takes 99.5% of the dataset, 
-                                                while the minority class (crash) is a mere 0.48% of the dataset. <br> <br>
-
-                                                This would require more number of datapoints, or utilizing certain methods
-                                                    to overcome this high data imbalance.
-                                                </span>
-                                            </li>
-
-                                            <!---Challenges: Unstable Solutions-->
-                                            <li class="my-4">
-                                                <strong>Unstable Solutions:</strong>
-                                                <span>Some solutions were unreliable, where they either predict one or 
-                                                    zero most of the time.  This can be interpreted as a result of the 
-                                                    data imbalance, and we had to use several methods and tweak the
-                                                    parameters to arrive at a satisfactory solution. 
-                                                </span>
-                                            </li>
 
 
                                         </div>
@@ -237,7 +262,7 @@
                                         <div class="col-1"></div>
 
                                         <!---Image Column-->
-                                        <div class="col-4 d-flex justify-content-start p-3">
+                                        <div class="col-4 d-flex justify-content-start p-4">
 
                                             <!---Reference Image-->
                                             <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
