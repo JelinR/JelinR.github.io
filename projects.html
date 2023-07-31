@@ -133,7 +133,7 @@
                 <div class="tab-content mx-5 my-3 px-5" id="nav-tab-content">
 
                     <!---Project 1 Content-->
-                    <div class="tab-pane fade p-3" id="nav-project-1" role="tabpanel"
+                    <div class="tab-pane fade show active p-3" id="nav-project-1" role="tabpanel"
                     aria-labelledby="nav-tab-1">
 
                         <!---Project Name-->
@@ -489,7 +489,7 @@
                     </div>
 
                     <!---Project 2 Content-->
-                    <div class="tab-pane fade show active p-3" id="nav-project-2" role="tabpanel"
+                    <div class="tab-pane fade p-3" id="nav-project-2" role="tabpanel"
                     aria-labelledby="nav-tab-2">
 
                         <!---Project Name-->
@@ -560,7 +560,7 @@
                         <div class="tab-content" id="nav-tab-content-2-sub">
 
                             <!---Challenges Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-2-sub-challenges" 
+                            <div class="tab-pane fade p-3" id="nav-project-2-sub-challenges" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-challenges">
                                     
                                     <div class="row d-flex justify-content-center">
@@ -657,27 +657,181 @@
                             <!---Methods Content-->
                             <div class="tab-pane fade p-3" id="nav-project-2-sub-methods" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-methods">
-                            
-                                <h4>Methods Used</h4>
 
-                                <ul>
-                                    <li>Feature Selection with Mutual Information Score</li>
-                                    <li>Utilizing dplyr library with functions like select filter, join, etc to 
-                                        make model for quick and efficient</li>
-                                    <li>Analyzed effect of stemming vs lemmatization, keeping vs not keeping 
-                                        tokens with equal scores</li>
-                                </ul>                        
+                                <div class="row d-flex justify-content-center">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-6 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Methods Used</h4>
+
+                                            <!---Accordion: regex-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Removing inconsequential words using regex
+                                                    </button>
+                                                </h2>
+
+                                                <!---Sliding Windows Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            We remove stop words (a, the, if, etc.), punctuations, numbers, extra whitespaces
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Normalize-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Normalizing Text
+                                                    </button>
+                                                </h2>
+
+                                                <!---Normalize Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            This is done to bring all related words to a common root 
+                                                            (run, running, ran -> run).  We use stemming, which ignores 
+                                                            endings of words (-ing, -er), and lemmatization, which 
+                                                            converts a word to its root form (ate to eat).  
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Feature Selection-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Feature Selection
+                                                    </button>
+                                                </h2>
+
+                                                <!---Feature Selection Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            This is done to remove irrelevant words to each label and 
+                                                            to decrease the size of the vocabulary.  A utility measure 
+                                                            is assigned to each combination of (term, label) and we select 
+                                                            the top n terms per label.  We use Mutual Information measure, 
+                                                            which provides a sense of how relevant and related a word is to 
+                                                            a class based on its occurrence throughout the data.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Removing Documents-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-4">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                                    aria-controls="collapse-4" aria-expanded="false">
+                                                        Removing Documents with many new words
+                                                    </button>
+                                                </h2>
+
+                                                <!---Removing Documents Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            This adds a degree of reliability to our model's predictions.  
+                                                            If a document contains a high percentage (say 75%) of words 
+                                                            outside of the vocabulary, it is ignored since its prediction 
+                                                            would not be reliable.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                       
                             
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-2-sub-results" 
+                            <div class="tab-pane fade show active p-3" id="nav-project-2-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-results">
+
+                                <!---First Dataset Results-->
+                                <h4>First Dataset : Six Labels</h4>
+
+                                <span class="my-5">
+                                    In the first dataset, we manage to use the top 100 words in each label 
+                                    (using 8% of the original vocabulary), and obtain a better performance than 
+                                    when using all the words. 
+                                </span>
+
+                                <div class="row mt-5">
+                                    <h5 class="text-center">
+                                        Optimal Top-N: 100 (8%), 500 (41%), 750 (60%)
+                                    </h5>
+
+                                    <span class="text-center">
+                                        ( Out of 7417 features in vocabulary )
+                                    </span>
+                                </div>
+
+
+                                <div class="row my-5">
+                                    <div class="col-12">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Fake_News/d1_results.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!---Second Dataset Results-->
+                                <h4 class="pt-5">Second Dataset : Two Labels</h4>
                             
-                                <ul>
-                                    <li>Large Class Imbalance</li>
-                                    <li>Unstable Solutions</li>
-                                </ul>                           
+                                <span>
+                                    In the second dataset, using the top 20000 words in each label 
+                                    (28% of the original vocabulary size), we still manage to get a 
+                                    decent performance compared to using all the words.
+                                </span>
+
+                                <div class="row mt-5">
+                                    <h5 class="text-center">
+                                        Optimal Top-N: : 20000 (28%), 35000 (49%), 50000  (70%)
+                                    </h5>
+
+                                    <span class="text-center">
+                                        ( Out of 142525 features in vocabulary )
+                                    </span>
+                                </div>
+
+                                <div class="row my-5">
+                                    <div class="col-12">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Fake_News/d2_results.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+
+
                             
                             </div>
 
