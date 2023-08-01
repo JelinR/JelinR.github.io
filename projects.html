@@ -846,34 +846,28 @@
                     aria-labelledby="nav-tab-3">
 
                         <!---Project Name-->
-                        <span class="display-6">Muon Detection in Drift Tube Chambers</span>
+                        <span class="display-6">Muon Pair Detection in Drift Tube Chambers</span>
                         
                         <!---Project Problem Description-->
-                        <p class="text-justify my-4">
-                            Using measurements from four drift tubes, we were supposed to come up with 
-                            an algorithm that is good in detecting the presence of a muon pair, which is 
-                            really rare and hard to detect directly.  
+                        <p class="text-justify my-4">                            
+                            The goal of this project was to identify events with muons passing through the 
+                            detectors, which is a very rare occurrence.  Using a dataset of detections recorded 
+                            by each detector, we were required to identify muon pair events using a signal selection 
+                            strategy.   As each detector contained four layers of numerous cell-shaped drift tubes, 
+                            this required geometric analysis to detect pair generation and to separate out the noise events. 
                         </p>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
                         <nav class="m-5 pt-5">
 
                             <div class="nav nav-tabs justify-content-center" id="nav-tab-3-sub" role="tablist">
-                                
-                                <!---Challenges Tab-->
-                                <button class="nav-link" id="nav-tab-3-sub-challenges" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-challenges"
-                                type="button" role="tab"
-                                aria-controls="nav-project-3-sub-challenges" aria-selected="true">
-                                    Challenges
-                                </button>
 
-                                <!---Methods Tab-->
+                                <!---Challenges and Methods Tab-->
                                 <button class="nav-link" id="nav-tab-3-sub-methods" 
                                 data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-methods"
                                 type="button" role="tab"
                                 aria-controls="nav-project-3-sub-methods" aria-selected="true">
-                                    Methods
+                                    Challenges and Methods
                                 </button>
 
                                 <!---Results Tab-->
@@ -891,37 +885,127 @@
                         <!---Content for Sub Nav tabs-->
                         <div class="tab-content" id="nav-tab-content-3-sub">
 
-                            <!---Challenges Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-3-sub-challenges" 
-                            role="tabpanel" aria-labelledby="nav-tab-3-sub-challenges">
-
-                                <h4>Challenges</h4>
-                            
-                                <ul>
-                                    <li>Multi-class classification (6 labels)</li>
-                                </ul>                           
-                            
-                            </div>
-
-                            <!---Methods Content-->
+                            <!---Challenges and Methods Content-->
                             <div class="tab-pane fade p-3" id="nav-project-3-sub-methods" 
                             role="tabpanel" aria-labelledby="nav-tab-3-sub-methods">
-                            
-                                <h4>Methods Used</h4>
 
-                                <ul>
-                                    <li>Feature Selection with Mutual Information Score</li>
-                                </ul>                        
+                                <div class="row">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-6 d-flex align-items-start">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
+
+                                            <!---Accordion: Visual-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Plotting system set-up for visualizing event trajectory
+                                                    </button>
+                                                </h2>
+
+                                                <!---Visual Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            In order to validate and debug our strategy, we plotted the system 
+                                                            set-up so that each event could be visualized and made sense of.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: strategy-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Muon Pair Detection Strategy
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            For muon pair generation, we approximate the pair trajectories follow 
+                                                            linear paths close to the detectors.  If two linear trajectories occur 
+                                                            simultaneously, with a close enough slope (the deviation is measured by 
+                                                            a parameter), it is classified as a muon detection.  <br> <br>
+
+                                                            However, each detector contains four separate layers of drift tubes.  
+                                                            Thus, such linear paths must be established both globally (among detectors) 
+                                                            and locally (among layers of drift tubes in each detector).  
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    In the local case, if there are at least 3 hits in 3 different 
+                                                                    layers of a detector, that is classified as a possible trajectory.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    In the global case, all four possible linear trajectories are 
+                                                                    extrapolated and the slopes compared to confirm a muon pair detection.  
+                                                                </li>
+                                                            </ul>
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!---Methods Image-->
+                                    <div class="col-6">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
+                                    </div>
+
+                                </div>
+                       
                             
                             </div>
 
                             <!---Results Content-->
                             <div class="tab-pane fade show active p-3" id="nav-project-3-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-3-sub-results">
+
+                                <div class="row">
+
+                                    <!---Results Paragraph-->
+                                    <div class="col-6 d-flex align-items-center">
+                                        <span>
+                                            We were able to detect 327 muon pair generation events from a 
+                                            total of 34428 events.  As the detection rate is similar to the 
+                                            standard rate of detection by drift tube detectors, our identification 
+                                            strategy is successful in classifying muon events to a high degree of 
+                                            accuracy.                  
+                                        </span>
+                                    </div>
+
+                                    <!---Results Image-->
+                                    <div class="col-6">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
+                                    </div>
+
+                                </div>
                             
-                                <ul>
-                                    <li>Large Class Imbalance</li>
-                                </ul>                           
+
+
+
+
+
                             
                             </div>
 
