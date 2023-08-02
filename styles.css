@@ -1,3 +1,13 @@
+/* #main-nav .navbar-nav .nav-item a:active.active {
+    background-color: green !important;
+    color: red !important;
+} */
+
+.nav-tabs .span > .active > a{    
+    background-color: black !important;
+    color: white !important;
+}
+
 .nav-tabs .nav-link {       
     color: black;    
   }
@@ -17,10 +27,7 @@
     color: white !important;
 }
 
-.nav-tabs .nav-item.active {    
-    background-color: black !important;
-    color: white !important;
-}
+
 
 .tab-content {
 border: 1px solid #dee2e6;
