@@ -26,11 +26,6 @@ section{
     }
 }
 
-/* .navbar {
-    animation: fadeInAnimation ease 0s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-} */
 
 /* Navbar Button Active */
 .navbar-nav .nav-item .btn.active{
