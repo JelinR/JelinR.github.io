@@ -6,7 +6,7 @@ section{
     margin-bottom: 5%;
     padding: 1em 0;
 
-    animation: fadeInAnimation ease 1.5s;
+    animation: fadeInAnimation ease 1.2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -56,15 +56,20 @@ section{
     color: white !important;
 }
 
-
-
-.tab-content {
-border: 1px solid #dee2e6;
-border-top: transparent;
-padding: 15px;
+.accordion .accordion-item .accordion-button {
+    background-color: lightsteelblue;
+    color: black;
 }
 
-.tab-content .tab-pane {
-min-height: 200px;
-height: auto;
-}
+/* lightsteelblue
+    cadetblue
+    gainsboro
+    lightgrey
+    seashell
+    whitesmoke
+
+*/
+
+/* .navbar {
+    background-color: white;
+} */
