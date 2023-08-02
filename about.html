@@ -85,15 +85,68 @@
                     
                 </div>
 
-                <!---Navbar Toggle Links-->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle Navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <!---Modal Define-->
+                <button class="navbar-toggler border-0" type="button" 
+                data-bs-toggle="modal" data-bs-target="#nav-modal" 
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-list-ul"></i>                    
                 </button>
 
 
             </div>
         </nav>
+
+        <!---Modal Content-->
+        <div class="container">
+            <div class="modal fade" id="nav-modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content bg-secondary-subtle">
+
+                        <!---Modal Header-->
+                        <div class="modal-header bg-dark text-center">                                
+
+                            <h4 class="modal-title display-6 text-light w-100"><small>Content</small></h4>
+                        
+                            
+                            <button class="btn" type="button" 
+                            data-bs-dismiss="modal" aria-label="Close">
+                                <i class="fa-solid fa-xmark fa-lg" style="color: #ffffff;"></i>
+                            </button>
+                        </div>
+
+                        <!---Modal Body-->
+                        <div class="modal-body text-center">
+
+                            <div class="row my-4 d-flex justify-content-center">
+                                <div class="col-8">
+                                    <a href="home.html" class="btn btn-outline-dark d-block rounded-4 shadow">Home</a>
+                                </div>
+                            </div>
+
+                            <div class="row my-4 d-flex justify-content-center">
+                                <div class="col-8">
+                                    <a href="about.html" class="btn btn-outline-dark d-block rounded-4 shadow">About</a>
+                                </div>
+                            </div>
+
+                            <div class="row my-4 d-flex justify-content-center">
+                                <div class="col-8">
+                                    <a href="projects.html" class="btn btn-outline-dark d-block rounded-4 shadow">Projects</a>
+                                </div>
+                            </div>
+
+                            <div class="row my-4 d-flex justify-content-center">
+                                <div class="col-8">
+                                    <a href="contact.html" class="btn btn-outline-dark d-block rounded-4 shadow">Contact</a>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!---Content-->
         <section id="content">
@@ -108,9 +161,12 @@
 
                 <!---Description about me-->
                 <div class="row my-3 lead">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, adipisci. 
-                    Tempore atque asperiores sed earum ipsum non voluptatum, molestiae labore odit. 
-                    Odit quasi error atque provident nam fugit amet quos.                    
+                    From being interested in the worlds hidden in quantum interactions and the abstract field theories that
+                    dictate our physical world, I gradually found footing in the computational sciences: a balance between 
+                    the abstract and physical.  From this grounded position, I am currently developing myself in directions 
+                    I have always found fascinating, one being how algorithms help make sense of language comprehension and 
+                    another being the progress made on recommendation systems in the last decade.  With such budding interests
+                    and skills, I am excited to see the projects and opportunities that lie ahead.
                 </div>
 
                 <!---Horizontal Line-->
