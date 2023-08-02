@@ -1,2 +1,2 @@
 # Personal_Site
-This is an attempt at creating a personal website using CSS, Bootstrap
+Creating a personal website using HTML, CSS And Bootstrap.
