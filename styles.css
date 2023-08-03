@@ -72,6 +72,14 @@ section{
     opacity: 0.97;
 }
 
+.navbar .navbar-toggler:hover {
+    color: black;
+}
+
+.navbar .navbar-brand span:hover {
+    color: black !important;
+}
+
 .footer {
     position: fixed;
     left: 0;
