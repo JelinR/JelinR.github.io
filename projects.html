@@ -199,7 +199,7 @@
                         <img class="img-fluid"  src="images/transformers_Brag_plot_legend.png" alt="personal-pic">
 
                         <!---Sub Nav tabs for challenges, methods, results-->
-                        <nav class="m-5 pt-5">
+                        <nav class="m-lg-5 pt-5">
 
                             <div class="nav nav-tabs justify-content-center" id="nav-tab-1-sub" role="tablist">
                                 
@@ -241,10 +241,10 @@
                                     <div class="row">
 
                                         <!---Challenges List Column-->
-                                        <div class="col-6 d-flex align-items-center">
+                                        <div class="col-lg-6 d-flex align-items-center">
                                             <div class="col-12 accordion">
 
-                                                <h4 class="my-3">Challenges Faced</h4>
+                                                <h4 class="my-3 text-lg-start text-center">Challenges Faced</h4>
 
                                                 <!---Accordion: Class Imbalance-->
                                                 <div class="accordion-item">
@@ -304,8 +304,8 @@
                                         <!---Space Column-->
                                         <div class="col-1"></div>
 
-                                        <!---Image Column-->
-                                        <div class="col-3">
+                                        <!---Image: Large Screens-->
+                                        <div class="col-xl-3 col-5 d-lg-flex d-none">
 
                                             <div class="row">
 
@@ -318,9 +318,17 @@
 
                                         </div>
 
+
+
                                     </div>
 
-                                    
+                                    <!-- Image: Medium, Small screens -->
+                                    <div class="row d-lg-none my-5 d-flex justify-content-center">
+                                        <div class="col-sm-8">
+                                            <!---Reference Image-->
+                                            <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
+                                        </div>
+                                    </div>
                                     
                                     
                                 </ul>                           
@@ -331,13 +339,13 @@
                             <div class="tab-pane fade p-3" id="nav-project-1-sub-methods" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-methods">
 
-                                <div class="row">                                   
+                                <div class="row d-flex justify-content-center">                                   
 
                                     <!---Methods List Content-->
-                                    <div class="col-6 d-flex align-items-center">
+                                    <div class="col-lg-6 col-md-10 d-flex align-items-center">
                                         <div class="col-12 accordion">
 
-                                            <h4 class="my-3">Methods Used</h4>
+                                            <h4 class="my-3 text-lg-start text-center">Methods Used</h4>
 
                                             <!---Accordion: Sliding Windows-->
                                             <div class="accordion-item">
@@ -462,8 +470,8 @@
 
                                     <div class="col-1"></div>
 
-                                    <!---Methods Images-->
-                                    <div class="col-5">
+                                    <!---Methods Images: Large Screens-->
+                                    <div class="col-5 d-lg-inline d-none">
 
                                         <!---PCA Image-->
                                         <div class="row mb-5 d-flex justify-content-center">
@@ -478,11 +486,26 @@
                                             <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
                                         </div>
 
-                                        
-
-                                        
-
                                     </div>
+                                </div>
+
+                                <!---Methods Images: Medium, Small Screens-->
+                                <div class="row d-lg-none my-5 d-flex justify-content-center">                                    
+
+                                        <!---PCA Image-->
+                                        <div class="row mb-5 d-flex justify-content-center">
+                                            <div class="col-md-8 col-10">
+                                                <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
+                                            </div>
+                                        </div>
+
+                                        <!---Strat Image-->
+                                        <div class="row mt-5 d-flex justify-content-center">
+                                            <div class="col-md-10 col-12">                                            
+                                                <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
+                                            </div>
+                                        </div>
+
                                 </div>
                        
                             
@@ -491,9 +514,11 @@
                             <!---Results Content-->
                             <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
-                            
+
+                                <!-- Heading -->
                                 <h4 class="my-2">Results Obtained</h4>
 
+                                <!-- Write-up -->
                                 <span>
                                     From the metrics used, we focused on both accuracy and recall as they 
                                     tell if the model is learning and making good predictions.  We prioritized 
@@ -504,16 +529,19 @@
                                     providing better and reliable results.
                                 </span>
 
+                                <!-- Image Table -->
                                 <div class="row my-5 py-2 d-flex justify-content-center">
 
-                                    <div class="col-8">
+                                    <div class="col-lg-8">
                                         <img class="img-fluid"  src="images/transformers_compare.png" alt="personal-pic">
                                     </div>                                  
                                 </div>
 
-                                <h5 class="mt-5 mb-2">Transformer: Best Model Performance</h5>
+                                <!-- Image Description -->
+                                <h5 class="mt-5 mb-2 d-lg-inline d-none">Transformer: Best Model Performance</h5>
 
-                                <div class="row py-3">
+                                <!-- Image Plots -->
+                                <div class="row py-3 d-lg-flex d-none">
                                     <div class="col-4">
                                         <img class="img-fluid"  src="images/transformers_Accuracy.png" alt="personal-pic">
                                     </div>
