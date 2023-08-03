@@ -80,8 +80,9 @@ section{
     color: black !important;
 }
 
-#footer_pic_1 {
-    color: red;
+.modal .modal-header i:hover {
+    color: indianred !important;
+    transform: scale(1.25);
 }
 
 .navbar i:hover {
