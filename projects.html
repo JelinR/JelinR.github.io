@@ -534,7 +534,7 @@
                     </div>
 
                     <!---Project 2 Content-->
-                    <div class="tab-pane fade p-3" id="nav-project-2" role="tabpanel"
+                    <div class="tab-pane fade p-md-3" id="nav-project-2" role="tabpanel"
                     aria-labelledby="nav-tab-2">
 
                         <!---Project Name-->
@@ -553,23 +553,30 @@
                             with even larger datasets in lesser time frames.  
                         </p>
 
-                        <!---Project Description Images-->
-                        <div class="row my-5">
-                            <div class="col-6 p-5">
+                        <!---Project Description Images: XLarge Screens-->
+                        <div class="row my-5 d-flex justify-content-center">
+                            <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
                                 <!---Reference Image-->
                                 <img class="img-fluid"  src="images/Fake_News/d1_label_dist.png" alt="personal-pic">
                             </div>
 
-                            <div class="col-6 d-flex align-items-center">
+                            <div class="col-6 d-xl-flex align-items-center d-none ">
                                 <!---Reference Image-->
                                 <img class="img-fluid"  src="images/Fake_News/d2_label_dist.png" alt="personal-pic">      
                             </div>
 
                         </div>
 
+                        <!-- Project Description Second Image: Large, Medium, Small Screens -->
+                        <div class="row d-xl-none d-flex justify-content-center">
+                            <div class="col-xl-6 col-sm-9 col-12 ">
+                                <img class="img-fluid"  src="images/Fake_News/d2_label_dist.png" alt="personal-pic">
+                            </div>
+                        </div>
+
 
                         <!---Sub Nav tabs for challenges, methods, results-->
-                        <nav class="m-5 pt-5">
+                        <nav class="m-md-5 pt-5">
 
                             <div class="nav nav-tabs justify-content-center" id="nav-tab-2-sub" role="tablist">
                                 
@@ -605,13 +612,13 @@
                         <div class="tab-content" id="nav-tab-content-2-sub">
 
                             <!---Challenges Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-2-sub-challenges" 
+                            <div class="tab-pane fade p-md-3" id="nav-project-2-sub-challenges" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-challenges">
                                     
                                     <div class="row d-flex justify-content-center">
 
                                         <!---Challenges List Column-->
-                                        <div class="col-6 d-flex align-items-center">
+                                        <div class="col-lg-6 col-md-10 col-sm-8 col-12 d-flex align-items-center">
                                             <div class="col-12 accordion">
 
                                                 <h4 class="my-4 text-center">Challenges Faced</h4>
@@ -700,13 +707,13 @@
                             </div>
 
                             <!---Methods Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-2-sub-methods" 
+                            <div class="tab-pane fade p-md-3" id="nav-project-2-sub-methods" 
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-methods">
 
                                 <div class="row d-flex justify-content-center">                                   
 
                                     <!---Methods List Content-->
-                                    <div class="col-6 d-flex align-items-center">
+                                    <div class="col-lg-6 col-md-10 col-sm-8 col-12 d-flex align-items-center">
                                         <div class="col-12 accordion">
 
                                             <h4 class="my-4 text-center">Methods Used</h4>
@@ -825,23 +832,33 @@
                                 <!---First Dataset Results-->
                                 <h4>First Dataset : Six Labels</h4>
 
+                                <!-- Write-up -->
                                 <span class="my-5">
                                     In the first dataset, we manage to use the top 100 words in each label 
                                     (using 8% of the original vocabulary), and obtain a better performance than 
                                     when using all the words. 
                                 </span>
 
+                                <!-- Image Description -->
                                 <div class="row mt-5">
-                                    <h5 class="text-center">
+
+                                    <!-- Desc_1: Large Screens -->
+                                    <h5 class="text-center d-lg-inline d-none">
                                         Optimal Top-N: 100 (8%), 500 (41%), 750 (60%)
                                     </h5>
 
+                                    <!-- Desc_1: Small Screens -->
+                                    <h6 class="text-center d-lg-none">
+                                        Optimal Top-N: 100 (8%), 500 (41%), 750 (60%)
+                                    </h6>
+
+                                    <!-- Desc_2 -->
                                     <span class="text-center">
                                         ( Out of 7417 features in vocabulary )
                                     </span>
                                 </div>
 
-
+                                <!-- Image -->
                                 <div class="row my-5">
                                     <div class="col-12">
                                         <!---Reference Image-->
@@ -851,23 +868,30 @@
 
                                 <!---Second Dataset Results-->
                                 <h4 class="pt-5">Second Dataset : Two Labels</h4>
-                            
+                                
+                                <!-- Write-up -->
                                 <span>
                                     In the second dataset, using the top 20000 words in each label 
                                     (28% of the original vocabulary size), we still manage to get a 
                                     decent performance compared to using all the words.
                                 </span>
 
+                                <!-- Image Description -->
                                 <div class="row mt-5">
-                                    <h5 class="text-center">
+                                    <h5 class="text-center d-lg-inline d-none">
                                         Optimal Top-N: : 20000 (28%), 35000 (49%), 50000  (70%)
                                     </h5>
+
+                                    <h6 class="text-center d-lg-none">
+                                        Optimal Top-N: : 20000 (28%), 35000 (49%), 50000  (70%)
+                                    </h6>
 
                                     <span class="text-center">
                                         ( Out of 142525 features in vocabulary )
                                     </span>
                                 </div>
 
+                                <!-- Image -->
                                 <div class="row my-5">
                                     <div class="col-12">
                                         <!---Reference Image-->
