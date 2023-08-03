@@ -80,6 +80,14 @@ section{
     color: black !important;
 }
 
+#footer_pic_1 {
+    color: red;
+}
+
+.navbar i:hover {
+    transform: scale(1.25);
+}
+
 .footer {
     position: fixed;
     left: 0;
@@ -96,6 +104,11 @@ section{
     lightgrey
     seashell
     whitesmoke
+
+    cornflowerblue
+    darkslateblue
+    darkslategrey
+    steelblue
 
 */
 
