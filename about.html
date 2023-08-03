@@ -136,7 +136,7 @@
 
         <!---Content-->
         <section id="content">
-            <div class="container-lg mx-5 px-5">
+            <div class="container-xxl">
 
                 <!---About Me Header-->
                 <div class="row justify-content-center align-items-center">                    
@@ -146,7 +146,7 @@
                 </div>
 
                 <!---Description about me-->
-                <div class="row my-3 lead">
+                <div class="row my-3 px-4 px-md-5 lead">
                     From being interested in the worlds hidden in quantum interactions and the abstract field theories that
                     dictate our physical world, I gradually found footing in the computational sciences: a balance between 
                     the abstract and physical.  From this grounded position, I am currently developing myself in directions 
@@ -158,16 +158,22 @@
                 <!---Horizontal Line-->
                 <hr class="my-5">
 
-                <!---Education Section-->
-                <div class="row py-5">
 
-                    <!---Education Header Column-->
-                    <div class="col-4">
+                <!---Education Section-->
+                <div class="row py-3">
+
+                    <!---Education Header: Large Screens-->
+                    <div class="col-4 d-md-inline d-none">
+                        <span class="display-6">Education</span>
+                    </div>
+
+                    <!-- Education Header: Medium, Small Screens -->
+                    <div class="row d-md-none text-center mb-5">
                         <span class="display-6">Education</span>
                     </div>
 
                     <!---Education Content Column-->
-                    <div class="col-8">
+                    <div class="col-md-8 col-12">
 
                         <!---UniPD Section-->
                         <div class="row">
@@ -180,15 +186,15 @@
                             <!---University Details-->
                             <div class="col-md-10 col-12 px-5">
 
-                                <!---Year of Education (small)-->
-                                <span class="d-md-none d-inline">2022-2023</span> 
+                                <!---Year of Education (small)-->                                
                                 <br class="d-md-none d-inline"> <br class="d-md-none d-inline">
 
                                 <strong>MSc in Physics of Data</strong> <br>                                
-                                <span>University of Padua, Italy</span>                                
+                                <span>University of Padua, Italy</span> <br>
+                                <span class="d-md-none d-inline">2022-2024</span>                             
 
                                 <br> <br>
-                                <span>Score (Tentative): 28.7 / 30</span>
+                                <span>GPA (Tentative): 28.7 / 30</span>
 
                                 <br> <br>
                                 <p>
@@ -213,14 +219,16 @@
                             <div class="col-md-10 col-12 px-5">
 
                                 <!---Year of Education (small)-->
-                                <span class="d-md-none d-inline">2022-2023</span> 
+                                <!-- <span class="d-md-none d-inline">2018-2022</span>  -->
                                 <br class="d-md-none d-inline"> <br class="d-md-none d-inline">
 
                                 <strong>B.Tech in Engineering Physics</strong> <br>
-                                <span>National Institute of Technology, Calicut, India</span>                                
+                                <span>National Institute of Technology, Calicut, India</span>  <br>
+                                <span class="d-md-none d-inline">2018-2022</span>
 
                                 <br> <br>
-                                <span>Score (Tentative): 8.47 / 10</span>
+                                
+                                <span>GPA (Tentative): 8.47 / 10</span>
 
                                 <br> <br>
                                 <p>
@@ -239,13 +247,13 @@
                 <!---Skills Section-->
                 <div class="row py-5">
 
-                    <!---Skills Header Column-->
-                    <div class="col-5">
+                    <!---Skills Header: Large Screens-->
+                    <div class="col-5 d-md-inline d-none">
                         <span class="display-6">Skills</span>
                     </div> 
 
-                    <!---Skills Content Column-->
-                    <div class="col-7 accordion">
+                    <!---Skills Content: Large Screens-->
+                    <div class="col-7 accordion d-md-inline d-none">
 
                         <!---Programming Languages Accordion Item-->
                         <div class="accordion-item">
@@ -297,6 +305,67 @@
 
                     </div>
 
+                    <!---Skills Header: Medium, Small Screens-->
+                    <div class="row text-center d-md-none">
+                        <span class="display-6">Skills</span>
+                    </div>
+
+                    <!---Skills Content: Medium, Small Screens-->
+                    <div class="row d-md-none d-flex justify-content-center my-5">
+                        <div class="col-sm-8 col-12 accordion">
+
+                            <!---Programming Languages Accordion Item-->
+                            <div class="accordion-item">
+    
+                                <!---Programming Languages Accordion Button-->
+                                <h2 class="accordion-header mb-1" id="accord-1">
+                                    <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                    aria-controls="collapse-1" aria-expanded="false">
+                                        Programming Languages
+                                    </button>
+                                </h2>
+    
+                                <!---Programming Languages Content Accordion-->
+                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>Python</li>
+                                            <li>R</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <!---Frameworks Accordion Item-->
+                            <div class="accordion-item">
+    
+                                <!---Frameworks Accordion Button-->
+                                <h2 class="accordion-header" id="accord-2">
+                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                    aria-controls="collapse-2" aria-expanded="false">
+                                        Programming Frameworks
+                                    </button>
+                                </h2>
+    
+                                <!---Frameworks Content Accordion-->
+                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                    <div class="accordion-body">
+                                        <ul>
+                                            <li>PySpark</li>
+                                            <li>Dask</li>
+                                            <li>SQL</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+
+
                 </div>
 
                 <hr>
@@ -304,13 +373,13 @@
                 <!---Competitions and Certificates Section-->
                 <div class="row py-5">
 
-                    <!---Header Column-->
-                    <div class="col-5">
+                    <!---Header: Large Screens-->
+                    <div class="col-5 d-md-inline d-none">
                         <span class="display-6"><small>Competitions, Workshops and Certificates</small></span>
                     </div> 
 
-                    <!---Content Column-->
-                    <div class="col-7 accordion" id="accordion">
+                    <!-- Content: Medium, Small Screens -->
+                    <div class="col-7 accordion d-md-inline d-none" id="accordion">
 
                         <!---Google Data Analytics Accordion Item-->
                         <div class="accordion-item">    
@@ -378,6 +447,87 @@
                         </div>
 
 
+                    </div>
+
+
+                    <!-- Header: Medium, Small Screens -->
+                    <div class="row text-center d-md-none">
+                        <!-- <div class="col-12"> -->
+                            <span class="display-6">Competitions, Workshops and Certificates</span>
+                        <!-- </div> -->
+                    </div>
+
+                    <!---Content: Medium, Small Screens-->
+                    <div class="row d-md-none d-flex justify-content-center my-5">
+                        <div class="col-sm-8 col-12 accordion" id="accordion">
+
+                            <!---Google Data Analytics Accordion Item-->
+                            <div class="accordion-item">    
+
+                                <!---Accordion Button-->
+                                <h2 class="accordion-header mb-1" id="accord-3">
+                                    <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                    aria-controls="collapse-3" aria-expanded="false">
+                                        Google Foobar Challenge
+                                    </button>
+                                </h2>
+
+                                <!---Content Accordion-->
+                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                    <div class="accordion-body">
+                                        Solved all five levels of the Google Foobar Challenge, which had increasing complexity in each level.  
+                                        This was a really interesting experience, where I was exposed to topics like decision trees and I developed
+                                        a habit of writing clean and efficient code.  
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!---Google Data Analytics Accordion Item-->
+                            <div class="accordion-item">    
+
+                                <!---Accordion Button-->
+                                <h2 class="accordion-header mb-1" id="accord-4">
+                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                    aria-controls="collapse-4" aria-expanded="false">
+                                        Google Data Analytics Professional Certificate
+                                    </button>
+                                </h2>
+
+                                <!---Content Accordion-->
+                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
+                                    <div class="accordion-body">
+                                        Completed 8 courses, along with a Capstone Project, that served as an introduction
+                                        to Data Analytics.  Throughout the courses, all components of analyzing data were 
+                                        covered with apt languages and frameworks like SQL, R and Tableau.  
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!---Einstein Toolkit Accordion Item-->
+                            <div class="accordion-item">
+
+                                <!---Einstein Toolkit Accordion Button-->
+                                <h2 class="accordion-header" id="accord-5">
+                                    <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse-5"
+                                    aria-controls="collapse-5" aria-expanded="false">
+                                        Einstein Toolkit Workshop on Numerical Relativity
+                                    </button>
+                                </h2>
+
+                                <!---Einstein Toolkit Content Accordion-->
+                                <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
+                                    <div class="accordion-body">
+                                        The workshop focused on the computational tools being used and developed for research 
+                                        in the fields of numerical relativity and astrophysics.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
                     </div>
 
                 </div>
