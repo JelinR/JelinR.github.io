@@ -56,11 +56,18 @@ section{
     color: white !important;
 }
 
+/* Accordion button colors */
 .accordion .accordion-item .accordion-button {
     background-color: gainsboro;
     color: black;
 }
 
+/* Box Shadow for Accordion Buttons */
+.accordion .accordion-item .accordion-button:focus {
+    box-shadow: 0px 0px 5px 1px black;
+}
+
+/* Opacity for Modal Box */
 .modal .modal-dialog .modal-content {
     opacity: 0.97;
 }
