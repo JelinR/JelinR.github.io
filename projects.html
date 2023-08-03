@@ -136,7 +136,7 @@
 
         <!---Content-->
         <section id="content">
-            <div class="container-lg mx-5 px-5">
+            <div class="container-xxl">
 
                 <!---Projects Header-->
                 <h2 class="display-3 d-flex justify-content-center pb-5"> Projects </h2>
@@ -144,7 +144,7 @@
                 <!---Navigation tabs-->
                 <nav>
 
-                    <div class="nav nav-tabs justify-content-md-around justify-content-center my-3" id="nav-tab" role="tablist">
+                    <div class="nav nav-tabs justify-content-lg-around justify-content-center my-3" id="nav-tab" role="tablist">
                         
                         <!---Project-1 Tab-->
                         <button class="btn show active rounded-4 m-3 shadow border-dark" 
@@ -175,7 +175,7 @@
                 </nav>
 
                 <!---Content for each nav tabs-->
-                <div class="tab-content mx-5 my-3 px-5" id="nav-tab-content">
+                <div class="tab-content mx-md-5 my-3 px-md-5" id="nav-tab-content">
 
                     <!---Project 1 Content-->
                     <div class="tab-pane fade show active p-3" id="nav-project-1" role="tabpanel"
@@ -887,7 +887,7 @@
                     </div>
 
                     <!---Project 3 Content-->
-                    <div class="tab-pane fade p-3" id="nav-project-3" role="tabpanel"
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-3" role="tabpanel"
                     aria-labelledby="nav-tab-3">
 
                         <!---Project Name-->
@@ -903,7 +903,7 @@
                         </p>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
-                        <nav class="m-5 pt-5">
+                        <nav class="m-md-5 pt-5">
 
                             <div class="nav nav-tabs justify-content-center" id="nav-tab-3-sub" role="tablist">
 
@@ -937,7 +937,7 @@
                                 <div class="row">                                   
 
                                     <!---Methods List Content-->
-                                    <div class="col-6 d-flex align-items-start">
+                                    <div class="col-lg-6 d-flex align-items-start">
                                         <div class="col-12 accordion">
 
                                             <h4 class="my-4 text-center">Challenges and Methods</h4>
@@ -1010,12 +1010,19 @@
                                         </div>
                                     </div>
 
-                                    <!---Methods Image-->
-                                    <div class="col-6">
+                                    <!---Methods Image: Large Screens-->
+                                    <div class="col-6 d-lg-inline d-none">
                                         <!---Reference Image-->
                                         <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
                                     </div>
 
+                                </div>
+
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-lg-none d-flex justify-content-center">
+                                    <div class="col-sm-10 col-12">
+                                        <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
+                                    </div>
                                 </div>
                        
                             
@@ -1028,7 +1035,7 @@
                                 <div class="row">
 
                                     <!---Results Paragraph-->
-                                    <div class="col-6 d-flex align-items-center">
+                                    <div class="col-lg-6 col-12 d-flex align-items-center">
                                         <span>
                                             We were able to detect 327 muon pair generation events from a 
                                             total of 34428 events.  As the detection rate is similar to the 
@@ -1038,25 +1045,22 @@
                                         </span>
                                     </div>
 
-                                    <!---Results Image-->
-                                    <div class="col-6">
-                                        <!---Reference Image-->
+                                    <!---Results Image: Large Screens-->
+                                    <div class="col-6 d-lg-inline d-none">
                                         <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
                                     </div>
-
                                 </div>
-                            
 
+                                <!-- Results Image: Medium, Small Screens -->
+                                <div class="row d-lg-none d-flex justify-content-center my-5">
+                                    <div class="col-sm-10 col-12">
+                                        <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
+                                    </div>                                    
+                                </div>
 
-
-
-
-                            
                             </div>
 
                         </div>
-
-
 
                     </div>
 
@@ -1064,8 +1068,6 @@
                 </div>
             </div>
         </section>
-
-
 
         <!-- Footer -->
         <footer>
