@@ -61,6 +61,10 @@ section{
     color: black;
 }
 
+.modal .modal-dialog .modal-content {
+    opacity: 0.97;
+}
+
 .footer {
     position: fixed;
     left: 0;
