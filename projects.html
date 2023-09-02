@@ -171,6 +171,16 @@
                         aria-controls="nav-project-3" aria-selected="true">
                             <span>Muon Detection</span>
                         </button>
+
+
+                        <!---Project-4 Tab-->
+                        <!---btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark-->
+                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        id="nav-tab-4" data-bs-toggle="tab" data-bs-target="#nav-project-4" 
+                        type="button" role="tab"
+                        aria-controls="nav-project-4" aria-selected="true">
+                            <span>Dask Distributed Analysis in Big Data</span>
+                        </button>
                     </div>
 
                 </nav>
@@ -1107,6 +1117,175 @@
                                     </div>                                    
                                 </div>
 
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!---Project 4 Content-->
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-4" role="tabpanel"
+                    aria-labelledby="nav-tab-4">
+
+                        <!---Project Name-->
+                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="text-justify my-4">                            
+                            This is an ongoing project, where we are interested in implementing anomaly detection on a large 
+                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
+                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
+                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
+                            these, we intend to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                        </p>
+
+                        <!---Sub Nav tabs for challenges, methods, results-->
+                        <nav class="m-md-5 pt-5">
+
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-4-sub" role="tablist">
+
+                                <!---Challenges and Methods Tab-->
+                                <button class="nav-link active" id="nav-tab-4-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-4-sub-methods"
+                                type="button" role="tab"
+                                aria-controls="nav-project-4-sub-methods" aria-selected="true">
+                                    Challenges and Methods
+                                </button>
+
+                            </div>
+
+                        </nav>
+
+                        <!---Content for Sub Nav tabs-->
+                        <div class="tab-content" id="nav-tab-content-3-sub">
+
+                            <!---Challenges and Methods Content-->
+                            <div class="tab-pane show active fade p-3" id="nav-project-4-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-4-sub-methods">
+
+                                <div class="row  justify-content-center">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-lg-6 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
+
+                                            <!---Accordion: Map-Reduce-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Map-Reduce Task Graph
+                                                    </button>
+                                                </h2>
+
+                                                <!---Map-Reduce Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
+                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
+                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
+                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
+                                                            phase, and obtain a tree-reduction task graph.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Normalization-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Time Normalization
+                                                    </button>
+                                                </h2>
+
+                                                <!---Normalization Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            The provided dataset contains measurements at uneven time intervals, 
+                                                            within a period of one year.  Prior to any analysis, it was necessary 
+                                                            to clean and normalize the dataset by normalizing the time intervals 
+                                                            in a parallel manner.    <br> <br> 
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    When normalizing, we had to consider the occurrence of each metric 
+                                                                    in each time period.  We settled on a time period of 200 seconds, 
+                                                                    where each metric occurs on an average on 97% in a time interval.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    When grouping, we defined a custom aggregation function which 
+                                                                    aggregates a metric depending on its data type.  Integers were 
+                                                                    max aggregated while float types were mean aggregated.
+                                                                </li>
+                                                            </ul>
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Strategy-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-3">
+                                                    <button class="accordion-button collapsed" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Anomaly Detection Strategy
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            An anomaly event was classified as a period in which high frequency 
+                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            In order to detect such events, we considered the 4 engines as a single system 
+                                                            and defined an integer value to its state in each time interval.  The integer 
+                                                            value was derived from concatenating the four bit states of the individual 
+                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
+                                                            would correspond to a change in the integer value.  In this way, we check for any 
+                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                        
+                            
                             </div>
 
                         </div>
