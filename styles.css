@@ -14,7 +14,13 @@ section{
 /* Define justify class */
 .text-justify{
     text-align: justify;
+    text-justify: inter-word
 }
+
+div {
+    text-align: justify;
+    text-justify: inter-word;
+  }
 
 /* Animation Type */
 @keyframes fadeInAnimation {
