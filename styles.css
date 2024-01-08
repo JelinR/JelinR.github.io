@@ -64,7 +64,12 @@ section{
 
 /* Box Shadow for Accordion Buttons */
 .accordion .accordion-item .accordion-button:focus {
-    box-shadow: 0px 0px 5px 1px black;
+    box-shadow: 0px 0px 3px 1px black;
+}
+
+/* Box Shadow for Accordion Buttons */
+.accordion .accordion-item .accordion-button:hover {
+    box-shadow: 0px 0px 7px 1px #9A8C98;
 }
 
 /* Opacity for Modal Box */
