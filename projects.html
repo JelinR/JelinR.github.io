@@ -144,39 +144,51 @@
                 <h2 class="display-3 d-flex justify-content-center pb-5"> Projects </h2>
 
                 <!---Navigation tabs-->
-                <nav>
+                <div class="nav d-flex justify-content-center">                        
 
-                    <div class="nav nav-tabs justify-content-lg-around justify-content-center my-3" id="nav-tab" role="tablist">
-                        
-                        <!---Project-1 Tab-->
+                    <div class="nav-tabs py-2">
+                        <!-- Project-0 Tab -->
                         <button class="btn show active rounded-4 m-3 shadow border-dark" 
+                        id="nav-tab-s1" data-bs-toggle="tab" data-bs-target="#nav-project-0" 
+                        type="button" role="tab"
+                        aria-controls="nav-project-0" aria-selected="true">
+                            <span>Overview</span>
+                        </button>
+                    </div>
+
+
+                    <!-- Major Projects -->
+                    <div class="nav-tabs d-flex flex-wrap justify-content-center py-2">
+
+                        <!---Project-1 Tab-->
+                        <button class="btn rounded-4 m-3 shadow border-dark" 
                         id="nav-tab-1" data-bs-toggle="tab" data-bs-target="#nav-project-1" 
                         type="button" role="tab"
                         aria-controls="nav-project-1" aria-selected="true">
-                            <span>Time Series Analysis with Transformers</span>
+                            <span>Lightweight CNN for Speech Keyword Detection</span>
                         </button>
 
+
                         <!---Project-2 Tab-->
-                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        <button class="btn rounded-4 m-3 shadow border-dark" 
                         id="nav-tab-2" data-bs-toggle="tab" data-bs-target="#nav-project-2" 
                         type="button" role="tab"
                         aria-controls="nav-project-2" aria-selected="true">
-                            <span>Fake-News Recognition with Naive Bayes</span>
+                            <span>YOLOv8n Object Detection using Blob Enhancers</span>
                         </button>
 
+
                         <!---Project-3 Tab-->
-                        <!---btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark-->
-                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        <button class="btn rounded-4 m-3 shadow border-dark" 
                         id="nav-tab-3" data-bs-toggle="tab" data-bs-target="#nav-project-3" 
                         type="button" role="tab"
                         aria-controls="nav-project-3" aria-selected="true">
-                            <span>Muon Pair Detection</span>
+                            <span>Fake News Recognition with Naive Bayes</span>
                         </button>
 
 
                         <!---Project-4 Tab-->
-                        <!---btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark-->
-                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        <button class="btn rounded-4 m-3 shadow border-dark" 
                         id="nav-tab-4" data-bs-toggle="tab" data-bs-target="#nav-project-4" 
                         type="button" role="tab"
                         aria-controls="nav-project-4" aria-selected="true">
@@ -184,52 +196,183 @@
                         </button>
 
                     </div>
+                    
+                    <!-- Minor Projects -->
+                    <div class="nav-tabs d-flex flex-wrap justify-content-center py-2">
 
-                </nav>
+                        <!---Project-5 Tab-->
+                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        id="nav-tab-5" data-bs-toggle="tab" data-bs-target="#nav-project-5" 
+                        type="button" role="tab"
+                        aria-controls="nav-project-5" aria-selected="true">
+                            <span>Learning Kant using LLM and RAG</span>
+                        </button>
+
+                        <!---Project-6 Tab-->
+                        <!---btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark-->
+                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        id="nav-tab-6" data-bs-toggle="tab" data-bs-target="#nav-project-6" 
+                        type="button" role="tab"
+                        aria-controls="nav-project-6" aria-selected="true">
+                            <span>Time Series Analysis with Transformers</span>
+                        </button>
+
+
+                        <!---Project-7 Tab-->
+                        <!---btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark-->
+                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        id="nav-tab-7" data-bs-toggle="tab" data-bs-target="#nav-project-7" 
+                        type="button" role="tab"
+                        aria-controls="nav-project-7" aria-selected="true">
+                            <span>Voter Model Analysis using Complex Networks</span>
+                        </button>
+
+                        <!---Project-8 Tab-->
+                        <!---btn btn-outline-light btn-dark rounded-4 m-3 shadow border-dark-->
+                        <button class="btn rounded-4 m-3 shadow border-dark"
+                        id="nav-tab-8" data-bs-toggle="tab" data-bs-target="#nav-project-8" 
+                        type="button" role="tab"
+                        aria-controls="nav-project-8" aria-selected="true">
+                            <span>Muon Pair Detection</span>
+                        </button>
+                    </div>
+                </div>
+
+
 
                 <!---Content for each nav tabs-->
                 <div class="tab-content mx-md-5 my-3 px-md-5" id="nav-tab-content">
-
-                    <!---Project 1 Content-->
-                    <div class="tab-pane fade show active p-md-3" id="nav-project-1" role="tabpanel"
-                    aria-labelledby="nav-tab-1">
+                    
+                    <!---Projects Overview Content-->
+                    <div class="tab-pane show active fade p-md-3" id="nav-project-0" role="tabpanel"
+                    aria-labelledby="nav-tab-s1-0">
 
                         <!---Project Name-->
-                        <span class="display-6">Using Transformers to analyze Plasma Evolution (Time Series) to classify magnetic field crashes</span>
+                        <span class="display-6">Overview of Projects</span>
                         
                         <!---Project Problem Description-->
                         <p class="my-4 py-3">
+                            This page showcases a selection of my notable projects, featuring innovative approaches, 
+                            surprising results, and experiments with various tools across different fields. 
+                            
+                            <br><br>
+                            <b>Major Projects:</b>
+                            These refer to projects that I have improved upon pre-existing models or methods using innovative approaches,
+                            often producing surprisingly good results.  
 
-                              We were interested in detecting crashes (magnetic reconnection) occurring during plasma evolution, 
-                            based on 65 given parameters.  This can be viewed as a binary classification problem for a highly 
-                            imbalanced time-series dataset.  In order to get an idea of how Transformers perform in such tasks 
-                            against traditional architectures, we conducted a comparative analysis of three models: 1-D Convolutional 
-                            Neural Network, Deep Neural Network, Transformer.  It was found that the Transformer performs the best and provides 
-                            more reliable predictions in this scenario.
+                            <ul>
+                                <li>
+                                    <b>Lightweight CNN for Speech Keyword Detection:</b>
+                                    <span>
+                                        Developed a lightweight CNN model (32k parameters) to classify short speech keywords with 
+                                        89% categorical accuracy on the Google Speech Commands Dataset. The model has a 37 ms average inference 
+                                        time and uses 90KB memory, competing with SoTA models like TDNN (250k parameters, 94% accuracy).
+                                    </span>
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <b>YOLOv8n Object Detection using Blob Enhancers: </b>
+                                    <span>
+                                        Improved YOLOv8n for small human (far away or occluded persons) detection by 1.1% by adding a pre-processing layer that enhances regions of 
+                                        interest (through blob detection) before fine-tuning the model.  The preprocessing speed merely increased by 2 ms (from 7 ms to 9 ms). 
+                                    </span>
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <b>Fake News Recognition with Naive Bayes: </b>
+                                    <span>
+                                        Built an efficient text classifier in R for fake news detection using Multinomial Naive Bayes. 
+                                        A SQL-based approach enabled handling term-context matrices efficiently, training on 20,800 rows 
+                                        (average 4,544 words) in under 30 seconds.
+                                    </span>
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <b>Dask Distributed Analysis with Big Data: </b>
+                                    <span>
+                                        Implemented anomaly detection on a large industrial dataset (~5GB) using a virtual cluster 
+                                        of 3 worker nodes. Efficiently utilized low-level map-reduce parallelization to process the big data.
+                                    </span>
+                                </li>
+                            </ul>
+
+
+
+                            <br>
+                            <b>Minor Projects:</b>
+                            These refer to projects that I use to get comfortable with a concept or tool.  The focus of these projects is to 
+                            familiarize myself with the tool, and it is less about deriving benchmark-worthy results.  
+                            <br>
+
+                            <ul>
+                                <li>
+                                    <b>Learning Kant using LLM and RAG:</b>
+                                    <span>
+                                        
+                                    </span>
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <b>Time Series Analysis with Transformers: </b>
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <b>Voter Model Analysis using Complex Networks: </b>
+                                </li>
+
+                                <br>
+
+                                <li>
+                                    <b>Muon Pair Detection: </b>
+                                    <span>
+                                        Identified rare muon events using a signal selection strategy with linear interpolation and count 
+                                        thresholds on a four-layer detector, modeled after CMS drift tubes.
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                        
                         </p>
 
-                        <!---Reference Image-->
-                        <img class="img-fluid"  src="images/transformers_Brag_plot_legend.png" alt="personal-pic">
+                    </div>
+
+                    <!---Project 1 Content-->
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-1" role="tabpanel"
+                    aria-labelledby="nav-tab-1">
+
+                        <!---Project Name-->
+                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="text-justify my-5">                            
+                            In this project, we were interested in implementing anomaly detection on a large 
+                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
+                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
+                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
+                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                        </p>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
-                        <nav class="m-lg-5 pt-5">
+                        <nav class="m-md-5 pt-5">
 
                             <div class="nav nav-tabs justify-content-center" id="nav-tab-1-sub" role="tablist">
-                                
-                                <!---Challenges Tab-->
-                                <button class="nav-link" id="nav-tab-1-sub-challenges" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-1-sub-challenges"
-                                type="button" role="tab"
-                                aria-controls="nav-project-1-sub-challenges" aria-selected="true">
-                                    <span>Challenges</span>
-                                </button>
 
-                                <!---Methods Tab-->
+                                <!---Challenges and Methods Tab-->
                                 <button class="nav-link" id="nav-tab-1-sub-methods" 
                                 data-bs-toggle="tab" data-bs-target="#nav-project-1-sub-methods"
                                 type="button" role="tab"
                                 aria-controls="nav-project-1-sub-methods" aria-selected="true">
-                                    <span>Methods</span>
+                                    Challenges and Methods
                                 </button>
 
                                 <!---Results Tab-->
@@ -237,7 +380,7 @@
                                 data-bs-toggle="tab" data-bs-target="#nav-project-1-sub-results"
                                 type="button" role="tab"
                                 aria-controls="nav-project-1-sub-results" aria-selected="true">
-                                    <span>Results</span>
+                                    Results
                                 </button>
 
                             </div>
@@ -247,227 +390,114 @@
                         <!---Content for Sub Nav tabs-->
                         <div class="tab-content" id="nav-tab-content-1-sub">
 
-                            <!---Challenges Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-1-sub-challenges" 
-                            role="tabpanel" aria-labelledby="nav-tab-1-sub-challenges">
-                                    
-                                    <div class="row">
-
-                                        <!---Challenges List Column-->
-                                        <div class="col-lg-6 d-flex align-items-center">
-                                            <div class="col-12 accordion">
-
-                                                <h4 class="my-3 text-lg-start text-center">Challenges Faced</h4>
-
-                                                <!---Accordion: Class Imbalance-->
-                                                <div class="accordion-item">
-
-                                                    <h2 class="accordion-header mb-1" id="accord-1">
-                                                        <button class="accordion-button collapsed bg-secondary-subtle" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapse-1"
-                                                        aria-controls="collapse-1" aria-expanded="false">
-                                                            Large Class Imbalance
-                                                        </button>
-                                                    </h2>
-
-                                                    <!---Class Imbalance Content Accordion-->
-                                                    <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
-                                                        <div class="accordion-body">
-                                                            <span>
-                                                                The percentage of crashes in the dataset is highly imbalanced.  
-                                                                The majority class (no crash) takes 99.5% of the dataset, 
-                                                                while the minority class (crash) is a mere 0.48% of the dataset. <br> <br>
-                
-                                                                This would require more number of datapoints, or utilizing certain methods
-                                                                to overcome this high data imbalance.
-                                                            </span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                               <!---Accordion: Unstable Solutions-->
-                                               <div class="accordion-item">
-
-                                                    <h2 class="accordion-header" id="accord-2">
-                                                        <button class="accordion-button collapsed bg-dark-subtle" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapse-2"
-                                                        aria-controls="collapse-2" aria-expanded="false">
-                                                            Unstable Solutions
-                                                        </button>
-                                                    </h2>
-
-                                                    <!---Class Imbalance Content Accordion-->
-                                                    <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
-                                                        <div class="accordion-body">
-                                                            <span>
-                                                                Some solutions were unreliable, where they either predict one or 
-                                                                zero most of the time.  This can be interpreted as a result of the 
-                                                                data imbalance, and we had to use several methods and tweak the
-                                                                parameters to arrive at a satisfactory solution. 
-                                                            </span>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <!---Space Column-->
-                                        <div class="col-1"></div>
-
-                                        <!---Image: Large Screens-->
-                                        <div class="col-xl-3 col-5 d-lg-flex d-none">
-
-                                            <div class="row">
-                                                <!---Reference Image-->
-                                                <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
-                                            </div>
-                                        
-                                        </div>
-
-
-
-                                    </div>
-
-                                    <!-- Image: Medium, Small screens -->
-                                    <div class="row d-lg-none my-5 d-flex justify-content-center">
-                                        <div class="col-sm-8">
-                                            <!---Reference Image-->
-                                            <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                </ul>                           
-                            
-                            </div>
-
-                            <!---Methods Content-->
+                            <!---Challenges and Methods Content-->
                             <div class="tab-pane fade p-3" id="nav-project-1-sub-methods" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-methods">
 
-                                <div class="row d-flex justify-content-center">                                   
+                                <div class="row  justify-content-center">                                   
 
                                     <!---Methods List Content-->
-                                    <div class="col-lg-6 col-md-10 d-flex align-items-center">
+                                    <div class="col-lg-6 d-flex align-items-center">
                                         <div class="col-12 accordion">
 
-                                            <h4 class="my-3 text-lg-start text-center">Methods Used</h4>
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
 
-                                            <!---Accordion: Sliding Windows-->
+                                            <!---Accordion: Map-Reduce-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-1">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-1"
                                                     aria-controls="collapse-1" aria-expanded="false">
-                                                        Sliding Windows
+                                                        Map-Reduce Task Graph
                                                     </button>
                                                 </h2>
 
-                                                <!---Sliding Windows Content Accordion-->
+                                                <!---Map-Reduce Content Accordion-->
                                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                                     <div class="accordion-body">
-                                                        <span>In order to train and validate on the data, 
-                                                            we used a training window (length of window used for training), 
-                                                            prediction time (how further we want to make a prediction) and 
-                                                            prediction window (checks for crash inside this window).
+                                                        <span>
+                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
+                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
+                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
+                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
+                                                            phase, and obtain a tree-reduction task graph.
                                                         </span>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: PCA-->
+                                            <!---Accordion: Normalization-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-2">
                                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-2"
                                                     aria-controls="collapse-2" aria-expanded="false">
-                                                        Principal Component Analysis
+                                                        Time Normalization
                                                     </button>
                                                 </h2>
 
-                                                <!---PCA Content Accordion-->
+                                                <!---Normalization Content Accordion-->
                                                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            Chooses effective components such that 99% variance is 
-                                                            covered.  We go from 65 to 29 parameters, without losing 
-                                                            significant information.  This decreases the dimensionality 
-                                                            of the parameter space, and ignores redundant parameters
+                                                            The provided dataset contains measurements at uneven time intervals, 
+                                                            within a period of one year.  Prior to any analysis, it was necessary 
+                                                            to clean and normalize the dataset by normalizing the time intervals 
+                                                            in a parallel manner.    <br> <br> 
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    When normalizing, we had to consider the occurrence of each metric 
+                                                                    in each time period.  We settled on a time period of 200 seconds, 
+                                                                    where each metric occurs on an average on 97% in a time interval.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    When grouping, we defined a custom aggregation function which 
+                                                                    aggregates a metric depending on its data type.  Integers were 
+                                                                    max aggregated while float types were mean aggregated.
+                                                                </li>
+                                                            </ul>
+
                                                         </span>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Down sampling-->
+                                            <!---Accordion: Strategy-->
                                             <div class="accordion-item">
 
-                                                <h2 class="accordion-header mb-1" id="accord-3">
+                                                <h2 class="accordion-header" id="accord-3">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-3"
                                                     aria-controls="collapse-3" aria-expanded="false">
-                                                        Down-sampling of majority class
+                                                        Anomaly Detection Strategy
                                                     </button>
                                                 </h2>
 
-                                                <!---Down sampling Content Accordion-->
+                                                <!---Strategy Content Accordion-->
                                                 <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            Randomly sampling a portion of the majority class 
-                                                            using an acceptance parameter.
+                                                            An anomaly event was classified as a period in which high frequency 
+                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
                                                         </span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <!---Accordion: Stratification-->
-                                            <div class="accordion-item">
-
-                                                <h2 class="accordion-header mb-1" id="accord-4">
-                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
-                                                    aria-controls="collapse-4" aria-expanded="false">
-                                                        Stratification
-                                                    </button>
-                                                </h2>
-
-                                                <!---Stratification Content Accordion-->
-                                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
-                                                    <div class="accordion-body">
+                                                        <br> <br>
                                                         <span>
-                                                            Maintains equal proportion of minority class when splitting 
-                                                            the data.  This ensures that there is a decent amount of minority 
-                                                            class elements to train and test on.
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <!---Accordion: Class Weights-->
-                                            <div class="accordion-item">
-
-                                                <h2 class="accordion-header" id="accord-5">
-                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse-5"
-                                                    aria-controls="collapse-5" aria-expanded="false">
-                                                        Assigning different class weights
-                                                    </button>
-                                                </h2>
-
-                                                <!---Class Weights Content Accordion-->
-                                                <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
-                                                    <div class="accordion-body">
-                                                        <span>
-                                                            Acts as a measure against class imbalance, and improves overall performance
+                                                            In order to detect such events, we considered the 4 engines as a single system 
+                                                            and defined an integer value to its state in each time interval.  The integer 
+                                                            value was derived from concatenating the four bit states of the individual 
+                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
+                                                            would correspond to a change in the integer value.  In this way, we check for any 
+                                                            high frequency changes in the integer values, providing us possible anomaly events.  
                                                         </span>
                                                     </div>
                                                 </div>
@@ -477,46 +507,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-1"></div>
+                                </div>
 
-                                    <!---Methods Images: Large Screens-->
-                                    <div class="col-5 d-lg-inline d-none">
-
-                                        <!---PCA Image-->
-                                        <div class="row mb-5 d-flex justify-content-center">
-                                            <div class="col-10">
-                                                <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
-                                            </div>
-                                        </div>
-
-                                        <!---Strat Image-->
-                                        <div class="row pt-5">
-
-                                            <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
-                                        </div>
-
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
                                     </div>
                                 </div>
-
-                                <!---Methods Images: Medium, Small Screens-->
-                                <div class="row d-lg-none my-5 d-flex justify-content-center">                                    
-
-                                        <!---PCA Image-->
-                                        <div class="row mb-5 d-flex justify-content-center">
-                                            <div class="col-md-8 col-10">
-                                                <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
-                                            </div>
-                                        </div>
-
-                                        <!---Strat Image-->
-                                        <div class="row mt-5 d-flex justify-content-center">
-                                            <div class="col-md-10 col-12">                                            
-                                                <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
-                                            </div>
-                                        </div>
-
-                                </div>
-                       
+                        
                             
                             </div>
 
@@ -524,46 +523,69 @@
                             <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
 
-                                <!-- Heading -->
-                                <h4 class="my-2">Results Obtained</h4>
-
-                                <!-- Write-up -->
-                                <span>
-                                    From the metrics used, we focused on both accuracy and recall as they 
-                                    tell if the model is learning and making good predictions.  We prioritized 
-                                    recall over precision as the cost of predicting a false negative is greater 
-                                    than that of a false positive, i.e., predicting no crash when there is actually 
-                                    a crash is considered to be highly undesirable.  On applying the methods and analyzing 
-                                    the performances with the metrics, we found that the transformer performs the best, 
-                                    providing better and reliable results.
+                                <!---Anomaly Correlations Results-->
+                                <h4>Anomaly Correlations</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    We tested the correlations for two cases, one for each device and one considering
+                                    all devices together.  We found that the correlations are drastically low in the latter
+                                    case, suggesting that the devices act differently possibly due to different environments
+                                    or configurations.  Two of these devices showed high correlations with temperature and 
+                                    pressure parameters, while the other two were not correlated to any of the available parameters.
                                 </span>
 
-                                <!-- Image Table -->
-                                <div class="row my-5 py-2 d-flex justify-content-center">
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Parallelization</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
+                                    analysis to obtain the results.
+                                </span>
 
-                                    <div class="col-lg-8">
-                                        <img class="img-fluid"  src="images/transformers_compare.png" alt="personal-pic">
-                                    </div>                                  
-                                </div>
-
-                                <!-- Image Description -->
-                                <h5 class="mt-5 mb-2 d-lg-inline d-none">Transformer: Best Model Performance</h5>
-
-                                <!-- Image Plots -->
-                                <div class="row py-3 d-lg-flex d-none">
-                                    <div class="col-4">
-                                        <img class="img-fluid"  src="images/transformers_Accuracy.png" alt="personal-pic">
-                                    </div>
-
-                                    <div class="col-4">
-                                        <img class="img-fluid"  src="images/transformers_Recall.png" alt="personal-pic">
-                                    </div>
-
-                                    <div class="col-4">
-                                        <img class="img-fluid"  src="images/transformers_Precision.png" alt="personal-pic">
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-10">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
                                     </div>
                                 </div>
 
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Benchmarking</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Comparing the performance variations while varying the number of workers and partitions, we find
+                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
+                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
+                                    partitions increase.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -571,8 +593,254 @@
                     </div>
 
                     <!---Project 2 Content-->
-                    <div class="tab-pane fade p-md-3" id="nav-project-2" role="tabpanel"
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-2" role="tabpanel"
                     aria-labelledby="nav-tab-2">
+
+                        <!---Project Name-->
+                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="text-justify my-5">                            
+                            In this project, we were interested in implementing anomaly detection on a large 
+                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
+                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
+                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
+                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                        </p>
+
+                        <!---Sub Nav tabs for challenges, methods, results-->
+                        <nav class="m-md-5 pt-5">
+
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-2-sub" role="tablist">
+
+                                <!---Challenges and Methods Tab-->
+                                <button class="nav-link" id="nav-tab-2-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-methods"
+                                type="button" role="tab"
+                                aria-controls="nav-project-2-sub-methods" aria-selected="true">
+                                    Challenges and Methods
+                                </button>
+
+                                <!---Results Tab-->
+                                <button class="nav-link active" id="nav-tab-2-sub-results" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-results"
+                                type="button" role="tab"
+                                aria-controls="nav-project-2-sub-results" aria-selected="true">
+                                    Results
+                                </button>
+
+                            </div>
+
+                        </nav>
+
+                        <!---Content for Sub Nav tabs-->
+                        <div class="tab-content" id="nav-tab-content-2-sub">
+
+                            <!---Challenges and Methods Content-->
+                            <div class="tab-pane fade p-3" id="nav-project-2-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-2-sub-methods">
+
+                                <div class="row  justify-content-center">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-lg-6 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
+
+                                            <!---Accordion: Map-Reduce-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Map-Reduce Task Graph
+                                                    </button>
+                                                </h2>
+
+                                                <!---Map-Reduce Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
+                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
+                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
+                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
+                                                            phase, and obtain a tree-reduction task graph.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Normalization-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Time Normalization
+                                                    </button>
+                                                </h2>
+
+                                                <!---Normalization Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            The provided dataset contains measurements at uneven time intervals, 
+                                                            within a period of one year.  Prior to any analysis, it was necessary 
+                                                            to clean and normalize the dataset by normalizing the time intervals 
+                                                            in a parallel manner.    <br> <br> 
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    When normalizing, we had to consider the occurrence of each metric 
+                                                                    in each time period.  We settled on a time period of 200 seconds, 
+                                                                    where each metric occurs on an average on 97% in a time interval.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    When grouping, we defined a custom aggregation function which 
+                                                                    aggregates a metric depending on its data type.  Integers were 
+                                                                    max aggregated while float types were mean aggregated.
+                                                                </li>
+                                                            </ul>
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Strategy-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Anomaly Detection Strategy
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            An anomaly event was classified as a period in which high frequency 
+                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            In order to detect such events, we considered the 4 engines as a single system 
+                                                            and defined an integer value to its state in each time interval.  The integer 
+                                                            value was derived from concatenating the four bit states of the individual 
+                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
+                                                            would correspond to a change in the integer value.  In this way, we check for any 
+                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                        
+                            
+                            </div>
+
+                            <!---Results Content-->
+                            <div class="tab-pane fade show active p-3" id="nav-project-2-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-2-sub-results">
+
+                                <!---Anomaly Correlations Results-->
+                                <h4>Anomaly Correlations</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    We tested the correlations for two cases, one for each device and one considering
+                                    all devices together.  We found that the correlations are drastically low in the latter
+                                    case, suggesting that the devices act differently possibly due to different environments
+                                    or configurations.  Two of these devices showed high correlations with temperature and 
+                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                </span>
+
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Parallelization</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
+                                    analysis to obtain the results.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-10">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Benchmarking</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Comparing the performance variations while varying the number of workers and partitions, we find
+                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
+                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
+                                    partitions increase.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!---Project 3 Content-->
+                    <div class="tab-pane fade p-md-3" id="nav-project-3" role="tabpanel"
+                    aria-labelledby="nav-tab-3">
 
                         <!---Project Name-->
                         <span class="display-6">Multinomial Naive Bayes Classification for Fake News Detection</span>
@@ -615,29 +883,29 @@
                         <!---Sub Nav tabs for challenges, methods, results-->
                         <nav class="m-md-5 pt-5">
 
-                            <div class="nav nav-tabs justify-content-center" id="nav-tab-2-sub" role="tablist">
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-3-sub" role="tablist">
                                 
                                 <!---Challenges Tab-->
-                                <button class="nav-link" id="nav-tab-2-sub-challenges" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-challenges"
+                                <button class="nav-link" id="nav-tab-3-sub-challenges" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-challenges"
                                 type="button" role="tab"
-                                aria-controls="nav-project-2-sub-challenges" aria-selected="true">
+                                aria-controls="nav-project-3-sub-challenges" aria-selected="true">
                                     Challenges
                                 </button>
 
                                 <!---Methods Tab-->
-                                <button class="nav-link" id="nav-tab-2-sub-methods" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-methods"
+                                <button class="nav-link" id="nav-tab-3-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-methods"
                                 type="button" role="tab"
-                                aria-controls="nav-project-2-sub-methods" aria-selected="true">
+                                aria-controls="nav-project-3-sub-methods" aria-selected="true">
                                     Methods
                                 </button>
 
                                 <!---Results Tab-->
-                                <button class="nav-link active" id="nav-tab-2-sub-results" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-2-sub-results"
+                                <button class="nav-link active" id="nav-tab-3-sub-results" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-results"
                                 type="button" role="tab"
-                                aria-controls="nav-project-2-sub-results" aria-selected="true">
+                                aria-controls="nav-project-3-sub-results" aria-selected="true">
                                     Results
                                 </button>
 
@@ -646,11 +914,11 @@
                         </nav>
 
                         <!---Content for Sub Nav tabs-->
-                        <div class="tab-content" id="nav-tab-content-2-sub">
+                        <div class="tab-content" id="nav-tab-content-3-sub">
 
                             <!---Challenges Content-->
-                            <div class="tab-pane fade p-md-3" id="nav-project-2-sub-challenges" 
-                            role="tabpanel" aria-labelledby="nav-tab-2-sub-challenges">
+                            <div class="tab-pane fade p-md-3" id="nav-project-3-sub-challenges" 
+                            role="tabpanel" aria-labelledby="nav-tab-3-sub-challenges">
                                     
                                     <div class="row d-flex justify-content-center">
 
@@ -744,8 +1012,8 @@
                             </div>
 
                             <!---Methods Content-->
-                            <div class="tab-pane fade p-md-3" id="nav-project-2-sub-methods" 
-                            role="tabpanel" aria-labelledby="nav-tab-2-sub-methods">
+                            <div class="tab-pane fade p-md-3" id="nav-project-3-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-3-sub-methods">
 
                                 <div class="row d-flex justify-content-center">                                   
 
@@ -863,8 +1131,8 @@
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-2-sub-results" 
-                            role="tabpanel" aria-labelledby="nav-tab-2-sub-results">
+                            <div class="tab-pane fade show active p-3" id="nav-project-3-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-3-sub-results">
 
                                 <!---First Dataset Results-->
                                 <h4>First Dataset : Six Labels</h4>
@@ -944,184 +1212,6 @@
                         </div>
 
 
-
-                    </div>
-
-                    <!---Project 3 Content-->
-                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-3" role="tabpanel"
-                    aria-labelledby="nav-tab-3">
-
-                        <!---Project Name-->
-                        <span class="display-6">Muon Pair Detection in Drift Tube Chambers</span>
-                        
-                        <!---Project Problem Description-->
-                        <p class="text-justify my-4">                            
-                            The goal of this project was to identify events with muons passing through the 
-                            detectors, which is a very rare occurrence.  Using a dataset of detections recorded 
-                            by each detector, we were required to identify muon pair events using a signal selection 
-                            strategy.   As each detector contained four layers of numerous cell-shaped drift tubes, 
-                            this required geometric analysis to detect pair generation and to separate out the noise events. 
-                        </p>
-
-                        <!---Sub Nav tabs for challenges, methods, results-->
-                        <nav class="m-md-5 pt-5">
-
-                            <div class="nav nav-tabs justify-content-center" id="nav-tab-3-sub" role="tablist">
-
-                                <!---Challenges and Methods Tab-->
-                                <button class="nav-link" id="nav-tab-3-sub-methods" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-methods"
-                                type="button" role="tab"
-                                aria-controls="nav-project-3-sub-methods" aria-selected="true">
-                                    Challenges and Methods
-                                </button>
-
-                                <!---Results Tab-->
-                                <button class="nav-link active" id="nav-tab-3-sub-results" 
-                                data-bs-toggle="tab" data-bs-target="#nav-project-3-sub-results"
-                                type="button" role="tab"
-                                aria-controls="nav-project-3-sub-results" aria-selected="true">
-                                    Results
-                                </button>
-
-                            </div>
-
-                        </nav>
-
-                        <!---Content for Sub Nav tabs-->
-                        <div class="tab-content" id="nav-tab-content-3-sub">
-
-                            <!---Challenges and Methods Content-->
-                            <div class="tab-pane fade p-3" id="nav-project-3-sub-methods" 
-                            role="tabpanel" aria-labelledby="nav-tab-3-sub-methods">
-
-                                <div class="row">                                   
-
-                                    <!---Methods List Content-->
-                                    <div class="col-lg-6 d-flex align-items-start">
-                                        <div class="col-12 accordion">
-
-                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
-
-                                            <!---Accordion: Visual-->
-                                            <div class="accordion-item">
-
-                                                <h2 class="accordion-header mb-1" id="accord-1">
-                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
-                                                    aria-controls="collapse-1" aria-expanded="false">
-                                                        Plotting system set-up for visualizing event trajectory
-                                                    </button>
-                                                </h2>
-
-                                                <!---Visual Content Accordion-->
-                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
-                                                    <div class="accordion-body">
-                                                        <span>
-                                                            In order to validate and debug our strategy, we plotted the system 
-                                                            set-up so that each event could be visualized and made sense of.
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <!---Accordion: strategy-->
-                                            <div class="accordion-item">
-
-                                                <h2 class="accordion-header" id="accord-2">
-                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
-                                                    aria-controls="collapse-2" aria-expanded="false">
-                                                        Muon Pair Detection Strategy
-                                                    </button>
-                                                </h2>
-
-                                                <!---Strategy Content Accordion-->
-                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
-                                                    <div class="accordion-body">
-                                                        <span>
-                                                            For muon pair generation, we approximate the pair trajectories to follow 
-                                                            linear paths close to the detectors.  If two linear trajectories occur 
-                                                            simultaneously, with a close enough slope (the deviation is measured by 
-                                                            a parameter), it is classified as a muon detection.  <br> <br>
-
-                                                            However, each detector contains four separate layers of drift tubes.  
-                                                            Thus, such linear paths must be established both globally (among detectors) 
-                                                            and locally (among layers of drift tubes in each detector).  
-
-                                                            <ul>
-                                                                <li class="mt-2">
-                                                                    In the local case, if there are at least 3 hits in 3 different 
-                                                                    layers of a detector, that is classified as a possible trajectory.  
-                                                                </li>
-
-                                                                <li class="mt-2">
-                                                                    In the global case, all four possible linear trajectories are 
-                                                                    extrapolated and the slopes compared to confirm a muon pair detection.  
-                                                                </li>
-                                                            </ul>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    <!---Methods Image: Large Screens-->
-                                    <div class="col-6 d-lg-inline d-none">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
-                                    </div>
-
-                                </div>
-
-                                <!-- Methods Image: Small Screens -->
-                                <div class="row mt-5 d-lg-none d-flex justify-content-center">
-                                    <div class="col-sm-10 col-12">
-                                        <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
-                                    </div>
-                                </div>
-                       
-                            
-                            </div>
-
-                            <!---Results Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-3-sub-results" 
-                            role="tabpanel" aria-labelledby="nav-tab-3-sub-results">
-
-                                <div class="row">
-
-                                    <!---Results Paragraph-->
-                                    <div class="col-lg-6 col-12 d-flex align-items-center">
-                                        <span>
-                                            We were able to detect 327 muon pair generation events from a 
-                                            total of 34428 events.  As the detection rate is similar to the 
-                                            standard rate of detection by drift tube detectors, our identification 
-                                            strategy is successful in classifying muon events to a high degree of 
-                                            accuracy.                  
-                                        </span>
-                                    </div>
-
-                                    <!---Results Image: Large Screens-->
-                                    <div class="col-6 d-lg-inline d-none">
-                                        <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
-                                    </div>
-                                </div>
-
-                                <!-- Results Image: Medium, Small Screens -->
-                                <div class="row d-lg-none d-flex justify-content-center my-5">
-                                    <div class="col-sm-10 col-12">
-                                        <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
-                                    </div>                                    
-                                </div>
-
-                            </div>
-
-                        </div>
 
                     </div>
 
@@ -1371,6 +1461,1055 @@
 
                     </div>
 
+                    <!---Project 5 Content-->
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-5" role="tabpanel"
+                    aria-labelledby="nav-tab-5">
+
+                        <!---Project Name-->
+                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="text-justify my-5">                            
+                            In this project, we were interested in implementing anomaly detection on a large 
+                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
+                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
+                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
+                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                        </p>
+
+                        <!---Sub Nav tabs for challenges, methods, results-->
+                        <nav class="m-md-5 pt-5">
+
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-5-sub" role="tablist">
+
+                                <!---Challenges and Methods Tab-->
+                                <button class="nav-link" id="nav-tab-5-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-5-sub-methods"
+                                type="button" role="tab"
+                                aria-controls="nav-project-5-sub-methods" aria-selected="true">
+                                    Challenges and Methods
+                                </button>
+
+                                <!---Results Tab-->
+                                <button class="nav-link active" id="nav-tab-5-sub-results" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-5-sub-results"
+                                type="button" role="tab"
+                                aria-controls="nav-project-5-sub-results" aria-selected="true">
+                                    Results
+                                </button>
+
+                            </div>
+
+                        </nav>
+
+                        <!---Content for Sub Nav tabs-->
+                        <div class="tab-content" id="nav-tab-content-5-sub">
+
+                            <!---Challenges and Methods Content-->
+                            <div class="tab-pane fade p-3" id="nav-project-5-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-5-sub-methods">
+
+                                <div class="row  justify-content-center">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-lg-6 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
+
+                                            <!---Accordion: Map-Reduce-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Map-Reduce Task Graph
+                                                    </button>
+                                                </h2>
+
+                                                <!---Map-Reduce Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
+                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
+                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
+                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
+                                                            phase, and obtain a tree-reduction task graph.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Normalization-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Time Normalization
+                                                    </button>
+                                                </h2>
+
+                                                <!---Normalization Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            The provided dataset contains measurements at uneven time intervals, 
+                                                            within a period of one year.  Prior to any analysis, it was necessary 
+                                                            to clean and normalize the dataset by normalizing the time intervals 
+                                                            in a parallel manner.    <br> <br> 
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    When normalizing, we had to consider the occurrence of each metric 
+                                                                    in each time period.  We settled on a time period of 200 seconds, 
+                                                                    where each metric occurs on an average on 97% in a time interval.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    When grouping, we defined a custom aggregation function which 
+                                                                    aggregates a metric depending on its data type.  Integers were 
+                                                                    max aggregated while float types were mean aggregated.
+                                                                </li>
+                                                            </ul>
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Strategy-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Anomaly Detection Strategy
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            An anomaly event was classified as a period in which high frequency 
+                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            In order to detect such events, we considered the 4 engines as a single system 
+                                                            and defined an integer value to its state in each time interval.  The integer 
+                                                            value was derived from concatenating the four bit states of the individual 
+                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
+                                                            would correspond to a change in the integer value.  In this way, we check for any 
+                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                        
+                            
+                            </div>
+
+                            <!---Results Content-->
+                            <div class="tab-pane fade show active p-3" id="nav-project-4-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-4-sub-results">
+
+                                <!---Anomaly Correlations Results-->
+                                <h4>Anomaly Correlations</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    We tested the correlations for two cases, one for each device and one considering
+                                    all devices together.  We found that the correlations are drastically low in the latter
+                                    case, suggesting that the devices act differently possibly due to different environments
+                                    or configurations.  Two of these devices showed high correlations with temperature and 
+                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                </span>
+
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Parallelization</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
+                                    analysis to obtain the results.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-10">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Benchmarking</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Comparing the performance variations while varying the number of workers and partitions, we find
+                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
+                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
+                                    partitions increase.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!---Project 6 Content-->
+                    <div class="tab-pane fade p-md-3" id="nav-project-6" role="tabpanel"
+                    aria-labelledby="nav-tab-6">
+
+                        <!---Project Name-->
+                        <span class="display-6">Using Transformers to analyze Plasma Evolution (Time Series) to classify magnetic field crashes</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="my-4 py-3">
+
+                              We were interested in detecting crashes (magnetic reconnection) occurring during plasma evolution, 
+                            based on 65 given parameters.  This can be viewed as a binary classification problem for a highly 
+                            imbalanced time-series dataset.  In order to get an idea of how Transformers perform in such tasks 
+                            against traditional architectures, we conducted a comparative analysis of three models: 1-D Convolutional 
+                            Neural Network, Deep Neural Network, Transformer.  It was found that the Transformer performs the best and provides 
+                            more reliable predictions in this scenario.
+                        </p>
+
+                        <!---Reference Image-->
+                        <img class="img-fluid"  src="images/transformers_Brag_plot_legend.png" alt="personal-pic">
+
+                        <!---Sub Nav tabs for challenges, methods, results-->
+                        <nav class="m-lg-5 pt-5">
+
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-6-sub" role="tablist">
+                                
+                                <!---Challenges Tab-->
+                                <button class="nav-link" id="nav-tab-6-sub-challenges" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-6-sub-challenges"
+                                type="button" role="tab"
+                                aria-controls="nav-project-6-sub-challenges" aria-selected="true">
+                                    <span>Challenges</span>
+                                </button>
+
+                                <!---Methods Tab-->
+                                <button class="nav-link" id="nav-tab-6-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-6-sub-methods"
+                                type="button" role="tab"
+                                aria-controls="nav-project-6-sub-methods" aria-selected="true">
+                                    <span>Methods</span>
+                                </button>
+
+                                <!---Results Tab-->
+                                <button class="nav-link active" id="nav-tab-6-sub-results" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-6-sub-results"
+                                type="button" role="tab"
+                                aria-controls="nav-project-6-sub-results" aria-selected="true">
+                                    <span>Results</span>
+                                </button>
+
+                            </div>
+
+                        </nav>
+
+                        <!---Content for Sub Nav tabs-->
+                        <div class="tab-content" id="nav-tab-content-6-sub">
+
+                            <!---Challenges Content-->
+                            <div class="tab-pane fade p-3" id="nav-project-6-sub-challenges" 
+                            role="tabpanel" aria-labelledby="nav-tab-6-sub-challenges">
+                                    
+                                    <div class="row">
+
+                                        <!---Challenges List Column-->
+                                        <div class="col-lg-6 d-flex align-items-center">
+                                            <div class="col-12 accordion">
+
+                                                <h4 class="my-3 text-lg-start text-center">Challenges Faced</h4>
+
+                                                <!---Accordion: Class Imbalance-->
+                                                <div class="accordion-item">
+
+                                                    <h2 class="accordion-header mb-1" id="accord-1">
+                                                        <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                        aria-controls="collapse-1" aria-expanded="false">
+                                                            Large Class Imbalance
+                                                        </button>
+                                                    </h2>
+
+                                                    <!---Class Imbalance Content Accordion-->
+                                                    <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                        <div class="accordion-body">
+                                                            <span>
+                                                                The percentage of crashes in the dataset is highly imbalanced.  
+                                                                The majority class (no crash) takes 99.5% of the dataset, 
+                                                                while the minority class (crash) is a mere 0.48% of the dataset. <br> <br>
+                
+                                                                This would require more number of datapoints, or utilizing certain methods
+                                                                to overcome this high data imbalance.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                               <!---Accordion: Unstable Solutions-->
+                                               <div class="accordion-item">
+
+                                                    <h2 class="accordion-header" id="accord-2">
+                                                        <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                        aria-controls="collapse-2" aria-expanded="false">
+                                                            Unstable Solutions
+                                                        </button>
+                                                    </h2>
+
+                                                    <!---Class Imbalance Content Accordion-->
+                                                    <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                        <div class="accordion-body">
+                                                            <span>
+                                                                Some solutions were unreliable, where they either predict one or 
+                                                                zero most of the time.  This can be interpreted as a result of the 
+                                                                data imbalance, and we had to use several methods and tweak the
+                                                                parameters to arrive at a satisfactory solution. 
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <!---Space Column-->
+                                        <div class="col-1"></div>
+
+                                        <!---Image: Large Screens-->
+                                        <div class="col-xl-3 col-5 d-lg-flex d-none">
+
+                                            <div class="row">
+                                                <!---Reference Image-->
+                                                <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
+                                            </div>
+                                        
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <!-- Image: Medium, Small screens -->
+                                    <div class="row d-lg-none my-5 d-flex justify-content-center">
+                                        <div class="col-sm-8">
+                                            <!---Reference Image-->
+                                            <img class="img-thumbnail img-responsive shadow border-secondary-subtle"  src="images/transformers_class_percs.png" alt="transformers-imbalance">
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                </ul>                           
+                            
+                            </div>
+
+                            <!---Methods Content-->
+                            <div class="tab-pane fade p-3" id="nav-project-6-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-6-sub-methods">
+
+                                <div class="row d-flex justify-content-center">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-lg-6 col-md-10 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-3 text-lg-start text-center">Methods Used</h4>
+
+                                            <!---Accordion: Sliding Windows-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Sliding Windows
+                                                    </button>
+                                                </h2>
+
+                                                <!---Sliding Windows Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>In order to train and validate on the data, 
+                                                            we used a training window (length of window used for training), 
+                                                            prediction time (how further we want to make a prediction) and 
+                                                            prediction window (checks for crash inside this window).
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: PCA-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Principal Component Analysis
+                                                    </button>
+                                                </h2>
+
+                                                <!---PCA Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Chooses effective components such that 99% variance is 
+                                                            covered.  We go from 65 to 29 parameters, without losing 
+                                                            significant information.  This decreases the dimensionality 
+                                                            of the parameter space, and ignores redundant parameters
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Down sampling-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Down-sampling of majority class
+                                                    </button>
+                                                </h2>
+
+                                                <!---Down sampling Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Randomly sampling a portion of the majority class 
+                                                            using an acceptance parameter.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Stratification-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-4">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                                    aria-controls="collapse-4" aria-expanded="false">
+                                                        Stratification
+                                                    </button>
+                                                </h2>
+
+                                                <!---Stratification Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Maintains equal proportion of minority class when splitting 
+                                                            the data.  This ensures that there is a decent amount of minority 
+                                                            class elements to train and test on.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Class Weights-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-5">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-5"
+                                                    aria-controls="collapse-5" aria-expanded="false">
+                                                        Assigning different class weights
+                                                    </button>
+                                                </h2>
+
+                                                <!---Class Weights Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Acts as a measure against class imbalance, and improves overall performance
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-1"></div>
+
+                                    <!---Methods Images: Large Screens-->
+                                    <div class="col-5 d-lg-inline d-none">
+
+                                        <!---PCA Image-->
+                                        <div class="row mb-5 d-flex justify-content-center">
+                                            <div class="col-10">
+                                                <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
+                                            </div>
+                                        </div>
+
+                                        <!---Strat Image-->
+                                        <div class="row pt-5">
+
+                                            <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!---Methods Images: Medium, Small Screens-->
+                                <div class="row d-lg-none my-5 d-flex justify-content-center">                                    
+
+                                        <!---PCA Image-->
+                                        <div class="row mb-5 d-flex justify-content-center">
+                                            <div class="col-md-8 col-10">
+                                                <img class="img-fluid shadow"  src="images/transformers_pca_var_covered.png" alt="transformers-pca">
+                                            </div>
+                                        </div>
+
+                                        <!---Strat Image-->
+                                        <div class="row mt-5 d-flex justify-content-center">
+                                            <div class="col-md-10 col-12">                                            
+                                                <img class="img-fluid shadow"  src="images/transformers_strat_plot_brag.png" alt="transformers-strat">
+                                            </div>
+                                        </div>
+
+                                </div>
+                       
+                            
+                            </div>
+
+                            <!---Results Content-->
+                            <div class="tab-pane fade show active p-3" id="nav-project-6-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-6-sub-results">
+
+                                <!-- Heading -->
+                                <h4 class="my-2">Results Obtained</h4>
+
+                                <!-- Write-up -->
+                                <span>
+                                    From the metrics used, we focused on both accuracy and recall as they 
+                                    tell if the model is learning and making good predictions.  We prioritized 
+                                    recall over precision as the cost of predicting a false negative is greater 
+                                    than that of a false positive, i.e., predicting no crash when there is actually 
+                                    a crash is considered to be highly undesirable.  On applying the methods and analyzing 
+                                    the performances with the metrics, we found that the transformer performs the best, 
+                                    providing better and reliable results.
+                                </span>
+
+                                <!-- Image Table -->
+                                <div class="row my-5 py-2 d-flex justify-content-center">
+
+                                    <div class="col-lg-8">
+                                        <img class="img-fluid"  src="images/transformers_compare.png" alt="personal-pic">
+                                    </div>                                  
+                                </div>
+
+                                <!-- Image Description -->
+                                <h5 class="mt-5 mb-2 d-lg-inline d-none">Transformer: Best Model Performance</h5>
+
+                                <!-- Image Plots -->
+                                <div class="row py-3 d-lg-flex d-none">
+                                    <div class="col-4">
+                                        <img class="img-fluid"  src="images/transformers_Accuracy.png" alt="personal-pic">
+                                    </div>
+
+                                    <div class="col-4">
+                                        <img class="img-fluid"  src="images/transformers_Recall.png" alt="personal-pic">
+                                    </div>
+
+                                    <div class="col-4">
+                                        <img class="img-fluid"  src="images/transformers_Precision.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!---Project 7 Content-->
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-7" role="tabpanel"
+                    aria-labelledby="nav-tab-7">
+
+                        <!---Project Name-->
+                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="text-justify my-5">                            
+                            In this project, we were interested in implementing anomaly detection on a large 
+                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
+                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
+                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
+                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                        </p>
+
+                        <!---Sub Nav tabs for challenges, methods, results-->
+                        <nav class="m-md-5 pt-5">
+
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-7-sub" role="tablist">
+
+                                <!---Challenges and Methods Tab-->
+                                <button class="nav-link" id="nav-tab-7-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-7-sub-methods"
+                                type="button" role="tab"
+                                aria-controls="nav-project-7-sub-methods" aria-selected="true">
+                                    Challenges and Methods
+                                </button>
+
+                                <!---Results Tab-->
+                                <button class="nav-link active" id="nav-tab-7-sub-results" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-7-sub-results"
+                                type="button" role="tab"
+                                aria-controls="nav-project-7-sub-results" aria-selected="true">
+                                    Results
+                                </button>
+
+                            </div>
+
+                        </nav>
+
+                        <!---Content for Sub Nav tabs-->
+                        <div class="tab-content" id="nav-tab-content-7-sub">
+
+                            <!---Challenges and Methods Content-->
+                            <div class="tab-pane fade p-3" id="nav-project-7-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-7-sub-methods">
+
+                                <div class="row  justify-content-center">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-lg-6 d-flex align-items-center">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
+
+                                            <!---Accordion: Map-Reduce-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Map-Reduce Task Graph
+                                                    </button>
+                                                </h2>
+
+                                                <!---Map-Reduce Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
+                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
+                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
+                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
+                                                            phase, and obtain a tree-reduction task graph.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Normalization-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Time Normalization
+                                                    </button>
+                                                </h2>
+
+                                                <!---Normalization Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            The provided dataset contains measurements at uneven time intervals, 
+                                                            within a period of one year.  Prior to any analysis, it was necessary 
+                                                            to clean and normalize the dataset by normalizing the time intervals 
+                                                            in a parallel manner.    <br> <br> 
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    When normalizing, we had to consider the occurrence of each metric 
+                                                                    in each time period.  We settled on a time period of 200 seconds, 
+                                                                    where each metric occurs on an average on 97% in a time interval.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    When grouping, we defined a custom aggregation function which 
+                                                                    aggregates a metric depending on its data type.  Integers were 
+                                                                    max aggregated while float types were mean aggregated.
+                                                                </li>
+                                                            </ul>
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Strategy-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Anomaly Detection Strategy
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            An anomaly event was classified as a period in which high frequency 
+                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            In order to detect such events, we considered the 4 engines as a single system 
+                                                            and defined an integer value to its state in each time interval.  The integer 
+                                                            value was derived from concatenating the four bit states of the individual 
+                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
+                                                            would correspond to a change in the integer value.  In this way, we check for any 
+                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                        
+                            
+                            </div>
+
+                            <!---Results Content-->
+                            <div class="tab-pane fade show active p-3" id="nav-project-4-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-4-sub-results">
+
+                                <!---Anomaly Correlations Results-->
+                                <h4>Anomaly Correlations</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    We tested the correlations for two cases, one for each device and one considering
+                                    all devices together.  We found that the correlations are drastically low in the latter
+                                    case, suggesting that the devices act differently possibly due to different environments
+                                    or configurations.  Two of these devices showed high correlations with temperature and 
+                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                </span>
+
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Parallelization</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
+                                    analysis to obtain the results.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-10">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!---Anomaly Correlations Results-->
+                                <h4 class='pt-5'>Benchmarking</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Comparing the performance variations while varying the number of workers and partitions, we find
+                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
+                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
+                                    partitions increase.
+                                </span>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Image -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-8">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!---Project 2 Content-->
+                    <div class="tab-pane fade p-md-3 p-1" id="nav-project-8" role="tabpanel"
+                    aria-labelledby="nav-tab-8">
+
+                        <!---Project Name-->
+                        <span class="display-6">Muon Pair Detection in Drift Tube Chambers</span>
+                        
+                        <!---Project Problem Description-->
+                        <p class="text-justify my-4">                            
+                            The goal of this project was to identify events with muons passing through the 
+                            detectors, which is a very rare occurrence.  Using a dataset of detections recorded 
+                            by each detector, we were required to identify muon pair events using a signal selection 
+                            strategy.   As each detector contained four layers of numerous cell-shaped drift tubes, 
+                            this required geometric analysis to detect pair generation and to separate out the noise events. 
+                        </p>
+
+                        <!---Sub Nav tabs for challenges, methods, results-->
+                        <nav class="m-md-5 pt-5">
+
+                            <div class="nav nav-tabs justify-content-center" id="nav-tab-8-sub" role="tablist">
+
+                                <!---Challenges and Methods Tab-->
+                                <button class="nav-link" id="nav-tab-8-sub-methods" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-8-sub-methods"
+                                type="button" role="tab"
+                                aria-controls="nav-project-8-sub-methods" aria-selected="true">
+                                    Challenges and Methods
+                                </button>
+
+                                <!---Results Tab-->
+                                <button class="nav-link active" id="nav-tab-8-sub-results" 
+                                data-bs-toggle="tab" data-bs-target="#nav-project-8-sub-results"
+                                type="button" role="tab"
+                                aria-controls="nav-project-8-sub-results" aria-selected="true">
+                                    Results
+                                </button>
+
+                            </div>
+
+                        </nav>
+
+                        <!---Content for Sub Nav tabs-->
+                        <div class="tab-content" id="nav-tab-content-8-sub">
+
+                            <!---Challenges and Methods Content-->
+                            <div class="tab-pane fade p-3" id="nav-project-8-sub-methods" 
+                            role="tabpanel" aria-labelledby="nav-tab-8-sub-methods">
+
+                                <div class="row">                                   
+
+                                    <!---Methods List Content-->
+                                    <div class="col-lg-6 d-flex align-items-start">
+                                        <div class="col-12 accordion">
+
+                                            <h4 class="my-4 text-center">Challenges and Methods</h4>
+
+                                            <!---Accordion: Visual-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-1">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-1"
+                                                    aria-controls="collapse-1" aria-expanded="false">
+                                                        Plotting system set-up for visualizing event trajectory
+                                                    </button>
+                                                </h2>
+
+                                                <!---Visual Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            In order to validate and debug our strategy, we plotted the system 
+                                                            set-up so that each event could be visualized and made sense of.
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: strategy-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-2">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-2"
+                                                    aria-controls="collapse-2" aria-expanded="false">
+                                                        Muon Pair Detection Strategy
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            For muon pair generation, we approximate the pair trajectories to follow 
+                                                            linear paths close to the detectors.  If two linear trajectories occur 
+                                                            simultaneously, with a close enough slope (the deviation is measured by 
+                                                            a parameter), it is classified as a muon detection.  <br> <br>
+
+                                                            However, each detector contains four separate layers of drift tubes.  
+                                                            Thus, such linear paths must be established both globally (among detectors) 
+                                                            and locally (among layers of drift tubes in each detector).  
+
+                                                            <ul>
+                                                                <li class="mt-2">
+                                                                    In the local case, if there are at least 3 hits in 3 different 
+                                                                    layers of a detector, that is classified as a possible trajectory.  
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    In the global case, all four possible linear trajectories are 
+                                                                    extrapolated and the slopes compared to confirm a muon pair detection.  
+                                                                </li>
+                                                            </ul>
+
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <!---Methods Image: Large Screens-->
+                                    <div class="col-6 d-lg-inline d-none">
+                                        <!---Reference Image-->
+                                        <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
+                                    </div>
+
+                                </div>
+
+                                <!-- Methods Image: Small Screens -->
+                                <div class="row mt-5 d-lg-none d-flex justify-content-center">
+                                    <div class="col-sm-10 col-12">
+                                        <img class="img-fluid"  src="images/Muons/muon_methods.png" alt="personal-pic">
+                                    </div>
+                                </div>
+                       
+                            
+                            </div>
+
+                            <!---Results Content-->
+                            <div class="tab-pane fade show active p-3" id="nav-project-8-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-8-sub-results">
+
+                                <div class="row">
+
+                                    <!---Results Paragraph-->
+                                    <div class="col-lg-6 col-12 d-flex align-items-center">
+                                        <span>
+                                            We were able to detect 327 muon pair generation events from a 
+                                            total of 34428 events.  As the detection rate is similar to the 
+                                            standard rate of detection by drift tube detectors, our identification 
+                                            strategy is successful in classifying muon events to a high degree of 
+                                            accuracy.                  
+                                        </span>
+                                    </div>
+
+                                    <!---Results Image: Large Screens-->
+                                    <div class="col-6 d-lg-inline d-none">
+                                        <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
+                                    </div>
+                                </div>
+
+                                <!-- Results Image: Medium, Small Screens -->
+                                <div class="row d-lg-none d-flex justify-content-center my-5">
+                                    <div class="col-sm-10 col-12">
+                                        <img class="img-fluid"  src="images/Muons/muon_results.png" alt="personal-pic">
+                                    </div>                                    
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
                 
                 
                 </div>
