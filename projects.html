@@ -302,6 +302,7 @@
 
 
                             <br><br>
+
                             <b>Minor Projects:</b>
                             These refer to projects that I use to get comfortable with a concept or tool.  The focus of these projects is to 
                             familiarize myself with the tool, and it is less about deriving benchmark-worthy results.  
@@ -1473,16 +1474,83 @@
                     aria-labelledby="nav-tab-5">
 
                         <!---Project Name-->
-                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        <span class="display-6">Testing RAG with LLM on philosophy of Immanuel Kant</span>
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-5">                            
-                            In this project, we were interested in implementing anomaly detection on a large 
-                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
-                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
-                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
-                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+
+                            The objective was to test a RAG system's ability to provide concise answers through 
+                            prompt engineering and parameter optimization. Using four influential works of 
+                            Immanuel Kant (a challenging domain), I assessed the system's contextual 
+                            awareness and retrieval capabilities. The tests involved two sets of questions: 
+                            direct definition queries and complex analysis questions requiring long-span 
+                            context understanding.
                         </p>
+
+                        <p>
+                            <span>The texts used for the analysis are (obtained from the Project Gutenberg data repository):</span>
+                            <ul>
+                                <li>Book_1: Kant's Critique of Judgement</li>
+                                <li>Book_2: The Critique of Practical Reason</li>
+                                <li>Book_3: The Critique of Pure Reason</li>
+                                <li>Book_4: Fundamental Principles of the Metaphysic of Morals</li>
+                            </ul>
+
+                        </p>
+
+                        <br>
+
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                <th scope="col" class="text-center"></th>
+                                <th scope="col" class="text-center">Text Length (chars)</th>
+                                <th scope="col" class="text-center">Vocabulary Size</th>
+                                <th scope="col" class="text-center">Type-Token Ratio</th>
+                                <th scope="col" class="text-center">Word Counts per Paragraph (Mean, Median)</th>
+                                <th scope="col" class="text-center">Text Sentence Sizes (Mean, Median)</th>
+                                <th scope="col" class="text-center">Text Paragraph Sizes (Mean, Median)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">Book_1</th>
+                                <td class="text-center">766,930</td>
+                                <td class="text-center">7743</td>
+                                <td class="text-center">0.13205</td>
+                                <td class="text-center">214.6, 186</td>
+                                <td class="text-center">320.57, 261</td>
+                                <td class="text-center">1156.82, 952</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">Book_2</th>
+                                <td class="text-center">377,956</td>
+                                <td class="text-center">3970</td>
+                                <td class="text-center">0.13943</td>
+                                <td class="text-center">277.2, 246</td>
+                                <td class="text-center">412.34, 316</td>
+                                <td class="text-center">1602.25, 1342</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">Book_3</th>
+                                <td class="text-center">12,911,282</td>
+                                <td class="text-center">8040</td>
+                                <td class="text-center">0.08328</td>
+                                <td class="text-center">214.2, 184</td>
+                                <td class="text-center">302.75, 246</td>
+                                <td class="text-center">1197.78, 1016</td>
+                                </tr>
+                                <tr>
+                                <th scope="row">Book_4</th>
+                                <td class="text-center">180,176</td>
+                                <td class="text-center">2539</td>
+                                <td class="text-center">0.18706</td>
+                                <td class="text-center">212.3, 186</td>
+                                <td class="text-center">393.77, 291</td>
+                                <td class="text-center">1083.83, 1006</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
                         <nav class="m-md-5 pt-5">
@@ -1524,84 +1592,99 @@
 
                                             <h4 class="my-4 text-center">Challenges and Methods</h4>
 
-                                            <!---Accordion: Map-Reduce-->
+                                            <!---Accordion: Choosing Queries-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-1">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-1"
                                                     aria-controls="collapse-1" aria-expanded="false">
-                                                        Map-Reduce Task Graph
+                                                        Choosing Queries
                                                     </button>
                                                 </h2>
 
-                                                <!---Map-Reduce Content Accordion-->
+                                                <!---Choosing Queries Content Accordion-->
                                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                                     <div class="accordion-body">
-                                                        <span>
-                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
-                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
-                                                            with Dask Dataframes, there is no straightforward function available.  
-                                                        </span>
-                                                        <br> <br>
-                                                        <span>
-                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
-                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
-                                                            phase, and obtain a tree-reduction task graph.
-                                                        </span>
+                                                        The queries were chosen to represent two commonly found types of queries in a retrieval system:
+                                                        <br><br>
+                                                        <ul>
+                                                            <li>
+                                                                <b>Direct Queries:  </b>Basic Definition type retrieval tasks
+                                                            </li>
+                                                            <li>
+                                                                <b>Analysis Queries: </b>Requires contextual understanding that can span sentences or paragraphs.  This 
+                                                                might also be a slightly modified version of a direct query, thereby testing the model on its capability 
+                                                                in grasping the true semantics of the query despite the complex paraphrasing.
+                                                            </li>
+                                                        </ul> 
+                            
+                                                        The questions considered are as follows:
+                            
+                                                        <br><br>
+                                                        <ul>
+                                                            <li><b>Direct: </b>What is meant by moral law?</li>
+                                                            <li><b>Direct: </b>What is transcendental idealism?</li>
+                                                            <li><b>Direct: </b>What is the categorical imperative?</li>
+                                                            <li>
+                                                                <b>Analysis: </b>How does the formulation of the categorical imperative establish a foundation for 
+                                                                universal moral laws, and what are the implications for individual autonomy?
+                                                            </li>
+                                                            <li>
+                                                                <b>Analysis: </b>How does transcendental idealism distinguish between phenomena and noumena, 
+                                                                and what are the philosophical implications of this distinction for human cognition and metaphysics?
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Normalization-->
+                                            <!---Accordion: Choosing Token Size-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-2">
                                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-2"
                                                     aria-controls="collapse-2" aria-expanded="false">
-                                                        Time Normalization
+                                                        Choosing Token Size
                                                     </button>
                                                 </h2>
 
                                                 <!---Normalization Content Accordion-->
                                                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                                     <div class="accordion-body">
-                                                        <span>
-                                                            The provided dataset contains measurements at uneven time intervals, 
-                                                            within a period of one year.  Prior to any analysis, it was necessary 
-                                                            to clean and normalize the dataset by normalizing the time intervals 
-                                                            in a parallel manner.    <br> <br> 
-
-                                                            <ul>
-                                                                <li class="mt-2">
-                                                                    When normalizing, we had to consider the occurrence of each metric 
-                                                                    in each time period.  We settled on a time period of 200 seconds, 
-                                                                    where each metric occurs on an average on 97% in a time interval.  
-                                                                </li>
-
-                                                                <li class="mt-2">
-                                                                    When grouping, we defined a custom aggregation function which 
-                                                                    aggregates a metric depending on its data type.  Integers were 
-                                                                    max aggregated while float types were mean aggregated.
-                                                                </li>
-                                                            </ul>
-
+                                                        <p>
+                                                            I choose two different values [500, 250] to compare between large and small 
+                                                            token sizes, paying attention to if the answers turn out to be clear and 
+                                                            concise or hallucinations.
+                                                        </p>
+                                                        <p>
+                                                            Having a large maximum token size (500) resulted in accurate but redundant 
+                                                            answers.  The answers were all over the place, with the model trying to reiterate 
+                                                            the point it already made by paraphrasing itself.  Especially for straightforward 
+                                                            queries like a definition query, the model tries to state the definition and 
+                                                            continue further on it, which takes away from its digestibility.
+                                                        </p> 
+                                                        <p>
+                                                            When decreasing the maximum limit to 250, there is a significant increase in 
+                                                            clarity observed.  The answers are concise and digestible, both for 
+                                                            straightforward and challenging questions.
+                                                        </p>
                                                         </span>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Strategy-->
+                                            <!---Accordion: Choosing Chunk size and overlap-->
                                             <div class="accordion-item">
 
-                                                <h2 class="accordion-header" id="accord-3">
+                                                <h2 class="accordion-header mb-1" id="accord-3">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-3"
                                                     aria-controls="collapse-3" aria-expanded="false">
-                                                        Anomaly Detection Strategy
+                                                        Choosing Chunk Size and Overlap
                                                     </button>
                                                 </h2>
 
@@ -1609,18 +1692,93 @@
                                                 <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            An anomaly event was classified as a period in which high frequency 
-                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
+                                                            I considered chunk sizes of 1041 and 264 characters, corresponding to average 
+                                                            paragraph and sentence lengths. These values help maintain semantic coherence, 
+                                                            making the retrieval process more intuitive for the embedder and retriever.
                                                         </span>
                                                         <br> <br>
                                                         <span>
-                                                            In order to detect such events, we considered the 4 engines as a single system 
-                                                            and defined an integer value to its state in each time interval.  The integer 
-                                                            value was derived from concatenating the four bit states of the individual 
-                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
-                                                            would correspond to a change in the integer value.  In this way, we check for any 
-                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                            For chunk overlap, I tested values of 0 and 260 for paragraphs, 
+                                                            and 0 and 66 for sentences, with the non-zero values being one-fourth 
+                                                            of the chunk sizes. This comparison aimed to determine if no overlap 
+                                                            (treating each chunk independently) was more effective than having 
+                                                            some overlap, allowing meaning to carry over between adjacent chunks. 
                                                         </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Choosing Temperature-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                                    aria-controls="collapse-4" aria-expanded="false">
+                                                        Choosing Temperature
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            I tested three temperature values—0.001, 0.1, and 0.25—to analyze how reply 
+                                                            quality changes from straightforward to more creative responses.
+                                                        </span>
+                                                        <br> <br>
+                                                        <span>
+                                                            For direct questions, a temperature close to 0 proved optimal, as simple 
+                                                            retrieval tasks benefit from straightforward, non-creative replies.
+
+                                                            For challenging questions, a temperature of 0.1 was ideal. Lower values 
+                                                            caused the model to quote sources directly without context, making replies 
+                                                            unclear. Higher values resulted in overly varied responses, leading to information loss. 
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion: Prompt Engineering-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header" id="accord-5">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-5"
+                                                    aria-controls="collapse-5" aria-expanded="false">
+                                                        Prompt Engineering
+                                                    </button>
+                                                </h2>
+
+                                                <!---Strategy Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            Three different templates were tested:
+                                                        </span>
+                                                        <br> <br>
+
+                                                        <ul>
+                                                            <li class="mb-2">
+                                                                <b>Simple Prompt Template:</b> Asks the model to answer based on 
+                                                                provided information. The model often hallucinates and gives 
+                                                                confusing, confident replies, relying more on prior knowledge 
+                                                                than the provided information.
+                                                            </li>
+                                                            <li class="mb-2">
+                                                                <b>Constraint Prompt Template: </b>Asks the model to answer based on 
+                                                                the information and only if it is sure. This reduces hallucination, 
+                                                                resulting in clearer answers. The model sometimes adds a "Justification" 
+                                                                section, explaining why it believes the answer is correct.
+                                                            </li>
+                                                            <li>
+                                                                <b>Justification Prompt Template: </b>Adds a "Justification" section to the Constraint 
+                                                                Prompt Template. However, the model often ignores the answer section and only 
+                                                                fills in the justification, indicating confusion with the format.
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
 
@@ -1629,85 +1787,25 @@
                                         </div>
                                     </div>
 
-                                </div>
-
-                                <!-- Methods Image: Small Screens -->
-                                <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-12">
-                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
-                                    </div>
-                                </div>
-                        
-                            
+                                </div>                        
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-4-sub-results" 
+                            <div class="tab-pane fade show active p-3" id="nav-project-5-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-4-sub-results">
 
                                 <!---Anomaly Correlations Results-->
-                                <h4>Anomaly Correlations</h4>   
+                                <h4 class="pt-5">Varying Parameters</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    We tested the correlations for two cases, one for each device and one considering
-                                    all devices together.  We found that the correlations are drastically low in the latter
-                                    case, suggesting that the devices act differently possibly due to different environments
-                                    or configurations.  Two of these devices showed high correlations with temperature and 
-                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                    <ul>
+                                        <li>Maximum Token Size: [250, 500]</li>
+                                        <li>Chunk Size: [264, 1041]</li>
+                                        <li>Chunk Overlap: [0, 66] / [0, 260]</li>
+                                        <li>Temperature: [0.001, 0.1, 0.25]</li>
+                                    </ul>
                                 </span>
-
-                                <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Parallelization</h4>   
-                                
-                                <!-- Correlations Description -->
-                                <span class = "my-5">
-                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
-                                    analysis to obtain the results.
-                                </span>
-
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-10">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
-                                    </div>
-                                </div>
-
-                                <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Benchmarking</h4>   
-                                
-                                <!-- Correlations Description -->
-                                <span class = "my-5">
-                                    Comparing the performance variations while varying the number of workers and partitions, we find
-                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
-                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
-                                    partitions increase.
-                                </span>
-
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
-                                    </div>
-                                </div>
-
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
-                                    </div>
-                                </div>
-
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
-                                    </div>
-                                </div>
                             </div>
 
                         </div>
