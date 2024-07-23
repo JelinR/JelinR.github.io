@@ -359,15 +359,23 @@
                     aria-labelledby="nav-tab-1">
 
                         <!---Project Name-->
-                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        <span class="display-6">Speech Keyword Spotting using Lightweight Models</span>
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-5">                            
-                            In this project, we were interested in implementing anomaly detection on a large 
-                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
-                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
-                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
-                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                            <b>Objective: </b> To build a lightweight model (CNN or DNN) that maintains a high degree of accuracy 
+                            in classifying speech keyword audio samples.  
+
+                            <br><br>
+                            <b>Key Idea: </b> Try to limit the number of parameters and multiplies of the model, making it as lightweight as possible,
+                            while maintaining close to 90% categorical accuracy.  For this, I utilize varying strides and pooling sizes, adding image 
+                            enhancing techniques (like Gaussian and Sobel convolutions) and addition of a Non-Linear LoRA Layer.
+
+                            <br><br>
+                            The Google Speech Commands Dataset is chosen so as to cover a wide array of speech sounds as trainable data.  The model is 
+                            trained on a subset of 8 classes (chosen to span the range of speech sounds), with 3000 audio samples each.  The data is 
+                            preprocessed and optimized over various parameters like input type (MFCC vs Spectrogram), number of features (stacking and 
+                            adding delta features to MFCC) and adding Gaussian white noise.
                         </p>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
@@ -410,14 +418,14 @@
 
                                             <h4 class="my-4 text-center">Challenges and Methods</h4>
 
-                                            <!---Accordion: Map-Reduce-->
+                                            <!---Accordion: Pre-processing-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-1">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-1"
                                                     aria-controls="collapse-1" aria-expanded="false">
-                                                        Map-Reduce Task Graph
+                                                        Data Pre-Processing
                                                     </button>
                                                 </h2>
 
@@ -425,29 +433,61 @@
                                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
-                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
-                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                            I consider two types of inputs, Spectrograms and MFCCs.  Each required preprocessing 
+                                                            of their own.  
                                                         </span>
                                                         <br> <br>
-                                                        <span>
-                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
-                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
-                                                            phase, and obtain a tree-reduction task graph.
-                                                        </span>
+
+                                                        <b>For Spectrogram:</b>
+                                                        <ul>
+                                                            <li class="mt-2">
+                                                                <b>Number of Mel Bins: </b> I chose the standard value of 40 bins, despite larger bin 
+                                                                numbers providing more information. Larger bins increase input size and computational 
+                                                                complexity, which is undesirable for a lightweight model.
+                                                            </li>
+
+                                                            <li>
+                                                                <b>Adding Gaussian White Noise: </b> To deal with zero paddings and sharp boundaries in the 
+                                                                input signal, we augment the input signal with gaussian white noise.  This makes the spectrogram 
+                                                                devoid of sharp breaks.  See Figure 1.
+                                                            </li>
+
+                                                            <li class="mt-2">
+                                                                <b>Spectrogram Enhancement: </b> Two approaches are tried. See Figure 2. 
+                                                                <ul>
+                                                                    <li class="mt-2">
+                                                                        <b>Gaussian Filter: </b>Smoothens out the noisy edges present and prevent model overfitting on the noise.
+                                                                    </li>
+                                                                    <li class="mt-2">
+                                                                        <b>Gaussian + Sobel Filter: </b> Sobel filter is applied along x and y directions, and added up.  Gaussian 
+                                                                        smoothening is done before and after the above.  This highlights the edges and provides a depth to the image. 
+                                                                        See Figure 3.
+                                                                    </li>
+                                                                </ul> 
+                                                            </li>
+                                                        </ul>
+
+                                                        <br><br>
+                                                        <b>For MFCC:</b>
+                                                        <ul>
+                                                            <li class="mt-2">
+                                                                <b>Appending additional features: </b> Features like Delta, Delta-Delta and Energy are appended 
+                                                                to the MFCC frames to add more context and information.
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Normalization-->
+                                            <!---Accordion:LoRA Layer-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-2">
                                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-2"
                                                     aria-controls="collapse-2" aria-expanded="false">
-                                                        Time Normalization
+                                                        Building Non-Linear LoRA Layer
                                                     </button>
                                                 </h2>
 
@@ -455,39 +495,35 @@
                                                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            The provided dataset contains measurements at uneven time intervals, 
-                                                            within a period of one year.  Prior to any analysis, it was necessary 
-                                                            to clean and normalize the dataset by normalizing the time intervals 
-                                                            in a parallel manner.    <br> <br> 
+                                                            Inspired by LoRA Adaptation, I built a TensorFlow Trainable Layer that decomposes a 
+                                                            dense weight matrix into two lower-rank matrices, with the rank being user-defined. 
+                                                            For example, a dense layer with 64 nodes can be set to a rank of 32, enabling the 
+                                                            model to operate in a 32-dimensional parameter space while maintaining 64 nodes.
 
-                                                            <ul>
-                                                                <li class="mt-2">
-                                                                    When normalizing, we had to consider the occurrence of each metric 
-                                                                    in each time period.  We settled on a time period of 200 seconds, 
-                                                                    where each metric occurs on an average on 97% in a time interval.  
-                                                                </li>
+                                                            <br><br>
 
-                                                                <li class="mt-2">
-                                                                    When grouping, we defined a custom aggregation function which 
-                                                                    aggregates a metric depending on its data type.  Integers were 
-                                                                    max aggregated while float types were mean aggregated.
-                                                                </li>
-                                                            </ul>
+                                                            This approach updates parameters in a lower-dimensional space, effectively reducing 
+                                                            the model's parameter load. Applying a non-linear activation function ensures the 
+                                                            layer remains non-linear.
+                                                            
+                                                            <br><br>
 
+                                                            I expect this Non-Linear LoRA Layer with 64 nodes and a rank of 32 to outperform 
+                                                            a traditional dense layer with 32 nodes. This hypothesis is tested in the results section.
                                                         </span>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Strategy-->
+                                            <!---Accordion: Architecture-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header" id="accord-3">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-3"
                                                     aria-controls="collapse-3" aria-expanded="false">
-                                                        Anomaly Detection Strategy
+                                                        Choosing Model Architecture
                                                     </button>
                                                 </h2>
 
@@ -495,18 +531,70 @@
                                                 <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            An anomaly event was classified as a period in which high frequency 
-                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
+                                                            I experiment with both CNN and DNN architectures, making both the cases as optimal 
+                                                            as possible.
                                                         </span>
+
                                                         <br> <br>
-                                                        <span>
-                                                            In order to detect such events, we considered the 4 engines as a single system 
-                                                            and defined an integer value to its state in each time interval.  The integer 
-                                                            value was derived from concatenating the four bit states of the individual 
-                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
-                                                            would correspond to a change in the integer value.  In this way, we check for any 
-                                                            high frequency changes in the integer values, providing us possible anomaly events.  
-                                                        </span>
+
+                                                        <ul>
+                                                            <li class="mt-2">
+                                                                <b>Deep Neural Networks (DNN): </b> Follows the standard architecture of having 3 hidden layers, along 
+                                                                with measures against overfitting like L2 Regularization and Dropout (0.25).
+
+                                                                <ul>
+                                                                    <li class="mt-2">
+                                                                        <b>dnn_3x128: </b> 3 hidden layers with 128 nodes each. Number of parameters: 184k.
+                                                                    </li>
+
+                                                                    <li class="mt-2">
+                                                                        <b>dnn_3xs: </b> 3 hidden layers with progressively decreasing number of nodes: 64, 32, 16 (output layer is 8 nodes). 
+                                                                        This model was developed taking care of parameter counts, overfitting and information flow.  Number of parameters: 78k.
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+
+                                                            <li class="mt-4">
+                                                                <b>Convolutional Neural Networks (CNN): </b> The model consists of two convolutional hidden layers with a Max Pooling layer 
+                                                                    in between, followed by a dense hidden layer of 32 nodes. Regularization techniques such as Dropout (0.25) and L2 Regularization 
+                                                                    are applied. To reduce parameters and computations, the following parameters are tuned:
+                                                                    
+                                                                <ul>
+                                                                    <li class="mt-2">
+                                                                        <b>Kernel Size: </b>Set to 1/4 and 1/3 of the input image size, 
+                                                                        capturing the essential global features of the spectrogram.
+                                                                    </li>
+
+                                                                    <li class="mt-2">
+                                                                        <b>Stride Length: </b>1/5 of the kernel size, maintaining a 
+                                                                        slight overlap for context.
+                                                                    </li>
+
+                                                                    <li class="mt-2">
+                                                                        <b>Pooling: </b>Emphasized more on the time axis than the frequency axis to focus on frequency 
+                                                                        variations, using a (3, 2) pool size.
+                                                                    </li>
+                                                                </ul>
+                                                                
+                                                                <br><br>
+                                                                Models Considered:
+                                                                <ul>
+                                                                    <li class="mt-2">
+                                                                        <b>cnn_mfcc_12: </b> Having MFCC as input, with only the 12 standard coefficients.
+                                                                    </li>
+
+                                                                    <li class="mt-2">
+                                                                        <b>cnn_mfcc_39: </b> Having MFCC as input, with the 12 standard coefficients along with additional delta 
+                                                                        features, resulting in a total of 39 coefficients per frame.
+                                                                    </li>
+
+                                                                    <li class="mt-2">
+                                                                        <b>cnn_spect_64: </b> Having Spectrogram as input.
+                                                                    </li>
+                                                                </ul>
+                                                                 
+                                                            </li>
+                                                        </ul>
                                                     </div>
                                                 </div>
 
@@ -520,7 +608,29 @@
                                 <!-- Methods Image: Small Screens -->
                                 <div class="row mt-5 d-flex justify-content-center">
                                     <div class="col-12">
-                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/spect_noise_horiz.png">
+                                            <figcaption class="figure-caption">Figure 1: Adding Gaussian White Noise</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-6">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/spect_filter.png">
+                                            <figcaption class="figure-caption">Figure 2: Applying convolutional filters to produce enhanced spectrograms</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/Spects_Sobel.png">
+                                            <figcaption class="figure-caption">Figure 3: Gaussian and Sobel Enhancing over Spectrograms</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
                         
@@ -531,69 +641,141 @@
                             <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
                             role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
 
+                                From the below results, the best performing model, cnn_spect_64 (made of 32k parameters), is able to 
+                                provide 87%-89% categorical accuracy on two different test sets (different 8 classes chosen) of the Google Speech Commands Dataset.
+                                <b>With an inference time of 37 ms and a memory load of 90 KB, this is a very lightweight architecture that maintains a high classification 
+                                accuracy.</b>  This competes against standard SoTA models like TDNN, which contains 251k parameters and achieves 94% accuracy.  Additionally, 
+                                compared to the standard wake word inference time of 10-50 ms, this model performs very satisfactory in this regards too.
+                                
+                                <br><br><br>
                                 <!---Anomaly Correlations Results-->
-                                <h4>Anomaly Correlations</h4>   
+                                <h4>Comparison with Filters</h4>   
+                                
+                                    <!-- Correlations Description -->
+                                    <span class = "my-5">
+                                        We see
+                                        that the gaussian filter and no filter are better than using sobel
+                                        filter. This might mean that using no filter is a better approach.
+                                        However, we notice that the variability in each class training
+                                        is lesser when using gaussian filters, than using no filter at all.
+                                        Thus, we prefer gaussian filters since this makes the model
+                                        more stable and reliable.
+                                    </span>
+
+                                    <div class="row mt-5 d-flex justify-content-center">
+                                        <div class="col-12">
+                                            <figure>
+                                                <img class="img-fluid"  src="images/KWS/comp_filters.png">
+                                                <figcaption class="figure-caption">Comparison with filters (for cnn_spect_64)</figcaption>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                
+                                <br><br><br>
+                                <!---Anomaly Correlations Results-->
+                                <h4>Comparison with Input Types: MFCC vs Spectrogram</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    We tested the correlations for two cases, one for each device and one considering
-                                    all devices together.  We found that the correlations are drastically low in the latter
-                                    case, suggesting that the devices act differently possibly due to different environments
-                                    or configurations.  Two of these devices showed high correlations with temperature and 
-                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                    Having the standard 12 MFCC coefficients performs poorly, while having 39 coefficients (the 12 standard ones and 
+                                    the additional delta features) performs close to having a Spectrogram as the input.  However, we can observe that 
+                                    this higher performance is obtained at the cost of larger number of parameters (35k to 55k).  Having the Spectrogram 
+                                    as the input provides an equally good AUC score while having smaller number of parameters (32k).
                                 </span>
 
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-sm-8 col-6">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/roc_mfcc.png">
+                                            <figcaption class="figure-caption">Comparison with Input Types (MFCC vs Spectrogram)</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                                
+                                <br><br><br>
                                 <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Parallelization</h4>   
+                                <h4>Comparison among Models</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
-                                    analysis to obtain the results.
+                                    The DNN models, both large and small, perform poorly despite their large number of parameters. 
+                                    This may be due to their inefficiency in extracting information from the data. Although the larger 
+                                    DNN performs better than the smaller one, it still fails to achieve optimal results, possibly 
+                                    due to its inability to capture the correlation between the frequency and time axes.
+                                    <br><br>
+                                    In contrast, the CNN models perform best, with the model having fewer parameters outperforming 
+                                    the others. This success is attributed to training on spectrograms rather than MFCCs. The latter 
+                                    compresses information into a set of numbers, preventing the model from learning and generalizing effectively.
+                                    <br><br>
+                                    Therefore, it is recommended using inputs that are as close to the unprocessed data as possible, 
+                                    with minimal preprocessing to ensure the model can interpret the input without losing valuable 
+                                    information. Excessive preprocessing can hinder performance.
                                 </span>
 
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-10">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-sm-8 col-6">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/roc_models.png">
+                                            <figcaption class="figure-caption">Comparison among Models</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
 
-                                <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Benchmarking</h4>   
+                                <br><br><br>
+                                <h4>Comparison of Best Models with Non-Linear LoRA</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Comparing the performance variations while varying the number of workers and partitions, we find
-                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
-                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
-                                    partitions increase.
+                                    Added a Non-Linear LoRA layer to the two best models (cnn_spect_64 and cnn_mfcc_12), 
+                                    keeping the parameter count nearly the same but increasing the number of nodes 
+                                    (replacing a dense layer of 32 nodes with a LoRA layer of 64 nodes and rank 32).
+                                    <br><br>
+                                    I expected better performance with more nodes and lower rank. The cnn_mfcc_12 model 
+                                    showed slight improvement, but the cnn_spect_64 model saw minimal gains. Thus, 
+                                    adding a non-linear LoRA layer had limited impact here, suggesting the cnn_spect_64 
+                                    model had already extracted most of the available information. However, the improvement 
+                                    in the cnn_mfcc_12 model indicates that this approach could benefit larger models with 
+                                    more parameters, enhancing performance without significantly increasing parameter count.
                                 </span>
 
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-12">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/comp_lora.png">
+                                            <figcaption class="figure-caption">Comparison with LoRA Layer</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
 
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                <br><br><br>
+                                <h4>Confusion Matrices on Test Sets</h4>   
+                                
+                                <!-- Correlations Description -->
+                                <span class = "my-5">
+                                    Trained the best model architecture (cnn_spect_64) on two different datasets consisting of 8 different classes. 
+                                    These classes were chosen so as to challenge the model while covering the range of keyword phonetics.  It is observed 
+                                    that this architecture performs equally well on both the test sets, with a categorical accuracy of 87%-89%.
+                                </span>
+
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-7">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/cm.png">
+                                            <figcaption class="figure-caption">Confusion Matrix on Test Set 1</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
 
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
+
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-7">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/cm_alt.png">
+                                            <figcaption class="figure-caption">Confusion Matrix on Test Set 2</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
+
                             </div>
 
                         </div>
