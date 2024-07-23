@@ -605,16 +605,55 @@
                     aria-labelledby="nav-tab-2">
 
                         <!---Project Name-->
-                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        <span class="display-6">Human Detection using a Blob-Enhanced Region Proposal Layer in YOLOv8n</span>
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-5">                            
-                            In this project, we were interested in implementing anomaly detection on a large 
-                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
-                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
-                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
-                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                            <b>Objective: </b>We aim to improve performance of YOLOv8n on small human detection, where we define 
+                            small human to be far-away or occluded persons.  
+                            <br><br>
+                            <b>Key Idea: </b> We hypothesize that sharpening specific regions (like facial features) can guide the model in 
+                            detecting better.  For this, we manually tune the parameters of a simple blob detector to capture facial features, 
+                            after which we sharpen these regions and superimpose them onto the original image.  This enhanced image is used 
+                            as input to the model.
+
+                            <br><br>
+                            To achieve the best performance, we optimize parameters (freezing backbone and keeping image size as 1280) and finetune 
+                            the model, comparing its performance to the original model.
                         </p>
+
+                        <!---Project Description Images-->
+                        <div class="row my-5 d-flex justify-content-center">
+                            <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                <!---Reference Image-->
+                                <figure>
+                                    <img class="img-fluid"  src="images/YOLO_Blob/blob_og_img.png">
+                                    <figcaption class="figure-caption">Original Image</figcaption>
+                                </figure>
+                                
+                            </div>
+
+                            <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                <!---Reference Image-->
+                                <figure>
+                                    <img class="img-fluid"  src="images/YOLO_Blob/blob_mask.png">
+                                    <figcaption class="figure-caption">Image Blob Mask</figcaption>
+                                </figure>   
+                            </div>
+
+                        </div>
+
+
+                        <!---Project Description Images-->
+                        <div class="row my-5 d-flex justify-content-center">
+                            <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                <!---Reference Image-->
+                                <figure>
+                                    <img class="img-fluid"  src="images/YOLO_Blob/sharp_blob_final.png">
+                                    <figcaption class="figure-caption">Enahnced Image</figcaption>
+                                </figure>
+                            </div>
+                        </div>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
                         <nav class="m-md-5 pt-5">
@@ -656,14 +695,14 @@
 
                                             <h4 class="my-4 text-center">Challenges and Methods</h4>
 
-                                            <!---Accordion: Map-Reduce-->
+                                            <!---Accordion: Small Humans-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-1">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-1"
                                                     aria-controls="collapse-1" aria-expanded="false">
-                                                        Map-Reduce Task Graph
+                                                        Extracting Small Humans Test Data
                                                     </button>
                                                 </h2>
 
@@ -671,29 +710,35 @@
                                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
-                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
-                                                            with Dask Dataframes, there is no straightforward function available.  
+                                                            <b>Choosing Dataset: </b>We choose the CrowdHuman Dataset, which is a standard set that contains a 
+                                                            high person per image ratio compared to other datasets, and it contains a high 
+                                                            ammount of occlusion.  This is the perfect dataset to test our small human task on. 
+                                                            
+                                                            <br><br>
+                                                            <b>Preprocessing Data: </b>The data had to be preprocessed and converted to YOLO standard format 
+                                                            (align to center of bounding box and normalize values) for annotations.  New directories had to be 
+                                                            created in the standard format for YOLO.
                                                         </span>
                                                         <br> <br>
                                                         <span>
-                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
-                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
-                                                            phase, and obtain a tree-reduction task graph.
+                                                            <b>Preparing Small Human Test Annotations: </b>To prepare the dataset for the task, we defined a small human by area and kept only such 
+                                                            annotations that passed our area threshold.  The large annotations were discarded.  We chose the 
+                                                            recall metrics to evaluate on this extracted data, as this would give us a good measure of 
+                                                            how many small humans have been detected.   
                                                         </span>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Normalization-->
+                                            <!---Accordion: Blob Enhancer-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-2">
                                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-2"
                                                     aria-controls="collapse-2" aria-expanded="false">
-                                                        Time Normalization
+                                                        Optimizing Blob Enhancer
                                                     </button>
                                                 </h2>
 
@@ -701,22 +746,27 @@
                                                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            The provided dataset contains measurements at uneven time intervals, 
-                                                            within a period of one year.  Prior to any analysis, it was necessary 
-                                                            to clean and normalize the dataset by normalizing the time intervals 
-                                                            in a parallel manner.    <br> <br> 
+                                                            We use the SimpleBlobDetector method from OpenCV, which blobs using thresholding 
+                                                            and obtaining binary images, and filtering out based on the parameters we set.  The 
+                                                            parameters control the shape and size of the blobs, which we reason as:
+                                                            <br> <br> 
 
                                                             <ul>
                                                                 <li class="mt-2">
-                                                                    When normalizing, we had to consider the occurrence of each metric 
-                                                                    in each time period.  We settled on a time period of 200 seconds, 
-                                                                    where each metric occurs on an average on 97% in a time interval.  
+                                                                    <b>Minimum Area = 200:</b> Sets a lower bound on the pixel area of the 
+                                                                    bounding box.  This restricts blobs from focusing on unnecessary finer details,
+                                                                    and instead redirecting it to more general and larger features.
                                                                 </li>
 
                                                                 <li class="mt-2">
-                                                                    When grouping, we defined a custom aggregation function which 
-                                                                    aggregates a metric depending on its data type.  Integers were 
-                                                                    max aggregated while float types were mean aggregated.
+                                                                    <b>Minimum Circularity = 0.4: </b> This selects blobs that can range from being circular 
+                                                                    to rectangular.  Since the detector cannot recognize faces as a whole, it might detect 
+                                                                    parts of the face, which can even be rectangular.
+                                                                </li>
+
+                                                                <li class="mt-2">
+                                                                    <b>Minimum Inertia = 0.01: </b> This measures how elongated the blob is.  This lower bound 
+                                                                    filters out identifying lines.
                                                                 </li>
                                                             </ul>
 
@@ -726,14 +776,14 @@
 
                                             </div>
 
-                                            <!---Accordion: Strategy-->
+                                            <!---Accordion: Injection Layer-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header" id="accord-3">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-3"
                                                     aria-controls="collapse-3" aria-expanded="false">
-                                                        Anomaly Detection Strategy
+                                                        Injecting Enhancer Layer
                                                     </button>
                                                 </h2>
 
@@ -741,17 +791,9 @@
                                                 <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            An anomaly event was classified as a period in which high frequency 
-                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
-                                                        </span>
-                                                        <br> <br>
-                                                        <span>
-                                                            In order to detect such events, we considered the 4 engines as a single system 
-                                                            and defined an integer value to its state in each time interval.  The integer 
-                                                            value was derived from concatenating the four bit states of the individual 
-                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
-                                                            would correspond to a change in the integer value.  In this way, we check for any 
-                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                            Finding out the appropriate place to inject the enhancer layer required 
+                                                            reading through the YOLO base repository and documentation.  This provided us 
+                                                            a deep knowledge of the workings behind how YOLOv8n is built up.
                                                         </span>
                                                     </div>
                                                 </div>
@@ -764,11 +806,16 @@
                                 </div>
 
                                 <!-- Methods Image: Small Screens -->
-                                <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-12">
-                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-7 col-sm-9 col-12 px-xl-5">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/YOLO_Blob/small_humans.png">
+                                            <figcaption class="figure-caption">Small Human Annotations</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
+
+
                         
                             
                             </div>
@@ -778,68 +825,74 @@
                             role="tabpanel" aria-labelledby="nav-tab-2-sub-results">
 
                                 <!---Anomaly Correlations Results-->
-                                <h4>Anomaly Correlations</h4>   
+                                <h4>Parameter Optimization</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    We tested the correlations for two cases, one for each device and one considering
-                                    all devices together.  We found that the correlations are drastically low in the latter
-                                    case, suggesting that the devices act differently possibly due to different environments
-                                    or configurations.  Two of these devices showed high correlations with temperature and 
-                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                    We used the single_clss attribute, which allows the model to train on a single class label. 
+                                    Optimization was conducted on image size and frozen layers, and the optimal values found were 
+                                    1280 image size and 10 frozen layers (freezing backbone).
                                 </span>
 
-                                <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Parallelization</h4>   
-                                
-                                <!-- Correlations Description -->
-                                <span class = "my-5">
-                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
-                                    analysis to obtain the results.
-                                </span>
-
-                                <!-- Image -->
                                 <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-10">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
+                                    <div class="col-xl-7 col-sm-9 col-12 px-xl-5">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/YOLO_Blob/param_opt.png">
+                                            <figcaption class="figure-caption">Grid Search for Parameter Optimization with (Precision, Recall) metrics</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
 
                                 <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Benchmarking</h4>   
+                                <h4 class='pt-5'>Performance on Small Human Test Dataset</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Comparing the performance variations while varying the number of workers and partitions, we find
-                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
-                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
-                                    partitions increase.
+                                    For the task of small human detection, we prioritize recall, as it measures how many small humans are detected. 
+                                    Detecting large humans impacts precision, not recall, making recall the true measure for this task.
+                                    
+                                    <br><br>
+                                    We validated the model on test datasets of 500 and 1,000 images, comparing the performance of YOLOv8n with three 
+                                    different weights: pretrained, fine-tuned without sharp blobs (Main branch), and fine-tuned with sharp blobs 
+                                    (SimpleBlob branch). As shown in the table below, performance improved across the board, with the model fine-tuned with 
+                                    sharp blobs performing best. 
+                                    <br><br>
+                                    <b>Thus, fine-tuning with blob-enhanced images improves performance by 1.1% in the challenging task of detecting small humans.</b>
                                 </span>
 
                                 <!-- Image -->
                                 <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                    <div class="col-xl-7 col-sm-9 col-12 px-xl-5">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/YOLO_Blob/model_compare.png">
+                                            <figcaption class="figure-caption">Models Comparison with Recall Metric</figcaption>
+                                        </figure>
                                     </div>
                                 </div>
 
-                                <!-- Image -->
+
                                 <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
                                         <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/YOLO_Blob/result_without_blob.png">
+                                            <figcaption class="figure-caption">Prediction (without blob enhancement)</figcaption>
+                                        </figure>
+                                        
                                     </div>
+        
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/YOLO_Blob/result_with_blob.png">
+                                            <figcaption class="figure-caption">Prediction (with blob enhancement)</figcaption>
+                                        </figure>   
+                                    </div>
+        
                                 </div>
 
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
-                                    </div>
-                                </div>
+
+
                             </div>
 
                         </div>
@@ -2741,7 +2794,7 @@
 
                     </div>
 
-                    <!---Project 2 Content-->
+                    <!---Project 8 Content-->
                     <div class="tab-pane fade p-md-3 p-1" id="nav-project-8" role="tabpanel"
                     aria-labelledby="nav-tab-8">
 
