@@ -224,7 +224,7 @@
                         id="nav-tab-7" data-bs-toggle="tab" data-bs-target="#nav-project-7" 
                         type="button" role="tab"
                         aria-controls="nav-project-7" aria-selected="true">
-                            <span>Modelling Voter Dynamics using Complex Networks</span>
+                            <span>Audio Generation using Variational Autoencoders</span>
                         </button>
 
                         <!---Project-8 Tab-->
@@ -331,10 +331,11 @@
                                 <br>
 
                                 <li>
-                                    <b>Modelling Voter Dynamics using Complex Networks: </b>
+                                    <b>Audio Generation using Variational Autoencoders: </b>
                                     <span>
-                                        Analyzed the binary voter model in complex networks, observing changes in behavior with respect to 
-                                        network dimensionality, degree distribution, and update rules.
+                                        Built a continuously varying latent space using VAE to generate speech keyword audio samples.  This 
+                                        was done by optimizing the latent dimension and the encoder and decoder parameters, experimenting with 
+                                        assymetric structures.  
                                     </span>
                                 </li>
 
@@ -2735,16 +2736,61 @@
                     aria-labelledby="nav-tab-7">
 
                         <!---Project Name-->
-                        <span class="display-6">Anomaly Detection in Big Data using Dask</span>
+                        <span class="display-6">Audio Generation using Variational Autoencoders (VAE)</span>
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-5">                            
-                            In this project, we were interested in implementing anomaly detection on a large 
-                            industrial dataset (~5GB).  Using the various features of Dask like task graphs and its performance 
-                            dashboard, we parallelize the tasks and make analyzing big data feasible and efficient.  We use an 
-                            assigned Virtual Cluster consisting of 3 worker nodes for the distributed analyses.  With the help of 
-                            these, we managed to figure out the anomaly events and obtain the variables most correlated to the anomalies.
+                            With two of my peers (Kiamehr Javid, Davide Checchia), we trained a VAE to generate audio samples from a 
+                            spatially rich latent space that allowed transition between clusters.  The idea behind this project was to 
+                            approach audio generation using the tools of Information Theory.  
+                            
+                            <br><br>
+                            <b>Theory: </b>Supposing the audio is generated from a 
+                            lower-dimensional latent space, we try to model this posterior distribution present in this space.  Variational 
+                            Bayes posits that we use an approximation to the true posterior and try to model the former.  It provides a clever 
+                            way to approach this using the ELBo, where we try to maximize this term.  This, in the end, 
+                            provides us with a loss function that constrains the approximate distribution to be around a prior distribution, and 
+                            vary according to the likelihood data points.  This eventually provides a good approximation for our true posterior distribution.
+                            
+                            <br><br>
+                            <b>Dataset: </b>We use the mini-Speech Commands Dataset, a subset of the Google Speech Commands Dataset.  This consists of 8 classes (with 1000 samples each) 
+                            of short speech keywords. We define a default sample rate of 16k, and filter out any samples not having this rate.  For the VAE, we convert these samples to 
+                            respective Spectrograms, resulting in a slight information loss (as shown below).
                         </p>
+
+                        <!-- Original Audio Sample -->
+                        <div class="row my-5 d-flex justify-content-center">
+                            <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+
+                                <p class="text-center">Audio Sample: Stop</p>
+
+                                <div class="container-fluid d-flex justify-content-center full-height">
+                                    <audio controls class="justify-content-center">
+                                        
+                                        <source src="audio/VAE/clear_stop.wav" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                
+                            </div>
+
+                            <!-- Mel Inv Audio Sample -->
+                            <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+
+                                <p class="text-center">Mel Inversed Audio Sample: Stop</p>
+
+                                <div class="container-fluid d-flex justify-content-center full-height">
+                                    <audio controls class="justify-content-center">
+                                        
+                                        <source src="audio/VAE/stop_mel_inv.wav" type="audio/mpeg">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
 
                         <!---Sub Nav tabs for challenges, methods, results-->
                         <nav class="m-md-5 pt-5">
@@ -2786,44 +2832,38 @@
 
                                             <h4 class="my-4 text-center">Challenges and Methods</h4>
 
-                                            <!---Accordion: Map-Reduce-->
+                                            <!---Accordion: PCA-->
                                             <div class="accordion-item">
 
                                                 <h2 class="accordion-header mb-1" id="accord-1">
                                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-1"
                                                     aria-controls="collapse-1" aria-expanded="false">
-                                                        Map-Reduce Task Graph
+                                                        Upper Bound for Optimal Latent Space Dimension
                                                     </button>
                                                 </h2>
 
                                                 <!---Map-Reduce Content Accordion-->
                                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                                     <div class="accordion-body">
-                                                        <span>
-                                                            For parallelizing tasks while saving local memory, using the map-reduce paradigm 
-                                                            is most efficient.  In order to obtain such a task graph, especially when dealing 
-                                                            with Dask Dataframes, there is no straightforward function available.  
-                                                        </span>
-                                                        <br> <br>
-                                                        <span>
-                                                            It required wrapping each partitions of the Dask Dataframe into  delayed objects, after 
-                                                            which they were put in a Dask Bag structure.  This enabled us to carry out the reduce 
-                                                            phase, and obtain a tree-reduction task graph.
+                                                        <span> 
+                                                            Although PCA is fit for a linear analysis, and the model we are dealing with is 
+                                                            non-linear, PCA can however fix an upper bound that we can work with.  It provides a 
+                                                            good starting point in dealing with optimizing the latent space dimension.
                                                         </span>
                                                     </div>
                                                 </div>
 
                                             </div>
 
-                                            <!---Accordion: Normalization-->
+                                            <!---Accordion: Assymetric Decoder-->
                                             <div class="accordion-item">
 
-                                                <h2 class="accordion-header mb-1" id="accord-2">
+                                                <h2 class="accordion-header" id="accord-2">
                                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                                     data-bs-toggle="collapse" data-bs-target="#collapse-2"
                                                     aria-controls="collapse-2" aria-expanded="false">
-                                                        Time Normalization
+                                                        Symmetrics and Asymmetric Architectures
                                                     </button>
                                                 </h2>
 
@@ -2831,57 +2871,10 @@
                                                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            The provided dataset contains measurements at uneven time intervals, 
-                                                            within a period of one year.  Prior to any analysis, it was necessary 
-                                                            to clean and normalize the dataset by normalizing the time intervals 
-                                                            in a parallel manner.    <br> <br> 
-
-                                                            <ul>
-                                                                <li class="mt-2">
-                                                                    When normalizing, we had to consider the occurrence of each metric 
-                                                                    in each time period.  We settled on a time period of 200 seconds, 
-                                                                    where each metric occurs on an average on 97% in a time interval.  
-                                                                </li>
-
-                                                                <li class="mt-2">
-                                                                    When grouping, we defined a custom aggregation function which 
-                                                                    aggregates a metric depending on its data type.  Integers were 
-                                                                    max aggregated while float types were mean aggregated.
-                                                                </li>
-                                                            </ul>
-
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <!---Accordion: Strategy-->
-                                            <div class="accordion-item">
-
-                                                <h2 class="accordion-header" id="accord-3">
-                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
-                                                    aria-controls="collapse-3" aria-expanded="false">
-                                                        Anomaly Detection Strategy
-                                                    </button>
-                                                </h2>
-
-                                                <!---Strategy Content Accordion-->
-                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
-                                                    <div class="accordion-body">
-                                                        <span>
-                                                            An anomaly event was classified as a period in which high frequency 
-                                                            fluctuations occur in any of the four engines (given as 4 binary metrics).  
-                                                        </span>
-                                                        <br> <br>
-                                                        <span>
-                                                            In order to detect such events, we considered the 4 engines as a single system 
-                                                            and defined an integer value to its state in each time interval.  The integer 
-                                                            value was derived from concatenating the four bit states of the individual 
-                                                            engines and obtaining the integer equivalent.  Any change in the system's state 
-                                                            would correspond to a change in the integer value.  In this way, we check for any 
-                                                            high frequency changes in the integer values, providing us possible anomaly events.  
+                                                            We consider the decoder to be either symmetric (same, inversed shape of encoder) 
+                                                            or asymmetric (not same, inversed shape of encoder).  As we require the encoder to be 
+                                                            more complex since it maps input to latent space, we find that using an asymmetric 
+                                                            decoder leads to better generative samples.
                                                         </span>
                                                     </div>
                                                 </div>
@@ -2892,84 +2885,277 @@
                                     </div>
 
                                 </div>
-
-                                <!-- Methods Image: Small Screens -->
-                                <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-12">
-                                        <img class="img-fluid"  src="images/Dask_Project/task_graph.png" alt="personal-pic">
-                                    </div>
-                                </div>
                         
                             
                             </div>
 
                             <!---Results Content-->
-                            <div class="tab-pane fade show active p-3" id="nav-project-4-sub-results" 
-                            role="tabpanel" aria-labelledby="nav-tab-4-sub-results">
+                            <div class="tab-pane fade show active p-3" id="nav-project-7-sub-results" 
+                            role="tabpanel" aria-labelledby="nav-tab-7-sub-results">
 
-                                <!---Anomaly Correlations Results-->
-                                <h4>Anomaly Correlations</h4>   
+                                We compare three different models: a complex symmetric model (1.2M parameters), a lightweight 
+                                symmetric model (324k parameters), a lightweight asymmetric model (35k parameters).  The architecture 
+                                is made of convolutional modules (Conv Layer, Max Pooling, Batch Normalization) stacked one after the other. 
+                                <b>We find from the results below that the best model is the lightweight symmetric model (324k parameters).</b>
+
+                                <br><br>
+                                The encoder produces two outputs (one for the mean and the other for the standard deviation), which are linked 
+                                to a stochastic variable for each batch.  In a symmetric model, the Decoder is a mirror image of the encoder, while 
+                                in the asymmetric case, the Decoder contains lesser parameters than the Encoder.  This is because the encoder is concerned 
+                                with the difficult task of mapping the input to the latent space, requiring more parameters.
+
+                                <br><br><br>
+                                <!---Results: Complex model-->
+                                <h4>Complex Symmetric Model</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    We tested the correlations for two cases, one for each device and one considering
-                                    all devices together.  We found that the correlations are drastically low in the latter
-                                    case, suggesting that the devices act differently possibly due to different environments
-                                    or configurations.  Two of these devices showed high correlations with temperature and 
-                                    pressure parameters, while the other two were not correlated to any of the available parameters.
+                                    Casting the high-dimensional clusters to two dimensions using t-SNE, we see that there is slight presence of clustering, 
+                                    confirmed by a decent silhoutte score.  However, we find that the mean of each cluster (corresponding to each label) does not 
+                                    generate good speech.  From the PCA plot, we see that a few axes cover most of the variability.  Thus, we can find a lower dimensional 
+                                    space and possibly work with a low complexity model.
                                 </span>
 
-                                <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Parallelization</h4>   
+
+                                <!-- Audio Samples -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <!-- Original Audio Sample -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Original Sample: Right</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/complex_original.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Regenerated Audio -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Regenerated Sample: Right</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/complex_regenerated.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Cluster Mean Audio -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Cluster Mean: Left</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/complex_mean_left.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
+                                </div>
+
+                                <!-- Images -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/VAE/EVR_complex.png">
+                                            <figcaption class="figure-caption">PCA Analysis</figcaption>
+                                        </figure>
+                                        
+                                    </div>
+        
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/VAE/t-sne_complex.png">
+                                            <figcaption class="figure-caption">t-SNE Plot</figcaption>
+                                        </figure>   
+                                    </div>
+        
+                                </div>
+
+
+                                <br><br><br>
+                                <!---Results: Midpoint model-->
+                                <h4>Lightweight Symmetric Model</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Each task was parallelized utitlizing the task stream and graphs, carrying out distributed 
-                                    analysis to obtain the results.
+                                    Using t-SNE, we see that there is better clustering than in the previous model.  The PCA plot looks promising, 
+                                    as it points towards redundancy between axes, pushing us to simplify the model even more.  From the audio samples, 
+                                    we see that the regenerated sample is perfectly legible, and even the cluster mean turns out to be a good reproduction. 
+                                    We can still try to simplify the model further and see if any improvements can occur. 
                                 </span>
 
-                                <!-- Image -->
+
+                                <!-- Audio Samples -->
                                 <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-10">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_Task_Stream.png" alt="personal-pic">
+                                    <!-- Original Audio Sample -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Original Sample: Down</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/orig_mp1.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
                                     </div>
+
+                                    <!-- Regenerated Audio -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Regenerated Sample: Down</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/recon_mp2.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Cluster Mean Audio -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Cluster Mean: Stop</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/mean_stop_mp.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
                                 </div>
 
-                                <!---Anomaly Correlations Results-->
-                                <h4 class='pt-5'>Benchmarking</h4>   
+                                <!-- Images -->
+                                <div class="row my-5 d-flex justify-content-center">
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/VAE/EVR_mp.png">
+                                            <figcaption class="figure-caption">PCA Analysis</figcaption>
+                                        </figure>
+                                        
+                                    </div>
+        
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/VAE/tsne_mp.png">
+                                            <figcaption class="figure-caption">t-SNE Plot</figcaption>
+                                        </figure>   
+                                    </div>
+        
+                                </div>
+
+
+                                <br><br><br>
+                                <!---Results: Asymmetric model-->
+                                <h4>Lightweight Asymmetric Model</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Comparing the performance variations while varying the number of workers and partitions, we find
-                                    that the ideal number of workers falls between 4 and 7.  In the case of partitions, there isn't a 
-                                    prominent ideal zone, however we see that there is a loose decreasing trend in time as the 
-                                    partitions increase.
+                                    Here, the PCA plot tells us that the optimal dimension is higher.  Additionally, the regenerated sample, along with the 
+                                    cluster mean sample, is not as good as the lightweight and symmetric model results.  We believe the model does not contain 
+                                    the required number of parameters to capture the complexities of the input data.  Thus, we conclude that the best model 
+                                    among the three is the lightweight and symmetric model.
                                 </span>
 
-                                <!-- Image -->
+
+                                <!-- Audio Samples -->
                                 <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmarking_nw_np.png" alt="personal-pic">
+                                    <!-- Original Audio Sample -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Original Sample: Yes</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/orig_asym_3.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
                                     </div>
+
+                                    <!-- Regenerated Audio -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Regenerated Sample: Yes</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/recon_asym_3.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Cluster Mean Audio -->
+                                    <div class="col-xl-4 col-sm-9 col-12 px-xl-5">
+
+                                        <p class="text-center">Cluster Mean: Yes</p>
+
+                                        <div class="container-fluid d-flex justify-content-center full-height">
+                                            <audio controls class="justify-content-center">
+                                                
+                                                <source src="audio/VAE/mean_yes_asym.wav" type="audio/mpeg">
+                                                Your browser does not support the audio element.
+                                            </audio>
+                                        </div>
+                                        
+                                    </div>
+
                                 </div>
 
-                                <!-- Image -->
+                                <!-- Images -->
                                 <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
                                         <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_np50.png" alt="personal-pic">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/VAE/EVR_asym.png">
+                                            <figcaption class="figure-caption">PCA Analysis</figcaption>
+                                        </figure>
+                                        
                                     </div>
+        
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/VAE/tsne_asym.png">
+                                            <figcaption class="figure-caption">t-SNE Plot</figcaption>
+                                        </figure>   
+                                    </div>
+        
                                 </div>
 
-                                <!-- Image -->
-                                <div class="row my-5 d-flex justify-content-center">
-                                    <div class="col-xl-8">
-                                        <!---Reference Image-->
-                                        <img class="img-fluid"  src="images/Dask_Project/Benchmark_nw4.png" alt="personal-pic">
-                                    </div>
-                                </div>
+
                             </div>
 
                         </div>
