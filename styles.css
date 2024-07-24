@@ -80,7 +80,7 @@ div {
 
 /* Opacity for Modal Box */
 .modal .modal-dialog .modal-content {
-    opacity: 0.97;
+    opacity: 0.95;
 }
 
 .navbar .navbar-toggler:hover {
@@ -91,8 +91,8 @@ div {
     color: black !important;
 }
 
-.modal .modal-header i:hover {
-    color: indianred !important;
+.modal .modal-body i:hover {
+    color: black !important;
     transform: scale(1.25);
 }
 
