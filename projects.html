@@ -1091,9 +1091,9 @@
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-4">
-                            We were interested in building a text classifier capable of recognizing fake news in
-                            the varying degrees.  We dealt with two different datasets, one with six different classes 
-                            and the other with two classes.  Using the R Language, we implemented the Multinomial Naive 
+                            I was interested in building a text classifier capable of recognizing fake news in
+                            the varying degrees.  I dealt with two different datasets, one with six different classes 
+                            and the other with two classes.  Using the R Language, I implemented the Multinomial Naive 
                             Bayes Classifier algorithm from scratch (using a few essential libraries) using a SQL-based 
                             approach for optimal efficiency.  Such an approach proved beneficial as the model was able to 
                             train and validate through the second dataset, which had 20800 rows each containing an average 
@@ -1282,7 +1282,7 @@
                                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                                     <div class="accordion-body">
                                                         <span>
-                                                            We remove stop words (a, the, if, etc.), punctuations, numbers, extra whitespaces
+                                                            Removing stop words (a, the, if, etc.), punctuations, numbers, extra whitespaces
                                                         </span>
                                                     </div>
                                                 </div>
@@ -1305,7 +1305,7 @@
                                                     <div class="accordion-body">
                                                         <span>
                                                             This is done to bring all related words to a common root 
-                                                            (run, running, ran -> run).  We use stemming, which ignores 
+                                                            (run, running, ran -> run).  I use stemming, which ignores 
                                                             endings of words (-ing, -er), and lemmatization, which 
                                                             converts a word to its root form (ate to eat).  
                                                         </span>
@@ -1331,7 +1331,7 @@
                                                         <span>
                                                             This is done to remove irrelevant words to each label and 
                                                             to decrease the size of the vocabulary.  A utility measure 
-                                                            is assigned to each combination of (term, label) and we select 
+                                                            is assigned to each combination of (term, label) and I select 
                                                             the top n terms per label.  We use Mutual Information measure, 
                                                             which provides a sense of how relevant and related a word is to 
                                                             a class based on its occurrence throughout the data.
@@ -1383,7 +1383,7 @@
 
                                 <!-- Write-up -->
                                 <span class="my-5">
-                                    In the first dataset, we manage to use the top 100 words in each label 
+                                    In the first dataset, I manage to use the top 100 words in each label 
                                     (using 8% of the original vocabulary), and obtain a better performance than 
                                     when using all the words. 
                                 </span>
@@ -1421,7 +1421,7 @@
                                 <!-- Write-up -->
                                 <span>
                                     In the second dataset, using the top 20000 words in each label 
-                                    (28% of the original vocabulary size), we still manage to get a 
+                                    (28% of the original vocabulary size), I still manage to get a 
                                     decent performance compared to using all the words.
                                 </span>
 
