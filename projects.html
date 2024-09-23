@@ -359,7 +359,7 @@
                         
                         <!---Project Problem Description-->
                         <p class="text-justify my-5">                            
-                            <b>Objective: </b> To build a lightweight model (CNN or DNN) that maintains a high degree of accuracy 
+                            <b>Objective: </b> To build a lightweight model (limiting parameters and multiplies) that maintains a high degree of accuracy 
                             in classifying speech keyword audio samples.  
 
                             <br><br>
@@ -506,6 +506,58 @@
 
                                                             I expect this Non-Linear LoRA Layer with 64 nodes and a rank of 32 to outperform 
                                                             a traditional dense layer with 32 nodes. This hypothesis is tested in the results section.
+
+                                                            <br><br>
+                                                            <div class="row mt-5 d-flex justify-content-center">
+                                                                <div class="col-8">
+                                                                    <figure>
+                                                                        <img class="img-fluid"  src="images/KWS/arch_lora.png">
+                                                                        <figcaption class="figure-caption">LoRA Pipeline</figcaption>
+                                                                    </figure>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!---Accordion:CAB Layer-->
+                                            <div class="accordion-item">
+
+                                                <h2 class="accordion-header mb-1" id="accord-3">
+                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
+                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                        Building Channel Attention Block (CAB)
+                                                    </button>
+                                                </h2>
+
+                                                <!---Normalization Content Accordion-->
+                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                    <div class="accordion-body">
+                                                        <span>
+                                                            This method is proposed as an extension to the Squeeze-and-Excite method, where instead 
+                                                            of scoring each channel by its global average, the model learns channel 
+                                                            importance using a dense network. This approach leverages inter-channel 
+                                                            information flow, which is typically absent in CNNs.
+
+                                                            <br><br>
+                                                            The method involves making a copy of the input (e.g., shape 15x15x64), normalizing it, 
+                                                            and passing it through a Dense layer with 64 nodes (matching the number of channels) and 
+                                                            Sigmoid activation. This Dense layer connects channels, enabling inter-channel communication. 
+                                                            The resulting tensor, of the same shape as the input, is multiplied with the original 
+                                                            input, effectively weighting the channels based on learned importance scores.
+
+                                                            <br><br>
+                                                            <div class="row mt-5 d-flex justify-content-center">
+                                                                <div class="col-8">
+                                                                    <figure>
+                                                                        <img class="img-fluid"  src="images/KWS/arch_cab.png">
+                                                                        <figcaption class="figure-caption">CAB Pipeline</figcaption>
+                                                                    </figure>
+                                                                </div>
+                                                            </div>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -515,16 +567,16 @@
                                             <!---Accordion: Architecture-->
                                             <div class="accordion-item">
 
-                                                <h2 class="accordion-header" id="accord-3">
-                                                    <button class="accordion-button collapsed bg-secondary-subtle" type="button"
-                                                    data-bs-toggle="collapse" data-bs-target="#collapse-3"
-                                                    aria-controls="collapse-3" aria-expanded="false">
+                                                <h2 class="accordion-header" id="accord-4">
+                                                    <button class="accordion-button collapsed bg-dark-subtle" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse-4"
+                                                    aria-controls="collapse-4" aria-expanded="false">
                                                         Choosing Model Architecture
                                                     </button>
                                                 </h2>
 
                                                 <!---Strategy Content Accordion-->
-                                                <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
+                                                <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
                                                     <div class="accordion-body">
                                                         <span>
                                                             I experiment with both CNN and DNN architectures, making both the cases as optimal 
@@ -536,26 +588,32 @@
                                                         <ul>
                                                             <li class="mt-2">
                                                                 <b>Deep Neural Networks (DNN): </b> Follows the standard architecture of having 3 hidden layers, along 
-                                                                with measures against overfitting like L2 Regularization and Dropout (0.25).
+                                                                with measures against overfitting like L2 Regularization and Dropout (0.25). It will be shown that this standard architecture is not an efficient one, and any enhancements must lead to 
+                                                                an increase in parameters, which is not desired.
 
                                                                 <ul>
                                                                     <li class="mt-2">
                                                                         <b>dnn_3x128: </b> 3 hidden layers with 128 nodes each. Number of parameters: 184k.
                                                                     </li>
-
-                                                                    <li class="mt-2">
-                                                                        <b>dnn_3xs: </b> 3 hidden layers with progressively decreasing number of nodes: 64, 32, 16 (output layer is 8 nodes). 
-                                                                        This model was developed taking care of parameter counts, overfitting and information flow.  Number of parameters: 78k.
-                                                                    </li>
                                                                 </ul>
+
+                                                                It will be shown that this standard architecture is not an efficient one, and any enhancements must lead to 
+                                                                an increase in parameters, which is not desired.
                                                             </li>
 
                                                             <li class="mt-4">
-                                                                <b>Convolutional Neural Networks (CNN): </b> The model consists of two convolutional hidden layers with a Max Pooling layer 
-                                                                    in between, followed by a dense hidden layer of 32 nodes. Regularization techniques such as Dropout (0.25) and L2 Regularization 
-                                                                    are applied. To reduce parameters and computations, the following parameters are tuned:
+                                                                <b>Convolutional Neural Networks (CNN): </b> The model consists of two convolutional hidden layers, with a Max Pooling layer 
+                                                                    after the first, followed by a dense hidden layer of 32 nodes. Regularization techniques such as Dropout (0.25) and L2 Regularization 
+                                                                    are applied.
+
+                                                                <br><br>
+                                                                <b>Constraints and Tuning:</b>
                                                                     
                                                                 <ul>
+                                                                    <li class="mt-2"></li>
+                                                                        <b>Convolutional Layers: </b>Limiting number to two layers, as this will reduce the parameters and multiplies.
+                                                                    </li>
+
                                                                     <li class="mt-2">
                                                                         <b>Kernel Size: </b>Set to 1/4 and 1/3 of the input image size, 
                                                                         capturing the essential global features of the spectrogram.
@@ -573,19 +631,16 @@
                                                                 </ul>
                                                                 
                                                                 <br><br>
-                                                                Models Considered:
+                                                                <b>Models Considered:</b>
                                                                 <ul>
                                                                     <li class="mt-2">
-                                                                        <b>cnn_mfcc_12: </b> Having MFCC as input, with only the 12 standard coefficients.
+                                                                        <b>cnn_spect: </b> Having Spectrogram as input, with architecture as mentioned above.  This contains 26k parameters.
                                                                     </li>
 
                                                                     <li class="mt-2">
-                                                                        <b>cnn_mfcc_39: </b> Having MFCC as input, with the 12 standard coefficients along with additional delta 
-                                                                        features, resulting in a total of 39 coefficients per frame.
-                                                                    </li>
-
-                                                                    <li class="mt-2">
-                                                                        <b>cnn_spect_64: </b> Having Spectrogram as input.
+                                                                        <b>cnn_mfcc: </b> Having MFCC (with additional delta parameters) as input, the above architecture is slightly modified.  
+                                                                        No pooling or striding is done as each value corresponds to a unique and relevant feature value.  Also, an additional 
+                                                                        Dense layer of 64 nodes is added for processing the features well.  This contains 97k parameters. 
                                                                     </li>
                                                                 </ul>
                                                                  
@@ -599,6 +654,17 @@
                                         </div>
                                     </div>
 
+                                </div>
+
+
+                                <br><br>
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-10">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/arch_cnn.png">
+                                            <figcaption class="figure-caption">Figure 0: Architecture for cnn_spect</figcaption>
+                                        </figure>
+                                    </div>
                                 </div>
 
                                 <!-- Methods Image: Small Screens -->
@@ -643,7 +709,7 @@
 
 
                                 <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-lg-6 col-8">
+                                    <div class="col-lg-6 col-10">
                                         <figure>
                                             <img class="img-fluid"  src="images/KWS/model_scores.png">
                                             <figcaption class="figure-caption">Comparison with SoTA Models (for cnn_spect_cab)</figcaption>
@@ -652,7 +718,7 @@
                                 </div>
 
                                 <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-lg-6 col-8">
+                                    <div class="col-lg-6 col-10">
                                         <figure>
                                             <img class="img-fluid"  src="images/KWS/model_f1_scores.png">
                                             <figcaption class="figure-caption">F1 Testing Scores for V12 Datset (using cnn_spect_cab)</figcaption>
@@ -666,73 +732,85 @@
                                 
                                     <!-- Correlations Description -->
                                     <span class = "my-5">
-                                        We see
-                                        that the gaussian filter and no filter are better than using sobel
+                                        We see that the gaussian filter and no filter are better than using sobel
                                         filter. This might mean that using no filter is a better approach.
                                         However, we notice that the variability in each class training
                                         is lesser when using gaussian filters, than using no filter at all.
-                                        Thus, we prefer gaussian filters since this makes the model
-                                        more stable and reliable.
+                                        <b>Thus, we prefer gaussian filters since this makes the model
+                                        more stable and reliable.</b>
                                     </span>
 
                                     <div class="row mt-5 d-flex justify-content-center">
-                                        <div class="col-12">
+                                        <div class="col-lg-6 col-10">
                                             <figure>
-                                                <img class="img-fluid"  src="images/KWS/comp_filters.png">
-                                                <figcaption class="figure-caption">Comparison with filters (for cnn_spect_64)</figcaption>
+                                                <img class="img-fluid"  src="images/KWS/filters_roc.png">
+                                                <figcaption class="figure-caption">Comparison with filters (for cnn_spect)</figcaption>
                                             </figure>
                                         </div>
                                     </div>
 
-
-
                                 
                                 <br><br><br>
                                 <!---Anomaly Correlations Results-->
-                                <h4>Comparison with Input Types: MFCC vs Spectrogram</h4>   
+                                <h4>Comparing DNN Enhancements</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Having the standard 12 MFCC coefficients performs poorly, while having 39 coefficients (the 12 standard ones and 
-                                    the additional delta features) performs close to having a Spectrogram as the input.  However, we can observe that 
-                                    this higher performance is obtained at the cost of larger number of parameters (35k to 55k).  Having the Spectrogram 
-                                    as the input provides an equally good AUC score while having smaller number of parameters (32k).
+                                    The standard DNN architecture with minimal layers performs poorly, even with enhancements. While deeper dense 
+                                    architectures might help, they increase the parameter count (as seen in the first figure below), which is undesirable. 
+                                    Using methods like stacking and adding delta features do not work likely due to DNN's limited capacity to process 
+                                    spatio-temporal information. Overall, <b>DNN enhancements fail to produce a model that is both accurate and compact.</b>
                                 </span>
 
-                                <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-sm-8 col-6">
+                                <!---Project Description Images-->
+                                <div class="row my-5 d-flex justify-content-center">
+
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
                                         <figure>
-                                            <img class="img-fluid"  src="images/KWS/roc_mfcc.png">
-                                            <figcaption class="figure-caption">Comparison with Input Types (MFCC vs Spectrogram)</figcaption>
-                                        </figure>
+                                            <img class="img-fluid"  src="images/KWS/mfccs_params_stack_delta.png">
+                                            <figcaption class="figure-caption">Varying DNN model size with enhancements</figcaption>
+                                        </figure>   
                                     </div>
+
+                                    <div class="col-xl-6 col-sm-9 col-12 px-xl-5">
+                                        <!---Reference Image-->
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/dnn_roc.png">
+                                            <figcaption class="figure-caption">ROC Curve for DNN Enhancements</figcaption>
+                                        </figure>
+                                        
+                                    </div>
+
+
+
                                 </div>
                                 
+                            
+                                
                                 <br><br><br>
                                 <!---Anomaly Correlations Results-->
-                                <h4>Comparison among Models</h4>   
+                                <h4>Comparison using Non-Linear LoRA Layers</h4>   
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    The DNN models, both large and small, perform poorly despite their large number of parameters. 
-                                    This may be due to their inefficiency in extracting information from the data. Although the larger 
-                                    DNN performs better than the smaller one, it still fails to achieve optimal results, possibly 
-                                    due to its inability to capture the correlation between the frequency and time axes.
+                                    Firstly, the ROC curves for both cnn spect and cnn mfcc are similar, with categorical accuracy around 90% (±0.16). 
+                                    However, cnn_mfcc has about four times more parameters, meaning <b>cnn_spect achieves similar accuracy with fewer parameters.</b>
                                     <br><br>
-                                    In contrast, the CNN models perform best, with the model having fewer parameters outperforming 
-                                    the others. This success is attributed to training on spectrograms rather than MFCCs. The latter 
-                                    compresses information into a set of numbers, preventing the model from learning and generalizing effectively.
-                                    <br><br>
-                                    Therefore, it is recommended using inputs that are as close to the unprocessed data as possible, 
-                                    with minimal preprocessing to ensure the model can interpret the input without losing valuable 
-                                    information. Excessive preprocessing can hinder performance.
+                                    Secondly, the LoRA layers do not seem to contribute much,
+                                    although a slight improvement is noted. The accuracy values
+                                    increase by 0.5%. This seems promising, and this layer might
+                                    be better suited for large networks that require a necessary
+                                    decrease in computational load. <b>In lightweight models, this
+                                    layer does not help.</b>
+
                                 </span>
 
                                 <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-sm-8 col-6">
+                                    <div class="col-lg-6 col-10">
                                         <figure>
-                                            <img class="img-fluid"  src="images/KWS/roc_models.png">
-                                            <figcaption class="figure-caption">Comparison among Models</figcaption>
+                                            <img class="img-fluid"  src="images/KWS/lora_roc.png">
+                                            <figcaption class="figure-caption">Comparison with varying inputs (MFCC vs Spectrogram) and Non-Linear LoRA Layer</figcaption>
                                         </figure>
                                     </div>
                                 </div>
@@ -742,23 +820,19 @@
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Added a Non-Linear LoRA layer to the two best models (cnn_spect_64 and cnn_mfcc_12), 
-                                    keeping the parameter count nearly the same but increasing the number of nodes 
-                                    (replacing a dense layer of 32 nodes with a LoRA layer of 64 nodes and rank 32).
-                                    <br><br>
-                                    I expected better performance with more nodes and lower rank. The cnn_mfcc_12 model 
-                                    showed slight improvement, but the cnn_spect_64 model saw minimal gains. Thus, 
-                                    adding a non-linear LoRA layer had limited impact here, suggesting the cnn_spect_64 
-                                    model had already extracted most of the available information. However, the improvement 
-                                    in the cnn_mfcc_12 model indicates that this approach could benefit larger models with 
-                                    more parameters, enhancing performance without significantly increasing parameter count.
+                                    There is significant improvement in performance,
+                                    in both cases for cnn_spect and cnn_mfcc, when
+                                    applying the Channel Attention Block (CAB). 
+                                    For cnn spect, the categorical accuracy increased to 93.8% (±0.167). This shows that apart from the
+                                    spatial analysis done using CNNs, pairing it up with a channel based
+                                    analysis <b>using CAB helps improve performance</b>.
                                 </span>
 
                                 <div class="row mt-5 d-flex justify-content-center">
-                                    <div class="col-12">
+                                    <div class="col-lg-6 col-10">
                                         <figure>
-                                            <img class="img-fluid"  src="images/KWS/comp_lora.png">
-                                            <figcaption class="figure-caption">Comparison with LoRA Layer</figcaption>
+                                            <img class="img-fluid"  src="images/KWS/cab_roc.png">
+                                            <figcaption class="figure-caption">Comparison with CAB Layer</figcaption>
                                         </figure>
                                     </div>
                                 </div>
@@ -768,16 +842,16 @@
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Trained the best model architecture (cnn_spect_64) on two different datasets consisting of 8 different classes. 
-                                    These classes were chosen so as to challenge the model while covering the range of keyword phonetics.  It is observed 
-                                    that this architecture performs equally well on both the test sets, with a categorical accuracy of 87%-89%.
+                                    Trained the best model architecture (cnn_spect_cab) on two different datasets, one with a 8-keyword subset and the other being the V12 dataset. 
+                                    The classes were chosen so as to challenge the model while covering the range of keyword phonetics.  It is observed 
+                                    that this architecture performs equally well on both the test sets, with a categorical accuracy of greater than 90% categorical accuracy.
                                 </span>
 
                                 <div class="row mt-5 d-flex justify-content-center">
                                     <div class="col-7">
                                         <figure>
-                                            <img class="img-fluid"  src="images/KWS/cm.png">
-                                            <figcaption class="figure-caption">Confusion Matrix on Test Set 1</figcaption>
+                                            <img class="img-fluid"  src="images/KWS/cm_cab.png">
+                                            <figcaption class="figure-caption">Confusion Matrix on 8-keyword subset: <b>92.5% Accuracy</b></figcaption>
                                         </figure>
                                     </div>
                                 </div>
@@ -786,8 +860,8 @@
                                 <div class="row mt-5 d-flex justify-content-center">
                                     <div class="col-7">
                                         <figure>
-                                            <img class="img-fluid"  src="images/KWS/cm_alt.png">
-                                            <figcaption class="figure-caption">Confusion Matrix on Test Set 2</figcaption>
+                                            <img class="img-fluid"  src="images/KWS/v12_cnn_cm.png">
+                                            <figcaption class="figure-caption">Confusion Matrix on V12 Dataset: <b> 90.27% Accuracy </b></figcaption>
                                         </figure>
                                     </div>
                                 </div>
