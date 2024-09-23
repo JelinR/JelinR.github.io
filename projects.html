@@ -257,9 +257,9 @@
                                 <li>
                                     <b>Lightweight CNN for Speech Keyword Detection:</b>
                                     <span>
-                                        Developed a lightweight CNN model (32k parameters) to classify short speech keywords with 
-                                        89% categorical accuracy on the Google Speech Commands Dataset. The model has a 37 ms average inference 
-                                        time and uses 90KB memory, competing with SoTA models like TDNN (250k parameters, 94% accuracy).
+                                        Developed a lightweight CNN model (31k parameters) to classify 12 speech keyword classes with 
+                                        90.27% categorical accuracy on the Google V12 Speech Commands Dataset.  The model has a 39 ms average inference 
+                                        time and uses 90 KB memory, competing with SoTA models like TDNN (250k parameters, 94% accuracy).
                                     </span>
                                 </li>
 
@@ -354,7 +354,6 @@
                     <!---Project 1 Content-->
                     <div class="tab-pane fade p-md-3 p-1" id="nav-project-1" role="tabpanel"
                     aria-labelledby="nav-tab-1">
-
                         <!---Project Name-->
                         <span class="display-6">Speech Keyword Spotting using Lightweight Models</span>
                         
@@ -365,14 +364,14 @@
 
                             <br><br>
                             <b>Key Idea: </b> Try to limit the number of parameters and multiplies of the model, making it as lightweight as possible,
-                            while maintaining close to 90% categorical accuracy.  For this, I utilize varying strides and pooling sizes, adding image 
-                            enhancing techniques (like Gaussian and Sobel convolutions) and addition of a Non-Linear LoRA Layer.
+                            while maintaining decent categorical accuracy.  For this, I utilize varying strides and pooling sizes, adding image 
+                            enhancing techniques (like Gaussian and Sobel convolutions) and addition of Non-Linear LoRA Layer and Channel Attention Blocks (CAB).
 
                             <br><br>
-                            The Google Speech Commands Dataset is chosen so as to cover a wide array of speech sounds as trainable data.  The model is 
-                            trained on a subset of 8 classes (chosen to span the range of speech sounds), with 3000 audio samples each.  The data is 
-                            preprocessed and optimized over various parameters like input type (MFCC vs Spectrogram), number of features (stacking and 
-                            adding delta features to MFCC) and adding Gaussian white noise.
+                            <b>Dataset: </b>Google Speech Commands Dataset is chosen so as to cover a wide array of speech sounds as trainable data.  The model is 
+                            trained on a subset of 8 classes (chosen to span the range of speech sounds), with 3000 audio samples each.  Additionally, the model 
+                            is tested on the standard V12 dataset, a 12-keyword subset of the same dataset, which enables fair comparison with other 
+                            performing models. 
                         </p>
 
                         <!---Sub Nav tabs for challenges, methods, results-->
@@ -636,13 +635,30 @@
 
                             <!---Results Content-->
                             <div class="tab-pane fade show active p-3" id="nav-project-1-sub-results" 
-                            role="tabpanel" aria-labelledby="nav-tab-1-sub-results">
+                            role="tabpanel" aria-labelledby="nav-tab-1-sub-results"> 
+                                
+                                The best performing model, cnn_spect_cab (31k parameters), provides 92.5% accuracy on the 8-keyword dataset and 90.25% accuracy on the V12 dataset. 
+                                <b>With an inference time of 39 ms and a memory load of 90 KB, this is a very lightweight architecture that maintains a high classification accuracy (>90%).</b>  
+                                In comparison with SoTA models, taking into account both accuracy and number of parameters, this model is seen to be much more efficient.  This is quantified using a <b>Model Score metric</b> defined as the accuracy divided by the number of parameters, with linear scaling applied.
 
-                                From the below results, the best performing model, cnn_spect_64 (made of 32k parameters), is able to 
-                                provide 87%-89% categorical accuracy on two different test sets (different 8 classes chosen) of the Google Speech Commands Dataset.
-                                <b>With an inference time of 37 ms and a memory load of 90 KB, this is a very lightweight architecture that maintains a high classification 
-                                accuracy.</b>  This competes against standard SoTA models like TDNN, which contains 251k parameters and achieves 94% accuracy.  Additionally, 
-                                compared to the standard wake word inference time of 10-50 ms, this model performs very satisfactory in this regards too.
+
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-lg-6 col-8">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/model_scores.png">
+                                            <figcaption class="figure-caption">Comparison with SoTA Models (for cnn_spect_cab)</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-5 d-flex justify-content-center">
+                                    <div class="col-lg-6 col-8">
+                                        <figure>
+                                            <img class="img-fluid"  src="images/KWS/model_f1_scores.png">
+                                            <figcaption class="figure-caption">F1 Testing Scores for V12 Datset (using cnn_spect_cab)</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
                                 
                                 <br><br><br>
                                 <!---Anomaly Correlations Results-->
@@ -667,6 +683,9 @@
                                             </figure>
                                         </div>
                                     </div>
+
+
+
                                 
                                 <br><br><br>
                                 <!---Anomaly Correlations Results-->
