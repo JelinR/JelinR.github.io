@@ -2985,7 +2985,8 @@
                                 We compare three different models: a complex symmetric model (1.2M parameters), a lightweight 
                                 symmetric model (324k parameters), a lightweight asymmetric model (35k parameters).  The architecture 
                                 is made of convolutional modules (Conv Layer, Max Pooling, Batch Normalization) stacked one after the other. 
-                                <b>We find from the results below that the best model is the lightweight symmetric model (324k parameters).</b>
+                                <b>We find from the results below that the best model is the lightweight symmetric model (324k parameters), 
+                                    and the optimal latent dimension is 16.</b>
 
                                 <br><br>
                                 The encoder produces two outputs (one for the mean and the other for the standard deviation), which are linked 
@@ -3001,8 +3002,9 @@
                                 <span class = "my-5">
                                     Casting the high-dimensional clusters to two dimensions using t-SNE, we see that there is slight presence of clustering, 
                                     confirmed by a decent silhoutte score.  However, we find that the mean of each cluster (corresponding to each label) does not 
-                                    generate good speech.  From the PCA plot, we see that a few axes cover most of the variability.  Thus, we can find a lower dimensional 
-                                    space and possibly work with a low complexity model.
+                                    generate good speech.  From the PCA plot, we see that a few latent axes cover most of the variability, which 
+                                    can be interpreted as the existence of redundancy as a lower number of axes manage to cover most of the information.  
+                                    Thus, we can find a lower dimensional space and possibly work with a low complexity model.
                                 </span>
 
 
@@ -3167,7 +3169,9 @@
                                 
                                 <!-- Correlations Description -->
                                 <span class = "my-5">
-                                    Here, the PCA plot tells us that the optimal dimension is higher.  Additionally, the regenerated sample, along with the 
+                                    Here, the PCA plot tells us that the optimal dimension is higher, as the relation is close to linear, signaling that 
+                                    there is little redundancy, and possibly this dimension is not enough to capture all the complexities of the data.  This hints 
+                                    towards choosing a larger latent dimension. Additionally, the regenerated sample, along with the 
                                     cluster mean sample, is not as good as the lightweight and symmetric model results.  We believe the model does not contain 
                                     the required number of parameters to capture the complexities of the input data.  Thus, we conclude that the best model 
                                     among the three is the lightweight and symmetric model.
