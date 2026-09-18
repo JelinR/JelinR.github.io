@@ -23,12 +23,12 @@
     <body>
 
         <!---Navbar-->
-        <nav class="navbar navbar-expand-xl bg-dark-subtle p-4">
+        <nav class="navbar navbar-expand-xl bg-white border-bottom p-4">
             <div class="container-xxl my-2">
 
                 <!---Navbar_Name-->
                 
-                <a href="index.html" class="navbar-brand">
+                <a href="about.html" class="navbar-brand">
                     <i class="fa-solid fa-code fa-flip fa-sm" style="color: #000000;"></i>
                     <span class="text-secondary">Jelin Raphael Akkara</span>
                 </a>
@@ -39,16 +39,13 @@
                     <!---Define Navbar unordered links list-->
                     <ul class="navbar-nav mx-xxl-5 px-xxl-5">     
 
-                        <li class="nav-item d-md-inline mx-5 my-2">
-                            <a href="index.html" class="btn btn-outline-dark d-block rounded-4 shadow border-dark">Home</a>
-                        </li>
 
                         <li class="nav-item d-md-inline mx-5 my-2">
                             <a href="about.html" class="show active btn btn-outline-dark d-block rounded-4 shadow">About</a>
                         </li>
 
                         <li class="nav-item d-md-inline mx-5 my-2">
-                            <a href="projects.html" class="btn btn-outline-dark d-block rounded-4 shadow">Projects</a>
+                            <a href="publications.html" class="btn btn-outline-dark d-block rounded-4 shadow">Publications</a>
                         </li>
 
                         <li class="nav-item d-md-inline mx-5 my-2">
@@ -77,7 +74,7 @@
         <div class="container">
             <div class="modal fade" id="nav-modal" tabindex="-1">
                 <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content bg-secondary-subtle">
+                    <div class="modal-content">
 
                         <!---Modal Body-->
                         <div class="modal-body text-center">
@@ -91,27 +88,22 @@
                                 </div>
                             </div>
 
+
                             <div class="row my-4 d-flex justify-content-center">
                                 <div class="col-8">
-                                    <a href="index.html" class="btn btn-outline-dark d-block rounded-5 shadow">Home</a>
+                                    <a href="about.html" class="modal-nav-link" aria-current="page">About</a>
                                 </div>
                             </div>
 
                             <div class="row my-4 d-flex justify-content-center">
                                 <div class="col-8">
-                                    <a href="about.html" class="btn btn-outline-dark d-block rounded-5 shadow">About</a>
+                                    <a href="publications.html" class="modal-nav-link">Publications</a>
                                 </div>
                             </div>
 
                             <div class="row my-4 d-flex justify-content-center">
                                 <div class="col-8">
-                                    <a href="projects.html" class="btn btn-outline-dark d-block rounded-5 shadow">Projects</a>
-                                </div>
-                            </div>
-
-                            <div class="row my-4 d-flex justify-content-center">
-                                <div class="col-8">
-                                    <a href="contact.html" class="btn btn-outline-dark d-block rounded-5 shadow">Contact</a>
+                                    <a href="contact.html" class="modal-nav-link">Contact</a>
                                     
                                 </div>
                             </div>
@@ -120,7 +112,7 @@
                             
                             <div class="row my-4 d-flex justify-content-center">
                                 <div class="col-8">
-                                    <a href="JR_Resume.pdf" download="Resume_JelinRaphael" target="_blank" class="btn btn-outline-dark d-block rounded-5 shadow">Resume</a>
+                                    <a href="JR_Resume.pdf" download="Resume_JelinRaphael" target="_blank" class="modal-nav-link">Resume</a>
                                     
                                 </div>
                             </div>
@@ -133,27 +125,59 @@
         </div>
 
         <!---Content-->
-        <section id="content">
+        <section id="content" class="about-content">
             <div class="container-xxl">
 
-                <!---About Me Header-->
-                <div class="row justify-content-center align-items-center">                    
-                    <div class="col-12 text-center px-5 pb-3">
-                        <span class="display-3">About Me</span>
+                <div class="row align-items-center gy-4 mb-4">
+                    <!-- Portrait and profile links -->
+                    <div class="col-12 col-md-4 text-center">
+                        <img src="images/personal_pic_4.png" alt="Jelin Raphael Akkara"
+                            class="img-fluid about-portrait">
+                        <div class="about-social-links d-flex justify-content-center align-items-center gap-3 mt-3">
+                            <a class="about-social-link" href="https://scholar.google.com/citations?hl=en&amp;user=Rc_MHbsAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+                                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                            </a>
+                            <a class="about-social-link" href="https://www.linkedin.com/in/jelin-raphael-akkara" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+                                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                            <a class="about-social-link" href="https://github.com/JelinR" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            </a>
+                            <a class="about-social-link" href="mailto:jelinraphaelakkara@gmail.com" aria-label="Email" title="Email">
+                                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!---Description about me-->
+                    <div class="col-12 col-md-8 px-4 px-md-5 lead">
+                        <h1 class="display-3 text-start mb-4">Jelin Raphael Akkara</h1>
+                        <p class="mb-0">
+                            I am pursuing a PhD in the BMCS programme at the University of Padua (UniPD), in collaboration with the Fondazione Bruno Kessler (FBK). 
+                            My research in Embodied AI investigates how autonomous agents can understand complex environments, identify the causes of failure, and 
+                            adapt their behaviour to recover robustly. I am particularly interested in multimodal reasoning, vision-language models, memory, personalization, 
+                            and causal and counterfactual approaches to intelligent interaction in 3D environments.
+
+                        </p>
                     </div>
                 </div>
 
-                <!---Description about me-->
-                <div class="row my-3 px-4 px-md-5 lead">
-                    From being interested in the fields of quantum field theory and astroparticle physics, 
-                    I gradually found footing in the computational sciences - a nice balance between the abstract 
-                    and the physical.  From this grounded position, I have been developing myself in directions I 
-                    have always found fascinating, from managing Big Data to statistically recognizing misinformation.  
-                    Currently, I am focused on applying neuro-symbolic approaches to the field of embodied AI, potentially 
-                    contributing to the progress towards generalized artificial intelligence.
-                    <br><br>
+                <!---Horizontal Line-->
+                <hr class="my-5">
 
-
+                <!-- News: replace these sample entries with your updates. -->
+                <div class="row py-5" aria-labelledby="news-heading">
+                    <div class="col-12 col-md-4 text-center text-md-start mb-5 mb-md-0">
+                        <h2 id="news-heading" class="display-6">News</h2>
+                    </div>
+                    <div class="col-12 col-md-8 px-4 px-md-5">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><span class="text-secondary">[September 2026]</span> — Presenting IMPRINT at IROS 2026 </li>
+                            <li class="mb-3"><span class="text-secondary">[September 2026]</span> — Organizing Committee Member for ICANN 2026 at Padua, Italy</li>
+                            <li class="mb-3"><span class="text-secondary">[July 2026]</span> — Presented PersONAL at ICRA 2026</li>
+                            <li><span class="text-secondary">[July 2026]</span> — PersONAL-3D published at IJCV!</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!---Horizontal Line-->
@@ -177,6 +201,33 @@
 
                         <!---UniPD Section-->
                         <div class="row">
+
+                            <!---Year of Experience-->
+                            <div class="col-md-2 d-none d-md-inline">
+                                <span>Jul-Oct 2025</span>
+                            </div>
+
+                            <!---University Details-->
+                            <div class="col-md-10 col-12 px-5">
+
+                                <!---Year of Experience (small)-->                                
+                                <br class="d-md-none d-inline"> <br class="d-md-none d-inline">
+
+                                <strong>Teaching Assistant – Computer Vision and Cognitive Systems</strong> <br>
+                                <span>University of Padua</span> <br>
+                                <span class="d-md-none d-inline">Oct-Dec 2025</span>
+
+                                <br> <br>
+                                <p>
+                                    Assisted in the course "Computer Vision and Cognitive Systems" instructed by Prof. Lamberto Ballan under the Department of Mathematics, University of Padua. 
+                                    Responsibilities included conducting lab sessions, providing guidance to students on assignments and projects, and facilitating discussions on advanced topics in computer vision and cognitive systems.
+                                </p>
+                            </div>
+                        
+                        </div>
+
+                        <!---UniPD Section-->
+                        <div class="row my-5">
 
                             <!---Year of Experience-->
                             <div class="col-md-2 d-none d-md-inline">
@@ -260,6 +311,38 @@
                     <!---Education Content Column-->
                     <div class="col-md-8 col-12">
 
+                        <!---UniPD PhD Section-->
+                        <div class="row">
+
+                            <!---Year of Education-->
+                            <div class="col-md-2 d-none d-md-inline">
+                                <span>2025-(Present)</span>
+                            </div>
+
+                            <!---University Details-->
+                            <div class="col-md-10 col-12 px-5">
+
+                                <!---Year of Education (small)-->                                
+                                <br class="d-md-none d-inline"> <br class="d-md-none d-inline">
+
+                                <strong>PhD in Brain, Mind, and Computer Science (BMCS)</strong> <br>                                
+                                <span>University of Padua (UniPD) / Fondazione Bruno Kessler (FBK)</span> <br>
+                                <span class="d-md-none d-inline">2025-(Present)</span>                             
+
+                                <!-- <br> <br> -->
+                                <!-- <span>GPA: 110 / 110</span> -->
+
+                                <br>
+                                <span><em>Research Focus: Embodied AI, Multimodal Reasoning, Vision-Language Models, Memory, Personalization, Causal and Counterfactual Approaches to Intelligent Interaction in 3D Environments</em></span>
+
+                                <br> <br>
+                                <p>
+                                    
+                                </p>
+                            </div>
+                        
+                        </div>
+
                         <!---UniPD Section-->
                         <div class="row">
 
@@ -276,18 +359,13 @@
 
                                 <strong>MSc in Physics of Data</strong> <br>                                
                                 <span>University of Padua, Italy</span> <br>
-                                <span class="d-md-none d-inline">2022-2024</span>                             
+                                <span class="d-md-none d-inline">2022-2025</span>                             
 
-                                <br> <br>
+                                <br>
                                 <span>GPA: 110 / 110</span>
+                                <br>
+                                <span><em>Thesis Title: Zero-Shot Object Goal Navigation using Online Image Retrieval</em></span>
 
-                                <br> <br>
-                                <p>
-                                    I am nearing the completion of my Master’s program, during which I have gained extensive 
-                                    experience in hands-on machine learning tasks, statistical analysis, and big data management. 
-                                    To date, I have worked on over five major projects, each of which has provided valuable insights 
-                                    and allowed me to delve deeply into complex and intriguing problems.
-                                </p>
                             </div>
                         
                         </div>
@@ -311,41 +389,36 @@
                                 <span>National Institute of Technology, Calicut, India</span>  <br>
                                 <span class="d-md-none d-inline">2018-2022</span>
 
-                                <br> <br>
+                                <br>
                                 
                                 <span>GPA : 8.43 / 10</span>
                                 <br>
                                 <span><em>First Class with Distinction</em></span>
 
-                                <br> <br>
-                                <p>
-                                    My bachelor's degree in Engineering Physics provided me with a strong research aptitude 
-                                    and an analytical approach to all problems.  I managed to develop myself mathematically 
-                                    by taking up a wide range of courses from General Relativity to Quantum Field Theory.
-                                </p>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
+                <!-- Hidden section: Skills
                 <hr>
 
-                <!---Skills Section-->
+                Skills Section
                 <div class="row py-5">
 
-                    <!---Skills Header: Large Screens-->
+                    Skills Header: Large Screens
                     <div class="col-5 d-md-inline d-none">
                         <span class="display-6">Skills</span>
                     </div> 
 
-                    <!---Skills Content: Large Screens-->
+                    Skills Content: Large Screens
                     <div class="col-7 accordion d-md-inline d-none">
 
-                        <!---Programming Languages Accordion Item-->
+                        Programming Languages Accordion Item
                         <div class="accordion-item">
 
-                            <!---Programming Languages Accordion Button-->
+                            Programming Languages Accordion Button
                             <h2 class="accordion-header mb-1" id="accord-1">
                                 <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-1"
@@ -354,7 +427,7 @@
                                 </button>
                             </h2>
 
-                            <!---Programming Languages Content Accordion-->
+                            Programming Languages Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                 <div class="accordion-body">
                                     <ul>
@@ -365,10 +438,10 @@
                             </div>
                         </div>
 
-                        <!---Frameworks Accordion Item-->
+                        Frameworks Accordion Item
                         <div class="accordion-item">
 
-                            <!---Frameworks Accordion Button-->
+                            Frameworks Accordion Button
                             <h2 class="accordion-header" id="accord-2">
                                 <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-2"
@@ -377,7 +450,7 @@
                                 </button>
                             </h2>
 
-                            <!---Frameworks Content Accordion-->
+                            Frameworks Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                 <div class="accordion-body">
                                     <ul>
@@ -395,19 +468,19 @@
 
                     </div>
 
-                    <!---Skills Header: Medium, Small Screens-->
+                    Skills Header: Medium, Small Screens
                     <div class="row text-center d-md-none">
                         <span class="display-6">Skills</span>
                     </div>
 
-                    <!---Skills Content: Medium, Small Screens-->
+                    Skills Content: Medium, Small Screens
                     <div class="row d-md-none d-flex justify-content-center my-5">
                         <div class="col-sm-8 col-12 accordion">
 
-                            <!---Programming Languages Accordion Item-->
+                            Programming Languages Accordion Item
                             <div class="accordion-item">
     
-                                <!---Programming Languages Accordion Button-->
+                                Programming Languages Accordion Button
                                 <h2 class="accordion-header mb-1" id="accord-1">
                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-1"
@@ -416,7 +489,7 @@
                                     </button>
                                 </h2>
     
-                                <!---Programming Languages Content Accordion-->
+                                Programming Languages Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-1" aria-labelledby="accord-1">
                                     <div class="accordion-body">
                                         <ul>
@@ -427,10 +500,10 @@
                                 </div>
                             </div>
     
-                            <!---Frameworks Accordion Item-->
+                            Frameworks Accordion Item
                             <div class="accordion-item">
     
-                                <!---Frameworks Accordion Button-->
+                                Frameworks Accordion Button
                                 <h2 class="accordion-header" id="accord-2">
                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-2"
@@ -439,7 +512,7 @@
                                     </button>
                                 </h2>
     
-                                <!---Frameworks Content Accordion-->
+                                Frameworks Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-2" aria-labelledby="accord-2">
                                     <div class="accordion-body">
                                         <ul>
@@ -460,24 +533,26 @@
 
 
                 </div>
+                -->
 
+                <!-- Hidden section: Workshops and Certificates
                 <hr>
 
-                <!---Workshops and Certificates Section-->
+                Workshops and Certificates Section
                 <div class="row py-5">
 
-                    <!---Header: Large Screens-->
+                    Header: Large Screens
                     <div class="col-5 d-md-inline d-none">
                         <span class="display-6"><small>Workshops and Certificates</small></span>
                     </div> 
 
-                    <!-- Content: Large Screens -->
+                    Content: Large Screens
                     <div class="col-7 accordion d-md-inline d-none" id="accordion">
 
-                        <!---Google Data Analytics Accordion Item-->
+                        Google Data Analytics Accordion Item
                         <div class="accordion-item">    
 
-                            <!---Accordion Button-->
+                            Accordion Button
                             <h2 class="accordion-header mb-1" id="accord-3">
                                 <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-3"
@@ -486,7 +561,7 @@
                                 </button>
                             </h2>
 
-                            <!---Content Accordion-->
+                            Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
                                 <div class="accordion-body">
                                     Involved as part of the oranizing committee to plan logistics for the Venice International
@@ -495,10 +570,10 @@
                             </div>
                         </div>
 
-                        <!---Google Data Analytics Accordion Item-->
+                        Google Data Analytics Accordion Item
                         <div class="accordion-item">    
 
-                            <!---Accordion Button-->
+                            Accordion Button
                             <h2 class="accordion-header mb-1" id="accord-4">
                                 <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-4"
@@ -507,7 +582,7 @@
                                 </button>
                             </h2>
 
-                            <!---Content Accordion-->
+                            Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
                                 <div class="accordion-body">
                                     Completed 8 courses, along with a Capstone Project, that served as an introduction
@@ -517,10 +592,10 @@
                             </div>
                         </div>
 
-                        <!---Einstein Toolkit Accordion Item-->
+                        Einstein Toolkit Accordion Item
                         <div class="accordion-item">
 
-                            <!---Einstein Toolkit Accordion Button-->
+                            Einstein Toolkit Accordion Button
                             <h2 class="accordion-header" id="accord-5">
                                 <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-5"
@@ -529,7 +604,7 @@
                                 </button>
                             </h2>
 
-                            <!---Einstein Toolkit Content Accordion-->
+                            Einstein Toolkit Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
                                 <div class="accordion-body">
 
@@ -544,21 +619,21 @@
                     </div>
 
 
-                    <!-- Header: Medium, Small Screens -->
+                    Header: Medium, Small Screens
                     <div class="row text-center d-md-none">
-                        <!-- <div class="col-12"> -->
+                        <div class="col-12">
                             <span class="display-6">Workshops and Certificates</span>
-                        <!-- </div> -->
+                        </div>
                     </div>
 
-                    <!---Content: Medium, Small Screens-->
+                    Content: Medium, Small Screens
                     <div class="row d-md-none d-flex justify-content-center my-5">
                         <div class="col-sm-8 col-12 accordion" id="accordion">
 
-                            <!---Google Data Analytics Accordion Item-->
+                            Google Data Analytics Accordion Item
                             <div class="accordion-item">    
 
-                                <!---Accordion Button-->
+                                Accordion Button
                                 <h2 class="accordion-header mb-1" id="accord-3">
                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-3"
@@ -567,7 +642,7 @@
                                     </button>
                                 </h2>
 
-                                <!---Content Accordion-->
+                                Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-3" aria-labelledby="accord-3">
                                     <div class="accordion-body">
                                             Involved as part of the oranizing committee to plan logistics for the Venice International
@@ -576,10 +651,10 @@
                                 </div>
                             </div>
 
-                            <!---Google Data Analytics Accordion Item-->
+                            Google Data Analytics Accordion Item
                             <div class="accordion-item">    
 
-                                <!---Accordion Button-->
+                                Accordion Button
                                 <h2 class="accordion-header mb-1" id="accord-4">
                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-4"
@@ -588,7 +663,7 @@
                                     </button>
                                 </h2>
 
-                                <!---Content Accordion-->
+                                Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-4" aria-labelledby="accord-4">
                                     <div class="accordion-body">
                                         Completed 8 courses, along with a Capstone Project, that served as an introduction
@@ -598,10 +673,10 @@
                                 </div>
                             </div>
 
-                            <!---Einstein Toolkit Accordion Item-->
+                            Einstein Toolkit Accordion Item
                             <div class="accordion-item">
 
-                                <!---Einstein Toolkit Accordion Button-->
+                                Einstein Toolkit Accordion Button
                                 <h2 class="accordion-header" id="accord-5">
                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-5"
@@ -610,7 +685,7 @@
                                     </button>
                                 </h2>
 
-                                <!---Einstein Toolkit Content Accordion-->
+                                Einstein Toolkit Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-5" aria-labelledby="accord-5">
                                     <div class="accordion-body">
                                         Solved all five levels of the Google Foobar Challenge, which had increasing complexity in each level.  
@@ -623,25 +698,27 @@
 
                         </div>
                     </div>
-                </div>                
+                </div>
+                -->
 
+                <!-- Hidden section: Extracurriculars
                 <hr>
 
-                <!---Extracurriculars Section-->
+                Extracurriculars Section
                 <div class="row py-5">
 
-                    <!---Header: Large Screens-->
+                    Header: Large Screens
                     <div class="col-5 d-md-inline d-none">
                         <span class="display-6"><small>Non-Academic Pursuits</small></span>
                     </div> 
 
-                    <!-- Content: Medium, Small Screens -->
+                    Content: Medium, Small Screens
                     <div class="col-7 accordion d-md-inline d-none" id="accordion">
 
-                        <!---Google Data Analytics Accordion Item-->
+                        Google Data Analytics Accordion Item
                         <div class="accordion-item">    
 
-                            <!---Accordion Button-->
+                            Accordion Button
                             <h2 class="accordion-header mb-1" id="accord-6">
                                 <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-6"
@@ -650,7 +727,7 @@
                                 </button>
                             </h2>
 
-                            <!---Content Accordion-->
+                            Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-6" aria-labelledby="accord-6">
                                 <div class="accordion-body">
                                     I was involved in planning and managing all requirements for a guest speaker.  My responsibilities included 
@@ -661,10 +738,10 @@
                             </div>
                         </div>
 
-                        <!---Google Data Analytics Accordion Item-->
+                        Google Data Analytics Accordion Item
                         <div class="accordion-item">    
 
-                            <!---Accordion Button-->
+                            Accordion Button
                             <h2 class="accordion-header mb-1" id="accord-7">
                                 <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-7"
@@ -673,7 +750,7 @@
                                 </button>
                             </h2>
 
-                            <!---Content Accordion-->
+                            Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-7" aria-labelledby="accord-7">
                                 <div class="accordion-body">
                                     I have a Grade 4 Certification in Electronic Keyboard, and a Grade 3 Certification in 
@@ -684,10 +761,10 @@
                             </div>
                         </div>
 
-                        <!---Einstein Toolkit Accordion Item-->
+                        Einstein Toolkit Accordion Item
                         <div class="accordion-item">
 
-                            <!---Einstein Toolkit Accordion Button-->
+                            Einstein Toolkit Accordion Button
                             <h2 class="accordion-header" id="accord-8">
                                 <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                 data-bs-toggle="collapse" data-bs-target="#collapse-8"
@@ -696,7 +773,7 @@
                                 </button>
                             </h2>
 
-                            <!---Einstein Toolkit Content Accordion-->
+                            Einstein Toolkit Content Accordion
                             <div class="accordion-collapse collapse" id="collapse-8" aria-labelledby="accord-8">
                                 <div class="accordion-body">
                                     I was involved in my university's relief efforts for families impacted
@@ -710,21 +787,21 @@
                     </div>
 
 
-                    <!-- Header: Medium, Small Screens -->
+                    Header: Medium, Small Screens
                     <div class="row text-center d-md-none">
-                        <!-- <div class="col-12"> -->
+                        <div class="col-12">
                             <span class="display-6">Non-Academic Pursuits</span>
-                        <!-- </div> -->
+                        </div>
                     </div>
 
-                    <!---Content: Medium, Small Screens-->
+                    Content: Medium, Small Screens
                     <div class="row d-md-none d-flex justify-content-center my-5">
                         <div class="col-sm-8 col-12 accordion" id="accordion">
 
-                            <!---Google Data Analytics Accordion Item-->
+                            Google Data Analytics Accordion Item
                             <div class="accordion-item">    
 
-                                <!---Accordion Button-->
+                                Accordion Button
                                 <h2 class="accordion-header mb-1" id="accord-6">
                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-6"
@@ -733,7 +810,7 @@
                                     </button>
                                 </h2>
 
-                                <!---Content Accordion-->
+                                Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-6" aria-labelledby="accord-6">
                                     <div class="accordion-body">
                                         I was involved in planning and managing all requirements for a guest speaker.  My responsibilities included 
@@ -744,10 +821,10 @@
                                 </div>
                             </div>
 
-                            <!---Google Data Analytics Accordion Item-->
+                            Google Data Analytics Accordion Item
                             <div class="accordion-item">    
 
-                                <!---Accordion Button-->
+                                Accordion Button
                                 <h2 class="accordion-header mb-1" id="accord-7">
                                     <button class="accordion-button collapsed bg-dark-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-7"
@@ -756,7 +833,7 @@
                                     </button>
                                 </h2>
 
-                                <!---Content Accordion-->
+                                Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-7" aria-labelledby="accord-7">
                                     <div class="accordion-body">
                                         I have a Grade 4 Certification in Electronic Keyboard, and a Grade 3 Certification in 
@@ -767,10 +844,10 @@
                                 </div>
                             </div>
 
-                            <!---Einstein Toolkit Accordion Item-->
+                            Einstein Toolkit Accordion Item
                             <div class="accordion-item">
 
-                                <!---Einstein Toolkit Accordion Button-->
+                                Einstein Toolkit Accordion Button
                                 <h2 class="accordion-header" id="accord-8">
                                     <button class="accordion-button collapsed bg-secondary-subtle" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapse-8"
@@ -779,7 +856,7 @@
                                     </button>
                                 </h2>
 
-                                <!---Einstein Toolkit Content Accordion-->
+                                Einstein Toolkit Content Accordion
                                 <div class="accordion-collapse collapse" id="collapse-8" aria-labelledby="accord-8">
                                     <div class="accordion-body">
                                         I was involved in my university's relief efforts for families impacted
@@ -794,6 +871,8 @@
                     </div>
 
                 </div>
+                -->
+
 
             </div>
 
@@ -805,18 +884,22 @@
 
                 <div class="container">                    
 
-                    <div class="col-12 d-flex justify-content-center">
+                    <div class="col-12 d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5">
+
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=Rc_MHbsAAAAJ" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar">
+                            <i class="fa-solid fa-graduation-cap fa-lg" style="color: #000000;" aria-hidden="true"></i>
+                        </a>
 
                         <a href="mailto:jelinraphaelakkara@gmail.com">
-                            <i class="fa-solid fa-envelope mx-5" style="color: #000000;"></i>
+                            <i class="fa-solid fa-envelope" style="color: #000000;"></i>
                         </a>
 
                         <a href="https://github.com/JelinR" target="_blank">
-                            <i class="fa-brands fa-github fa-lg mx-5" style="color: #000000;"></i> 
+                            <i class="fa-brands fa-github fa-lg" style="color: #000000;"></i> 
                         </a>        
 
                         <a href="https://www.linkedin.com/in/jelin-raphael-akkara" target="_blank">
-                            <i class="fa-brands fa-linkedin fa-lg mx-5" style="color: #000000;"></i>            
+                            <i class="fa-brands fa-linkedin fa-lg" style="color: #000000;"></i>            
                         </a>
                     </div>
                 </div>

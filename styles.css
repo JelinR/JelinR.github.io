@@ -1,3 +1,49 @@
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > footer {
+    margin-top: auto;
+}
+
+body > nav,
+body > section,
+body > footer {
+    flex-shrink: 0;
+}
+
+.about-portrait {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+}
+
+.about-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    color: #222;
+    text-decoration: none;
+}
+
+a.about-social-link:hover {
+    color: #000;
+    transform: translateY(-2px);
+}
+
+.about-social-link:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 3px;
+    border-radius: 50%;
+}
+
 /* Section Animation */
 section{
     margin-left: 4%;
@@ -9,6 +55,16 @@ section{
     animation: fadeInAnimation ease 1.2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+
+section.about-content {
+    margin-top: 2rem;
+    padding-top: 0;
+}
+
+section.publications-content {
+    margin-top: 2rem;
+    padding-top: 0;
 }
 
 /* Define justify class */
@@ -78,9 +134,63 @@ div {
     box-shadow: 0px 0px 7px 1px #9A8C98;
 }
 
-/* Opacity for Modal Box */
-.modal .modal-dialog .modal-content {
-    opacity: 0.95;
+/* Minimal, translucent navigation modal. */
+#nav-modal .modal-content {
+    background: rgba(255, 255, 255, 0.88);
+    border: 0;
+    border-radius: 1.5rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+#nav-modal .col-8 {
+    text-align: center;
+}
+
+#nav-modal .modal-nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.65rem 0.5rem;
+    color: #222;
+    text-decoration: none;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    transition: transform 180ms ease, color 180ms ease;
+}
+
+#nav-modal .modal-nav-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #000 40%, #000 60%, transparent);
+}
+
+#nav-modal .modal-nav-link:hover {
+    color: #000;
+    transform: translateY(-2px) scale(1.08);
+}
+
+#nav-modal .modal-nav-link:focus-visible {
+    outline: 2px solid #555;
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+}
+
+#nav-modal hr {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #nav-modal .modal-nav-link {
+        transition: none;
+    }
+
+    #nav-modal .modal-nav-link:hover {
+        transform: none;
+    }
 }
 
 .navbar .navbar-toggler:hover {
