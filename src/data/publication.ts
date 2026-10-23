@@ -32,7 +32,7 @@ export const publicationData: Publication[] = [
     authors:
       "Filippo Ziliotto, Jelin Raphael Akkara, Alessandro Daniele, Lamberto Ballan, Luciano Serafini, Tommaso Campari",
     paperUrl: "https://doi.org/10.1007/s11263-026-02922-z",
-    imageUrl: "/images/publications/personal-3d-system.png",
+    imageUrl: "/images/publications/personal-3d-figure-4.svg",
   },
   {
     year: "2026",
