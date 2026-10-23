@@ -23,7 +23,6 @@ export const educationData: Education[] = [
     institution: "University of Padua, Italy",
     degree: "MSc in Physics of Data",
     thesis: "Zero-Shot Object Goal Navigation using Online Image Retrieval",
-    thesisUrl: "https://github.com/JelinR",
     gpa: "110 / 110",
   },
   {

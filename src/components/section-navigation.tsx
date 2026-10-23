@@ -38,39 +38,67 @@ export function SectionNavigation() {
   }, []);
 
   return (
-    <nav
-      aria-label="Page sections"
-      className="fixed right-6 top-1/2 z-10 hidden -translate-y-1/2 xl:block"
-    >
-      <ol className="relative space-y-5 border-l border-zinc-300 py-1">
-        {sections.map((section) => {
-          const isActive = activeSection === section.id;
+    <>
+      <nav
+        aria-label="Page sections"
+        className="sticky top-0 z-20 border-b border-zinc-200 bg-[#FFFCF8]/95 px-4 py-3 backdrop-blur xl:hidden"
+      >
+        <ol className="flex min-w-max gap-5 overflow-x-auto">
+          {sections.map((section) => {
+            const isActive = activeSection === section.id;
 
-          return (
-            <li key={section.id} className="relative pl-4">
-              <a
-                href={`#${section.id}`}
-                aria-current={isActive ? "location" : undefined}
-                className={`block text-xs tracking-wider uppercase transition-colors duration-300 ${
-                  isActive
-                    ? "font-medium text-zinc-900"
-                    : "text-zinc-400 hover:text-zinc-700"
-                }`}
-              >
-                <span
-                  className={`absolute -left-[5px] top-1/2 h-2 w-2 -translate-y-1/2 rounded-full border transition-all duration-300 ${
+            return (
+              <li key={section.id}>
+                <a
+                  href={`#${section.id}`}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`block whitespace-nowrap text-xs tracking-wider uppercase transition-colors duration-300 ${
                     isActive
-                      ? "border-zinc-900 bg-[#FFFCF8] ring-2 ring-[#FFFCF8]"
-                      : "border-zinc-300 bg-[#FFFCF8]"
+                      ? "font-medium text-zinc-900"
+                      : "text-zinc-400 hover:text-zinc-700"
                   }`}
-                  aria-hidden="true"
-                />
-                {section.label}
-              </a>
-            </li>
-          );
-        })}
-      </ol>
-    </nav>
+                >
+                  {section.label}
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+      <nav
+        aria-label="Page sections"
+        className="fixed right-6 top-1/2 z-10 hidden -translate-y-1/2 xl:block"
+      >
+        <ol className="relative space-y-5 border-l border-zinc-300 py-1">
+          {sections.map((section) => {
+            const isActive = activeSection === section.id;
+
+            return (
+              <li key={section.id} className="relative pl-4">
+                <a
+                  href={`#${section.id}`}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`block text-xs tracking-wider uppercase transition-colors duration-300 ${
+                    isActive
+                      ? "font-medium text-zinc-900"
+                      : "text-zinc-400 hover:text-zinc-700"
+                  }`}
+                >
+                  <span
+                    className={`absolute -left-[5px] top-1/2 h-2 w-2 -translate-y-1/2 rounded-full border transition-all duration-300 ${
+                      isActive
+                        ? "border-zinc-900 bg-[#FFFCF8] ring-2 ring-[#FFFCF8]"
+                        : "border-zinc-300 bg-[#FFFCF8]"
+                    }`}
+                    aria-hidden="true"
+                  />
+                  {section.label}
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+    </>
   );
 }
